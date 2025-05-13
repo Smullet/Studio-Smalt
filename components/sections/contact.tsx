@@ -22,79 +22,40 @@ export const Contact = () => {
   ]
 
   return (
-    <section className="flex flex-col items-center justify-center gap-16 py-24 relative overflow-hidden">
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#123293] via-[#2d4cad] to-[#7e96e9] opacity-90 z-0"></div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-10 left-20 w-32 h-32 rounded-full bg-white/5 z-0"></div>
-      <div className="absolute bottom-20 right-10 w-24 h-24 rotate-45 border-2 border-white/10 z-0"></div>
-      <div className="absolute top-1/3 right-1/4 w-12 h-12 rounded-full bg-white/10 z-0"></div>
-
-      <div className="flex flex-wrap items-center gap-6 px-6 py-0 relative max-w-[1200px] w-full z-10">
-        <div className="flex flex-col items-center justify-center relative flex-1 min-w-[300px]">
-          <div className="flex items-center justify-center gap-[9.37px] py-[3.34px] relative">
-            <div className="relative [font-family:'Helvetica_Neue-Bold',Helvetica] font-bold text-white text-5xl text-center tracking-[0] leading-[52.8px] whitespace-nowrap">
-              Un projet à
-            </div>
-
-            <div className="inline-flex items-center justify-center p-2.5 relative bg-white -rotate-1 rounded-md shadow-[2px_2px_0px_#121214]">
-              <div className="w-fit text-5xl text-center tracking-[0] leading-[52.8px] relative mt-[-1.00px] [font-family:'Helvetica_Neue-Bold',Helvetica] font-bold text-[#123293] whitespace-nowrap">
-                lancer ?
-              </div>
-
-              <div className="w-full h-full rounded-md border-[#121214] absolute top-0 left-0 border border-solid" />
-            </div>
+    <section className="py-20 md:py-32 bg-[#123293]">
+      <div className="max-w-[1200px] mx-auto w-full px-6 md:px-12 lg:px-20">
+        <div className="flex flex-col md:flex-row items-start gap-12 md:gap-20">
+          <div className="flex flex-col items-start gap-6 md:w-1/2">
+            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight font-['Helvetica_Neue-Bold',Helvetica]">
+              Un projet à{" "}
+              <span className="bg-white text-[#123293] px-2 py-1 inline-block transform -rotate-1">lancer</span> ?
+              <br />
+              Une idée à{" "}
+              <span className="bg-white text-[#123293] px-2 py-1 inline-block transform -rotate-1">structurer</span> ?
+            </h2>
           </div>
 
-          <div className="flex items-center justify-center gap-[9.38px] pt-0 pb-[5px] relative mt-4">
-            <div className="relative [font-family:'Helvetica_Neue-Bold',Helvetica] font-bold text-white text-5xl text-center tracking-[0] leading-[52.8px] whitespace-nowrap">
-              Une idée à
-            </div>
+          <div className="flex flex-col gap-6 md:w-1/2">
+            {contactCards.map((card, index) => (
+              <Card key={index} className="w-full bg-white rounded-lg overflow-hidden border-none">
+                <CardContent className="p-6">
+                  <div className="flex flex-col gap-4">
+                    <h3 className="text-lg font-bold text-[#191818] font-['Helvetica_Neue-Bold',Helvetica]">
+                      {card.title}
+                    </h3>
 
-            <div className="inline-flex items-center justify-center p-2.5 relative bg-white -rotate-1 rounded-md shadow-[2px_2px_0px_#121214]">
-              <div className="w-fit text-5xl text-center tracking-[0] leading-[52.8px] relative mt-[-1.00px] [font-family:'Helvetica_Neue-Bold',Helvetica] font-bold text-[#123293] whitespace-nowrap">
-                structurer ?
-              </div>
+                    <p className="text-[#191818]/70 text-sm">{card.description}</p>
 
-              <div className="w-full h-full rounded-md border-[#121214] absolute top-0 left-0 border border-solid" />
-            </div>
+                    <Button className="bg-[#123293] text-white hover:bg-[#123293]/90 rounded-md w-full mt-2" asChild>
+                      <a href={card.buttonLink} rel="noopener noreferrer" target="_blank">
+                        {card.buttonText}
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </div>
-
-        <div className="flex flex-col items-center gap-6 relative flex-1 min-w-[300px] max-w-[436px]">
-          {contactCards.map((card, index) => (
-            <Card
-              key={index}
-              className="w-full bg-white rounded-[20px] overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <CardContent className="flex flex-col items-start gap-6 p-6">
-                <div className="flex flex-col items-start gap-6 w-full">
-                  <h3 className="mt-[-1.00px] font-['Helvetica_Neue-Bold',Helvetica] text-lg text-[#0f0f0f] leading-tight">
-                    {card.title}
-                  </h3>
-
-                  <p className="[font-family:'Inter',Helvetica] font-normal text-[#0f0f0f]/70 text-sm tracking-[0] leading-[1.5]">
-                    {card.description}
-                  </p>
-                </div>
-
-                <Button
-                  className="h-[47.4px] w-full bg-[#123293] rounded-full border-none text-white px-4 py-0 hover:bg-[#123293]/90 transition-all duration-300"
-                  asChild
-                >
-                  <a
-                    className="font-['Helvetica_Neue-Bold',Helvetica] text-[15px] tracking-normal leading-[1.5] whitespace-nowrap"
-                    href={card.buttonLink}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {card.buttonText}
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </div>
     </section>
