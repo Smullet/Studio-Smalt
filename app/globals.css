@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
 :root {
   --body-emphasis-m-font-family: var(--font-be-vietnam-pro), "Be Vietnam Pro", Helvetica;
   --body-emphasis-m-font-size: 16px;
@@ -151,7 +157,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Card styles without hover effects */
+.card-basic {
+  transition: box-shadow 0.3s ease;
+}
+
 /* Add a specific style for buttons to ensure they use Helvetica Neue */
+
 button,
 .button,
 [type="button"],
@@ -162,6 +174,11 @@ button,
 
 /* Responsive utilities */
 @media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   h1,
   h2,
   h3,
@@ -185,5 +202,28 @@ button,
   select,
   textarea {
     font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* Responsive spacing */
+.responsive-container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .responsive-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
