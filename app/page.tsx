@@ -1,125 +1,265 @@
 "use client"
 
-import { useEffect } from "react"
-import { motion, useAnimation, useScroll, useTransform } from "framer-motion"
+import type React from "react"
+
+import { useEffect, useRef, useState } from "react"
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { HeroHeader } from "@/components/sections/hero-header"
-import { SectionIntro } from "@/components/sections/section-intro"
-import { SectionProjects } from "@/components/sections/section-projects"
-import { ContainerWrapper } from "@/components/sections/container-wrapper"
-import { SectionProjectsWrapper } from "@/components/sections/section-projects-wrapper"
-import { DivWrapper } from "@/components/sections/div-wrapper"
-import { Contact } from "@/components/sections/contact"
+import { MenuIcon, X } from "lucide-react"
+
+// Import sections
+import { HeroSection } from "@/components/sections/hero-section"
+import { ServicesSection } from "@/components/sections/services-section"
+import { ApproachSection } from "@/components/sections/approach-section"
+import { PricingSection } from "@/components/sections/pricing-section"
+import { ProcessSection } from "@/components/sections/process-section"
+import { AboutSection } from "@/components/sections/about-section"
+import { BlogSection } from "@/components/sections/blog-section"
+import { ContactSection } from "@/components/sections/contact-section"
 import { Footer } from "@/components/sections/footer"
-import { SubstackSection } from "@/components/sections/substack-section"
-import { useInView } from "react-intersection-observer"
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false)
   const { scrollY } = useScroll()
   const headerOpacity = useTransform(scrollY, [0, 100], [0, 1])
+  const headerBackground = useTransform(scrollY, [0, 100], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.9)"])
 
-  // Animation controls for sections
-  const heroControls = useAnimation()
-  const introControls = useAnimation()
-  const approachControls = useAnimation()
-  const pricingControls = useAnimation()
-  const processControls = useAnimation()
-  const aboutControls = useAnimation()
-  const substackControls = useAnimation()
-  const contactControls = useAnimation()
+  // Refs for scroll navigation
+  const servicesRef = useRef<HTMLDivElement>(null)
+  const approachRef = useRef<HTMLDivElement>(null)
+  const pricingRef = useRef<HTMLDivElement>(null)
+  const processRef = useRef<HTMLDivElement>(null)
+  const aboutRef = useRef<HTMLDivElement>(null)
+  const blogRef = useRef<HTMLDivElement>(null)
+  const contactRef = useRef<HTMLDivElement>(null)
 
-  // Refs for detecting when sections are in view
-  const [heroRef, heroInView] = useInView({ threshold: 0.1, triggerOnce: true })
-  const [introRef, introInView] = useInView({ threshold: 0.1, triggerOnce: true })
-  const [approachRef, approachInView] = useInView({ threshold: 0.1, triggerOnce: true })
-  const [pricingRef, pricingInView] = useInView({ threshold: 0.1, triggerOnce: true })
-  const [processRef, processInView] = useInView({ threshold: 0.1, triggerOnce: true })
-  const [aboutRef, aboutInView] = useInView({ threshold: 0.1, triggerOnce: true })
-  const [substackRef, substackInView] = useInView({ threshold: 0.1, triggerOnce: true })
-  const [contactRef, contactInView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    setMenuOpen(false)
+    if (ref.current) {
+      window.scrollTo({
+        top: ref.current.offsetTop - 100,
+        behavior: "smooth",
+      })
+    }
+  }
 
-  // Trigger animations when sections come into view
+  // Lock body scroll when menu is open
   useEffect(() => {
-    if (heroInView) heroControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
-  }, [heroInView, heroControls])
-
-  useEffect(() => {
-    if (introInView) introControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
-  }, [introInView, introControls])
-
-  useEffect(() => {
-    if (approachInView) approachControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
-  }, [approachInView, approachControls])
-
-  useEffect(() => {
-    if (pricingInView) pricingControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
-  }, [pricingInView, pricingControls])
-
-  useEffect(() => {
-    if (processInView) processControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
-  }, [processInView, processControls])
-
-  useEffect(() => {
-    if (aboutInView) aboutControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
-  }, [aboutInView, aboutControls])
-
-  useEffect(() => {
-    if (substackInView) substackControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
-  }, [substackInView, substackControls])
-
-  useEffect(() => {
-    if (contactInView) contactControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
-  }, [contactInView, contactControls])
+    if (menuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [menuOpen])
 
   return (
-    <div className="flex flex-col items-start w-full bg-white">
-      <header className="flex w-full items-center justify-center py-3 sm:py-4 px-4 sm:px-8 sticky top-0 z-10 bg-[#ffffffbf] backdrop-blur-[32px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(32px)_brightness(100%)]">
-        <div className="flex w-full max-w-[980px] items-center justify-between">
-          <div className="relative w-24 sm:w-32 h-[40px] sm:h-[53px] [background:url(/link-1.png)_50%_50%_/_cover]" />
+    <div className="flex flex-col items-start w-full bg-white overflow-hidden">
+      {/* Header */}
+      <motion.header
+        className="flex w-full items-center justify-center py-6 px-6 md:px-12 fixed top-0 z-50 backdrop-blur-md"
+        style={{ backgroundColor: headerBackground }}
+      >
+        <div className="flex w-full max-w-[1400px] items-center justify-between">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="relative w-24 h-[40px] [background:url(/link-1.png)_50%_50%_/_cover]"
+          />
 
-          <div className="flex items-center justify-end">
-            <Button
-              variant="outline"
-              className="bg-white rounded-lg border border-solid border-black font-['Helvetica_Neue-Bold',Helvetica] text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2"
+          <div className="hidden md:flex items-center gap-10">
+            <nav className="flex items-center gap-8">
+              <motion.button
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                onClick={() => scrollToSection(servicesRef)}
+                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
+              >
+                Services
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                onClick={() => scrollToSection(approachRef)}
+                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
+              >
+                Approche
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                onClick={() => scrollToSection(pricingRef)}
+                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
+              >
+                Tarifs
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                onClick={() => scrollToSection(aboutRef)}
+                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
+              >
+                À propos
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                onClick={() => scrollToSection(blogRef)}
+                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
+              >
+                Blog
+              </motion.button>
+            </nav>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
             >
-              Discuter de votre projet
-            </Button>
+              <Button
+                onClick={() => scrollToSection(contactRef)}
+                className="bg-[#123293] text-white hover:bg-[#123293]/90 rounded-full px-6 py-2 text-sm font-['Helvetica_Neue-Bold',Helvetica]"
+              >
+                Commencer un projet
+              </Button>
+            </motion.div>
           </div>
+
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            onClick={() => setMenuOpen(true)}
+            className="md:hidden flex items-center justify-center"
+          >
+            <MenuIcon className="w-6 h-6 text-[#191818]" />
+          </motion.button>
         </div>
-      </header>
+      </motion.header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-white z-50 flex flex-col"
+          >
+            <div className="flex items-center justify-between p-6">
+              <div className="relative w-24 h-[40px] [background:url(/link-1.png)_50%_50%_/_cover]" />
+              <button onClick={() => setMenuOpen(false)}>
+                <X className="w-6 h-6 text-[#191818]" />
+              </button>
+            </div>
+
+            <div className="flex flex-col items-center justify-center flex-1 gap-8">
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                onClick={() => scrollToSection(servicesRef)}
+                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
+              >
+                Services
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                onClick={() => scrollToSection(approachRef)}
+                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
+              >
+                Approche
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+                onClick={() => scrollToSection(pricingRef)}
+                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
+              >
+                Tarifs
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.4 }}
+                onClick={() => scrollToSection(aboutRef)}
+                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
+              >
+                À propos
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
+                onClick={() => scrollToSection(blogRef)}
+                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
+              >
+                Blog
+              </motion.button>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.6 }}
+                className="mt-8"
+              >
+                <Button
+                  onClick={() => {
+                    setMenuOpen(false)
+                    scrollToSection(contactRef)
+                  }}
+                  className="bg-[#123293] text-white hover:bg-[#123293]/90 rounded-full px-8 py-6 text-lg font-['Helvetica_Neue-Bold',Helvetica]"
+                >
+                  Commencer un projet
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <main className="w-full">
-        <motion.div ref={heroRef} initial={{ opacity: 0, y: 50 }} animate={heroControls}>
-          <HeroHeader />
-        </motion.div>
+        <HeroSection />
 
-        <motion.div ref={introRef} initial={{ opacity: 0, y: 50 }} animate={introControls}>
-          <SectionIntro />
-        </motion.div>
+        <div ref={servicesRef}>
+          <ServicesSection />
+        </div>
 
-        <motion.div ref={approachRef} initial={{ opacity: 0, y: 50 }} animate={approachControls}>
-          <SectionProjects />
-        </motion.div>
+        <div ref={approachRef}>
+          <ApproachSection />
+        </div>
 
-        <motion.div ref={pricingRef} initial={{ opacity: 0, y: 50 }} animate={pricingControls}>
-          <ContainerWrapper />
-        </motion.div>
+        <div ref={pricingRef}>
+          <PricingSection />
+        </div>
 
-        <motion.div ref={processRef} initial={{ opacity: 0, y: 50 }} animate={processControls}>
-          <DivWrapper />
-        </motion.div>
+        <div ref={processRef}>
+          <ProcessSection />
+        </div>
 
-        <motion.div ref={aboutRef} initial={{ opacity: 0, y: 50 }} animate={aboutControls}>
-          <SectionProjectsWrapper />
-        </motion.div>
+        <div ref={aboutRef}>
+          <AboutSection />
+        </div>
 
-        <motion.div ref={substackRef} initial={{ opacity: 0, y: 50 }} animate={substackControls}>
-          <SubstackSection />
-        </motion.div>
+        <div ref={blogRef}>
+          <BlogSection />
+        </div>
 
-        <motion.div ref={contactRef} initial={{ opacity: 0, y: 50 }} animate={contactControls}>
-          <Contact />
-        </motion.div>
+        <div ref={contactRef}>
+          <ContactSection />
+        </div>
 
         <Footer />
       </main>
