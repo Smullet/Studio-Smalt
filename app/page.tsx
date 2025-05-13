@@ -11,6 +11,7 @@ import { SectionProjectsWrapper } from "@/components/sections/section-projects-w
 import { DivWrapper } from "@/components/sections/div-wrapper"
 import { Contact } from "@/components/sections/contact"
 import { Footer } from "@/components/sections/footer"
+import { SubstackSection } from "@/components/sections/substack-section"
 import { useInView } from "react-intersection-observer"
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
   const pricingControls = useAnimation()
   const processControls = useAnimation()
   const aboutControls = useAnimation()
+  const substackControls = useAnimation()
   const contactControls = useAnimation()
 
   // Refs for detecting when sections are in view
@@ -33,6 +35,7 @@ export default function Home() {
   const [pricingRef, pricingInView] = useInView({ threshold: 0.1, triggerOnce: true })
   const [processRef, processInView] = useInView({ threshold: 0.1, triggerOnce: true })
   const [aboutRef, aboutInView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const [substackRef, substackInView] = useInView({ threshold: 0.1, triggerOnce: true })
   const [contactRef, contactInView] = useInView({ threshold: 0.1, triggerOnce: true })
 
   // Trigger animations when sections come into view
@@ -59,6 +62,10 @@ export default function Home() {
   useEffect(() => {
     if (aboutInView) aboutControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
   }, [aboutInView, aboutControls])
+
+  useEffect(() => {
+    if (substackInView) substackControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
+  }, [substackInView, substackControls])
 
   useEffect(() => {
     if (contactInView) contactControls.start({ opacity: 1, y: 0, transition: { duration: 0.8 } })
@@ -104,6 +111,10 @@ export default function Home() {
 
         <motion.div ref={aboutRef} initial={{ opacity: 0, y: 50 }} animate={aboutControls}>
           <SectionProjectsWrapper />
+        </motion.div>
+
+        <motion.div ref={substackRef} initial={{ opacity: 0, y: 50 }} animate={substackControls}>
+          <SubstackSection />
         </motion.div>
 
         <motion.div ref={contactRef} initial={{ opacity: 0, y: 50 }} animate={contactControls}>
