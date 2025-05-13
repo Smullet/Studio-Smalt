@@ -1,264 +1,151 @@
 "use client"
 
-import type React from "react"
-
-import { useEffect, useRef, useState } from "react"
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { MenuIcon, X } from "lucide-react"
-
-// Import sections
-import { HeroSection } from "@/components/sections/hero-section"
-import { ServicesSection } from "@/components/sections/services-section"
-import { ApproachSection } from "@/components/sections/approach-section"
-import { PricingSection } from "@/components/sections/pricing-section"
-import { ProcessSection } from "@/components/sections/process-section"
-import { AboutSection } from "@/components/sections/about-section"
-import { BlogSection } from "@/components/sections/blog-section"
-import { ContactSection } from "@/components/sections/contact-section"
+import { HeroHeader } from "@/components/sections/hero-header"
+import { SectionIntro } from "@/components/sections/section-intro"
+import { SectionProjects } from "@/components/sections/section-projects"
+import { ContainerWrapper } from "@/components/sections/container-wrapper"
+import { SectionProjectsWrapper } from "@/components/sections/section-projects-wrapper"
+import { DivWrapper } from "@/components/sections/div-wrapper"
+import { Contact } from "@/components/sections/contact"
 import { Footer } from "@/components/sections/footer"
+import { SubstackSection } from "@/components/sections/substack-section"
+import { useInView } from "react-intersection-observer"
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false)
   const { scrollY } = useScroll()
   const headerOpacity = useTransform(scrollY, [0, 100], [0, 1])
   const headerBackground = useTransform(scrollY, [0, 100], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.9)"])
 
-  // Refs for scroll navigation
-  const servicesRef = useRef<HTMLDivElement>(null)
-  const approachRef = useRef<HTMLDivElement>(null)
-  const pricingRef = useRef<HTMLDivElement>(null)
-  const processRef = useRef<HTMLDivElement>(null)
-  const aboutRef = useRef<HTMLDivElement>(null)
-  const blogRef = useRef<HTMLDivElement>(null)
-  const contactRef = useRef<HTMLDivElement>(null)
-
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-    setMenuOpen(false)
-    if (ref.current) {
-      window.scrollTo({
-        top: ref.current.offsetTop - 100,
-        behavior: "smooth",
-      })
-    }
+  // Animation controls for sections
+  const sectionRefs = {
+    hero: useRef<HTMLDivElement>(null),
+    intro: useRef<HTMLDivElement>(null),
+    approach: useRef<HTMLDivElement>(null),
+    pricing: useRef<HTMLDivElement>(null),
+    process: useRef<HTMLDivElement>(null),
+    about: useRef<HTMLDivElement>(null),
+    substack: useRef<HTMLDivElement>(null),
+    contact: useRef<HTMLDivElement>(null),
   }
 
-  // Lock body scroll when menu is open
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = ""
-    }
-    return () => {
-      document.body.style.overflow = ""
-    }
-  }, [menuOpen])
+  // InView hooks for each section
+  const [heroRef, heroInView] = useInView({ threshold: 0.1, triggerOnce: false })
+  const [introRef, introInView] = useInView({ threshold: 0.1, triggerOnce: false })
+  const [approachRef, approachInView] = useInView({ threshold: 0.1, triggerOnce: false })
+  const [pricingRef, pricingInView] = useInView({ threshold: 0.1, triggerOnce: false })
+  const [processRef, processInView] = useInView({ threshold: 0.1, triggerOnce: false })
+  const [aboutRef, aboutInView] = useInView({ threshold: 0.1, triggerOnce: false })
+  const [substackRef, substackInView] = useInView({ threshold: 0.1, triggerOnce: false })
+  const [contactRef, contactInView] = useInView({ threshold: 0.1, triggerOnce: false })
 
   return (
-    <div className="flex flex-col items-start w-full bg-white overflow-hidden">
-      {/* Header */}
+    <div className="flex flex-col items-start w-full bg-white">
       <motion.header
-        className="flex w-full items-center justify-center py-6 px-6 md:px-12 fixed top-0 z-50 backdrop-blur-md"
+        className="flex w-full items-center justify-center py-4 px-8 sticky top-0 z-10 backdrop-blur-[32px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(32px)_brightness(100%)]"
         style={{ backgroundColor: headerBackground }}
       >
-        <div className="flex w-full max-w-[1400px] items-center justify-between">
+        <div className="flex w-full max-w-[980px] items-center justify-between">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative w-24 h-[40px] [background:url(/link-1.png)_50%_50%_/_cover]"
+            className="relative w-32 h-[53px] [background:url(/link-1.png)_50%_50%_/_cover]"
           />
 
-          <div className="hidden md:flex items-center gap-10">
-            <nav className="flex items-center gap-8">
-              <motion.button
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                onClick={() => scrollToSection(servicesRef)}
-                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
-              >
-                Services
-              </motion.button>
-              <motion.button
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                onClick={() => scrollToSection(approachRef)}
-                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
-              >
-                Approche
-              </motion.button>
-              <motion.button
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                onClick={() => scrollToSection(pricingRef)}
-                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
-              >
-                Tarifs
-              </motion.button>
-              <motion.button
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                onClick={() => scrollToSection(aboutRef)}
-                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
-              >
-                À propos
-              </motion.button>
-              <motion.button
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                onClick={() => scrollToSection(blogRef)}
-                className="text-[#191818] hover:text-[#123293] transition-colors font-['Helvetica_Neue-Regular',Helvetica] text-sm"
-              >
-                Blog
-              </motion.button>
-            </nav>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <Button
-                onClick={() => scrollToSection(contactRef)}
-                className="bg-[#123293] text-white hover:bg-[#123293]/90 rounded-full px-6 py-2 text-sm font-['Helvetica_Neue-Bold',Helvetica]"
-              >
-                Commencer un projet
-              </Button>
-            </motion.div>
-          </div>
-
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            onClick={() => setMenuOpen(true)}
-            className="md:hidden flex items-center justify-center"
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex items-center justify-end gap-4 rounded-[10px] border border-solid border-black"
           >
-            <MenuIcon className="w-6 h-6 text-[#191818]" />
-          </motion.button>
+            <Button
+              variant="outline"
+              className="bg-white rounded-lg border border-solid border-black font-body-emphasis-m text-black"
+            >
+              Discuter de votre projet
+            </Button>
+          </motion.div>
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-white z-50 flex flex-col"
-          >
-            <div className="flex items-center justify-between p-6">
-              <div className="relative w-24 h-[40px] [background:url(/link-1.png)_50%_50%_/_cover]" />
-              <button onClick={() => setMenuOpen(false)}>
-                <X className="w-6 h-6 text-[#191818]" />
-              </button>
-            </div>
-
-            <div className="flex flex-col items-center justify-center flex-1 gap-8">
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                onClick={() => scrollToSection(servicesRef)}
-                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
-              >
-                Services
-              </motion.button>
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.2 }}
-                onClick={() => scrollToSection(approachRef)}
-                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
-              >
-                Approche
-              </motion.button>
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.3 }}
-                onClick={() => scrollToSection(pricingRef)}
-                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
-              >
-                Tarifs
-              </motion.button>
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
-                onClick={() => scrollToSection(aboutRef)}
-                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
-              >
-                À propos
-              </motion.button>
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-                onClick={() => scrollToSection(blogRef)}
-                className="text-[#191818] text-2xl font-['Helvetica_Neue-Bold',Helvetica]"
-              >
-                Blog
-              </motion.button>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 0.6 }}
-                className="mt-8"
-              >
-                <Button
-                  onClick={() => {
-                    setMenuOpen(false)
-                    scrollToSection(contactRef)
-                  }}
-                  className="bg-[#123293] text-white hover:bg-[#123293]/90 rounded-full px-8 py-6 text-lg font-['Helvetica_Neue-Bold',Helvetica]"
-                >
-                  Commencer un projet
-                </Button>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <main className="w-full">
-        <HeroSection />
+        <div ref={heroRef}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
+            <HeroHeader />
+          </motion.div>
+        </div>
 
-        <div ref={servicesRef}>
-          <ServicesSection />
+        <div ref={introRef}>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={introInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
+          >
+            <SectionIntro />
+          </motion.div>
         </div>
 
         <div ref={approachRef}>
-          <ApproachSection />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={approachInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
+          >
+            <SectionProjects />
+          </motion.div>
         </div>
 
         <div ref={pricingRef}>
-          <PricingSection />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={pricingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
+          >
+            <ContainerWrapper />
+          </motion.div>
         </div>
 
         <div ref={processRef}>
-          <ProcessSection />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={processInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
+          >
+            <DivWrapper />
+          </motion.div>
         </div>
 
         <div ref={aboutRef}>
-          <AboutSection />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
+          >
+            <SectionProjectsWrapper />
+          </motion.div>
         </div>
 
-        <div ref={blogRef}>
-          <BlogSection />
+        <div ref={substackRef}>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={substackInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
+          >
+            <SubstackSection />
+          </motion.div>
         </div>
 
         <div ref={contactRef}>
-          <ContactSection />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Contact />
+          </motion.div>
         </div>
 
         <Footer />

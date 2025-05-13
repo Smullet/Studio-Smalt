@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 
-export const SectionProjects = () => {
+export const SectionProjects = (): JSX.Element => {
   // Data for the approach steps
   const approachSteps = [
     {
@@ -49,7 +49,28 @@ export const SectionProjects = () => {
     },
   ]
 
-  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
   const titleVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -59,53 +80,39 @@ export const SectionProjects = () => {
     },
   }
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.2 * i,
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    }),
-  }
-
   return (
-    <section className="py-12 sm:py-16 md:py-24 flex flex-col items-center justify-center">
-      <div className="flex flex-col items-center justify-center px-4 sm:px-6 max-w-[1200px] w-full">
-        <div className="flex flex-col items-center gap-12 max-w-[952px]">
+    <section className="py-24 flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center px-6 max-w-[1200px] w-full">
+        <motion.div
+          className="flex flex-col items-center gap-12 max-w-[952px]"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center leading-[1.2] sm:leading-[52.8px] tracking-normal max-w-[691px]"
-            initial="hidden"
-            animate="visible"
+            className="text-5xl font-bold text-center leading-[52.8px] tracking-normal max-w-[691px]"
             variants={titleVariants}
           >
-            <span className="text-[#191818] font-['Helvetica_Neue-Bold',Helvetica]">Une approche </span>
-            <span className="text-[#123293] font-['Helvetica_Neue-Bold',Helvetica]">agile</span>
-            <span className="text-[#191818] font-['Helvetica_Neue-Bold',Helvetica]">, </span>
-            <span className="text-[#123293] font-['Helvetica_Neue-Bold',Helvetica]">simple </span>
-            <span className="text-[#191818] font-['Helvetica_Neue-Bold',Helvetica]"> et </span>
-            <span className="text-[#123293] font-['Helvetica_Neue-Bold',Helvetica]">humaine&nbsp;&nbsp;</span>
+            <span className="text-[#191818]">Une approche </span>
+            <span className="text-[#123293]">agile</span>
+            <span className="text-[#191818]">, </span>
+            <span className="text-[#123293]">simple </span>
+            <span className="text-[#191818]"> et </span>
+            <span className="text-[#123293]">humaine&nbsp;&nbsp;</span>
           </motion.h2>
 
           <div className="flex flex-col items-center gap-[30px] w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
               {approachSteps.slice(0, 2).map((step, index) => (
-                <motion.div key={step.id} custom={index} initial="hidden" animate="visible" variants={cardVariants}>
-                  <Card
-                    className={`${step.bgColor} rounded-[20px] sm:rounded-[30px] overflow-hidden border-none h-auto sm:h-[494px] card-basic`}
-                  >
-                    <CardContent className="flex flex-col sm:flex-row items-start gap-4 sm:gap-[50px] p-5 sm:p-10">
-                      <div
-                        className={`text-6xl sm:text-[90px] font-normal tracking-[-1.04px] leading-[1.1] sm:leading-[90px] ${step.textColor} font-['Helvetica_Neue-Bold',Helvetica] mb-2 sm:mb-0`}
-                      >
+                <motion.div key={step.id} custom={index} variants={itemVariants}>
+                  <Card className={`${step.bgColor} rounded-[30px] overflow-hidden border-none h-[494px]`}>
+                    <CardContent className="flex items-start gap-[50px] p-10">
+                      <div className={`text-[90px] font-normal tracking-[-1.04px] leading-[90px] ${step.textColor}`}>
                         {step.id}
                       </div>
                       <div className="flex flex-col py-3.5">
                         <h3
-                          className={`text-xl sm:text-[26px] font-bold tracking-[-1.04px] leading-[1.2] sm:leading-[32.4px] mb-3 sm:mb-[22px] ${step.textColor} font-['Helvetica_Neue-Bold',Helvetica]`}
+                          className={`text-[26px] font-bold tracking-[-1.04px] leading-[32.4px] mb-[22px] ${step.textColor}`}
                         >
                           {step.title}
                         </h3>
@@ -113,7 +120,7 @@ export const SectionProjects = () => {
                           {step.description.map((paragraph, idx) => (
                             <p
                               key={idx}
-                              className={`text-sm sm:text-[15px] font-normal tracking-[-0.45px] leading-[1.6] sm:leading-[22.1px] ${step.textColor} font-['Inter',Helvetica]`}
+                              className={`text-[15px] font-normal tracking-[-0.45px] leading-[22.1px] ${step.textColor}`}
                             >
                               {paragraph}
                             </p>
@@ -126,21 +133,17 @@ export const SectionProjects = () => {
               ))}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
               {approachSteps.slice(2, 4).map((step, index) => (
-                <motion.div key={step.id} custom={index + 2} initial="hidden" animate="visible" variants={cardVariants}>
-                  <Card
-                    className={`${step.bgColor} rounded-[20px] sm:rounded-[30px] overflow-hidden border-none h-auto sm:h-[492px] card-basic`}
-                  >
-                    <CardContent className="flex flex-col sm:flex-row items-start gap-4 sm:gap-[50px] p-5 sm:p-10">
-                      <div
-                        className={`text-6xl sm:text-[90px] font-normal tracking-[-1.04px] leading-[1.1] sm:leading-[90px] ${step.textColor} font-['Helvetica_Neue-Bold',Helvetica] mb-2 sm:mb-0`}
-                      >
+                <motion.div key={step.id} custom={index + 2} variants={itemVariants}>
+                  <Card className={`${step.bgColor} rounded-[30px] overflow-hidden border-none h-[492px]`}>
+                    <CardContent className="flex items-start gap-[50px] p-10">
+                      <div className={`text-[90px] font-normal tracking-[-1.04px] leading-[90px] ${step.textColor}`}>
                         {step.id}
                       </div>
                       <div className="flex flex-col py-3.5">
                         <h3
-                          className={`text-xl sm:text-[26px] font-bold tracking-[-1.04px] leading-[1.2] sm:leading-[32.4px] mb-3 sm:mb-[22px] ${step.textColor} font-['Helvetica_Neue-Bold',Helvetica]`}
+                          className={`text-[26px] font-bold tracking-[-1.04px] leading-[32.4px] mb-[22px] ${step.textColor}`}
                         >
                           {step.title}
                         </h3>
@@ -148,7 +151,7 @@ export const SectionProjects = () => {
                           {step.description.map((paragraph, idx) => (
                             <p
                               key={idx}
-                              className={`text-sm sm:text-[15px] font-normal tracking-[-0.45px] leading-[1.6] sm:leading-[22.1px] ${step.textColor} font-['Inter',Helvetica]`}
+                              className={`text-[15px] font-normal tracking-[-0.45px] leading-[22.1px] ${step.textColor}`}
                             >
                               {paragraph}
                             </p>
@@ -161,7 +164,7 @@ export const SectionProjects = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
