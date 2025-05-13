@@ -71,6 +71,9 @@
   --secondarysecondary-light: rgba(196, 77, 255, 1);
   --tertiarytertiary: rgba(245, 157, 69, 1);
   --whites-white-12: rgba(255, 255, 255, 0.12);
+
+  --smalt-gradient-blue: linear-gradient(135deg, #123293, #2d4cad, #7e96e9);
+  --smalt-gradient-light: linear-gradient(135deg, #f6f7f9, #ffffff);
 }
 
 @layer base {
