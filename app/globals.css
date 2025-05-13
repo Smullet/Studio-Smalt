@@ -150,109 +150,35 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-
-  /* Smooth scrolling for the entire page */
-  html {
-    scroll-behavior: smooth;
-  }
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* Card styles without hover effects */
+.card-basic {
+  transition: box-shadow 0.3s ease;
 }
 
-@keyframes scaleIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+/* Add a specific style for buttons to ensure they use Helvetica Neue */
 
-.animate-fade-in {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.8s ease forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.8s ease forwards;
-}
-
-/* Staggered animations */
-.stagger-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.stagger-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.stagger-item:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.stagger-item:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.stagger-item:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-/* Card hover effects */
-.hover-card {
-  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.0), box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.0);
-}
-
-.hover-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Image hover effects */
-.image-hover {
-  overflow: hidden;
-}
-
-.image-hover img {
-  transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1.0);
-}
-
-.image-hover:hover img {
-  transform: scale(1.05);
-}
-
-/* Button styles */
 button,
 .button,
 [type="button"],
 [type="submit"],
 [type="reset"] {
   font-family: "Helvetica Neue-Bold", Helvetica, sans-serif !important;
-  transition: all 0.3s ease;
 }
 
 /* Responsive utilities */
 @media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   h1,
   h2,
   h3,
@@ -276,5 +202,28 @@ button,
   select,
   textarea {
     font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* Responsive spacing */
+.responsive-container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .responsive-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

@@ -59,29 +59,8 @@ const services = [
   },
 ]
 
-export const ContainerWrapper = (): JSX.Element => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  }
-
+export const ContainerWrapper = () => {
+  // Animation variants
   const headerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -89,6 +68,18 @@ export const ContainerWrapper = (): JSX.Element => {
       y: 0,
       transition: { duration: 0.7 },
     },
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.2 * i,
+        duration: 0.6,
+      },
+    }),
   }
 
   const featureVariants = {
@@ -104,29 +95,26 @@ export const ContainerWrapper = (): JSX.Element => {
   }
 
   return (
-    <section className="py-24 px-4 flex flex-col items-center justify-center relative">
-      <div className="flex flex-col w-full max-w-[1200px] items-center justify-center px-6 py-0">
-        <motion.div
-          className="flex flex-col items-center gap-[104px] w-full"
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-        >
+    <section className="py-12 sm:py-16 md:py-24 px-4 flex flex-col items-center justify-center relative">
+      <div className="flex flex-col w-full max-w-[1200px] items-center justify-center px-2 sm:px-6 py-0">
+        <div className="flex flex-col items-center gap-12 sm:gap-16 md:gap-[104px] w-full">
           {/* Section Header */}
-          <motion.div className="flex flex-col items-center gap-[22px] w-full" variants={headerVariants}>
-            <Badge className="w-[79px] h-[51.75px] bg-[#123293] rounded-md shadow-[2px_2px_0px_#121214] flex items-center justify-center">
-              <span className="font-['Inter',Helvetica] font-bold text-white text-[27px] tracking-[-1.08px] leading-[32.4px]">
+          <motion.div
+            className="flex flex-col items-center gap-[22px] w-full"
+            initial="hidden"
+            animate="visible"
+            variants={headerVariants}
+          >
+            <Badge className="w-[60px] sm:w-[79px] h-[40px] sm:h-[51.75px] bg-[#123293] rounded-md shadow-[2px_2px_0px_#121214] flex items-center justify-center">
+              <span className="font-['Helvetica_Neue-Bold',Helvetica] font-bold text-white text-xl sm:text-[27px] tracking-[-1.08px] leading-[1.2] sm:leading-[32.4px]">
                 Tarifs
               </span>
             </Badge>
 
-            <h2 className="text-5xl text-center tracking-[0] leading-[52.8px] font-['Helvetica_Neue-Bold',Helvetica] max-w-[425px]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl text-center tracking-[0] leading-[1.2] sm:leading-[52.8px] font-['Helvetica_Neue-Bold',Helvetica] max-w-[425px]">
               <span className="font-bold text-[#191818]">Des offres </span>
-              <span className="font-bold text-[#123293]">claires </span>
-              <span className="font-bold text-[#191818]">
-                ,<br />
-                des tarifs{" "}
-              </span>
+              <span className="font-bold text-[#123293]">claires</span>
+              <span className="font-bold text-[#191818]">, des tarifs </span>
               <span className="font-bold text-[#123293]">justes</span>
             </h2>
           </motion.div>
@@ -134,30 +122,30 @@ export const ContainerWrapper = (): JSX.Element => {
           {/* Service Cards */}
           <div className="flex flex-wrap justify-center gap-[30px]">
             {services.map((service, index) => (
-              <motion.div key={index} variants={itemVariants} custom={index}>
-                <Card className="w-[340px] rounded-xl border border-solid border-[#123293] relative">
+              <motion.div key={index} custom={index} initial="hidden" animate="visible" variants={cardVariants}>
+                <Card className="w-full sm:w-[340px] rounded-xl border border-solid border-[#123293] relative card-basic">
                   <Badge
-                    className={`absolute -top-8 left-[7px] bg-[#123293] rounded-md shadow-[2px_2px_0px_#121214] h-[52px] px-3 flex items-center justify-center`}
+                    className={`absolute -top-6 sm:-top-8 left-[7px] bg-[#123293] rounded-md shadow-[2px_2px_0px_#121214] h-[40px] sm:h-[52px] px-3 flex items-center justify-center`}
                     style={{
                       width:
                         service.title === "Product Design"
-                          ? "212px"
+                          ? "180px"
                           : service.title === "Web Design"
-                            ? "163px"
-                            : "149px",
+                            ? "140px"
+                            : "130px",
                     }}
                   >
-                    <span className="font-['Inter',Helvetica] font-bold text-white text-[27px] tracking-[-1.08px] leading-[32.4px]">
+                    <span className="font-['Helvetica_Neue-Bold',Helvetica] font-bold text-white text-xl sm:text-[27px] tracking-[-1.08px] leading-[1.2] sm:leading-[32.4px]">
                       {service.title}
                     </span>
                   </Badge>
 
-                  <CardContent className="pt-[31px] px-[31px]">
+                  <CardContent className="pt-[25px] sm:pt-[31px] px-4 sm:px-[31px]">
                     <div className="flex flex-col w-full gap-px">
                       {/* Service Description */}
                       <div className="h-[340px]">
                         <div className="mb-[43px]">
-                          <div className="font-['Inter',Helvetica] font-bold text-xl tracking-[-0.40px] leading-6 mb-4">
+                          <div className="font-['Helvetica_Neue-Bold',Helvetica] font-bold text-lg sm:text-xl tracking-[-0.40px] leading-[1.3] sm:leading-6 mb-3 sm:mb-4">
                             {service.title === "Product Design" ? (
                               <>
                                 <span className="text-[#0f0f0f] tracking-[-0.08px]">
@@ -174,7 +162,7 @@ export const ContainerWrapper = (): JSX.Element => {
                               <span className="text-[#0f0f0f]">{service.description}</span>
                             )}
                           </div>
-                          <p className="font-['Inter',Helvetica] font-normal text-[#0000008a] text-[15px] tracking-[-0.45px] leading-[22.1px]">
+                          <p className="font-['Inter',Helvetica] font-normal text-[#0000008a] text-sm sm:text-[15px] tracking-[-0.45px] leading-[1.6] sm:leading-[22.1px]">
                             {service.subDescription}
                           </p>
                         </div>
@@ -186,8 +174,8 @@ export const ContainerWrapper = (): JSX.Element => {
                               {service.pricePrefix}
                             </span>
                           )}
-                          <div className="font-['Inter',Helvetica] font-bold text-[#191818] text-5xl tracking-[0] leading-[52.8px]">
-                            {service.price} <span className="text-xl">€</span>
+                          <div className="font-['Helvetica_Neue-Bold',Helvetica] font-bold text-[#191818] text-4xl sm:text-5xl tracking-[0] leading-[1.2] sm:leading-[52.8px]">
+                            {service.price} <span className="text-lg sm:text-xl">€</span>
                           </div>
                           {service.priceUnit && (
                             <span className="font-['Helvetica_Neue-Regular',Helvetica] font-normal text-[#191818] text-[23px] tracking-[0] leading-[25.3px]">
@@ -204,12 +192,14 @@ export const ContainerWrapper = (): JSX.Element => {
                             key={idx}
                             className="flex items-start gap-5"
                             custom={idx}
+                            initial="hidden"
+                            animate="visible"
                             variants={featureVariants}
                           >
                             <div className="w-[29px] h-[29px] bg-[#123293] rounded-[40px] flex items-center justify-center flex-shrink-0">
                               <CheckIcon className="w-[9px] h-[9px] text-white" />
                             </div>
-                            <p className="font-['Inter',Helvetica] font-normal text-[#191818] text-[15px] tracking-[-0.45px] leading-[22.5px]">
+                            <p className="font-['Inter',Helvetica] font-normal text-[#191818] text-sm sm:text-[15px] tracking-[-0.45px] leading-[1.6] sm:leading-[22.5px]">
                               {feature}
                             </p>
                           </motion.div>
@@ -225,7 +215,7 @@ export const ContainerWrapper = (): JSX.Element => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
