@@ -39,7 +39,7 @@ export const Footer = (): JSX.Element => {
       variants={containerVariants}
     >
       <motion.div
-        className="relative w-32 h-[67.11px] [background:url(..//link-1.png)_50%_50%_/_cover]"
+        className="relative w-32 h-[67.11px] bg-[url(/link-1.png)] bg-cover bg-center"
         variants={itemVariants}
       />
 

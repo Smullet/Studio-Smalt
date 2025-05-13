@@ -52,7 +52,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative w-32 h-[53px] [background:url(/link-1.png)_50%_50%_/_cover]"
+            className="relative w-32 h-[53px] bg-[url(/link-1.png)] bg-cover bg-center"
           />
 
           <motion.div
