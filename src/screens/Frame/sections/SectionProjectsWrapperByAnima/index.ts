@@ -1,1 +1,0 @@
-export { SectionProjectsWrapperByAnima } from "./SectionProjectsWrapperByAnima"
