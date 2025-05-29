@@ -1,36 +1,38 @@
 "use client"
+import { Button } from "@/components/ui/button"
 
 export const HeroHeader = () => {
   return (
-    <section className="flex flex-col items-center justify-center w-full py-16 sm:py-24 md:py-32 px-4 overflow-hidden relative">
-      <div className="flex flex-col items-center text-center gap-4 sm:gap-6 max-w-[980px] z-10">
-        <div className="flex flex-col items-center gap-4 sm:gap-6 w-full">
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 w-full">
-            <h1 className="font-bold text-5xl sm:text-6xl md:text-8xl text-black tracking-[-2px] sm:tracking-[-3.84px] leading-[1.1] sm:leading-[105.6px] [font-family:'Helvetica_Neue-Bold',Helvetica]">
-              Smart
-            </h1>
+    <section className="hero-header w-full min-h-screen pt-20 sm:pt-28 pb-12 sm:pb-24 relative bg-[#123293] flex justify-center items-center overflow-hidden px-4 sm:px-6">
+      {/* Vector background - hidden on mobile for better performance */}
+      <img
+        className="vector absolute right-[10%] lg:right-[200px] top-[30%] lg:top-[419.12px] w-[400px] sm:w-[500px] lg:w-[679.59px] h-[400px] sm:h-[500px] lg:h-[754.89px] origin-top-left rotate-[103.80deg] bg-white/10 rounded-sm border-2 border-white/20 hidden sm:block"
+        alt="Vector"
+        src="/vector-13.png"
+      />
 
-            <div className="inline-flex items-center justify-center px-2 sm:px-2.5 py-1 sm:py-1.5 bg-[#123293] rounded-md shadow-[2px_2px_0px_#121214] -rotate-1">
-              <span className="font-bold text-white text-4xl sm:text-5xl md:text-[84.9px] tracking-[-1.08px] leading-[1.1] sm:leading-[80px] [font-family:'Inter',Helvetica]">
+      <div className="container w-full max-w-6xl flex flex-col justify-start items-center gap-6 sm:gap-8 relative z-10">
+        <div className="ttile w-full flex flex-col justify-start items-start gap-3 sm:gap-5">
+          <div className="heading-pourquoi w-full text-center text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-loose">
+            STUDIO DIGITAL
+          </div>
+          <div className="title w-full flex flex-col justify-center items-center gap-2 sm:gap-2.5">
+            <div className="div w-full text-center text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-['Helvetica_Neue'] leading-tight">
+              Smart
+            </div>
+            <div className="background-shadow w-full max-w-[90%] sm:max-w-[860.78px] px-2 sm:px-2.5 py-1 sm:py-1.5 origin-top-left -rotate-1 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(18,18,20,1.00)] flex justify-center items-center gap-2.5">
+              <div className="text-wrapper-2 w-full text-center text-[#123293] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold font-['Helvetica_Neue'] leading-tight">
                 Alternative
-              </span>
+              </div>
             </div>
           </div>
-
-          <h2 className="w-full font-bold text-4xl sm:text-5xl md:text-[80px] text-[#191818] leading-[1.1] sm:leading-[80px] [font-family:'Inter',Helvetica]">
-            Studio digital
-          </h2>
         </div>
-
-        <p className="text-center text-[#191818] font-body-regular-m text-sm sm:text-base tracking-[var(--body-regular-m-letter-spacing)] leading-[1.6] sm:leading-[var(--body-regular-m-line-height)] [font-style:var(--body-regular-m-font-style)]">
-          Smalt accompagne les TPE, PME, startups et collectivités dans la création de solutions numériques utiles,{" "}
-          humaines et adaptées à leurs besoins.
-          <br className="hidden sm:block" />
-          De la conception de produits digitaux à la création de sites web en passant par l&apos;animation
-          d&apos;ateliers collaboratifs,
-          <br className="hidden sm:block" />
-          nous proposons des services sur- mesure, pensés pour vos utilisateurs et vos réalités terrain.
+        <p className="p w-full text-center text-white text-base sm:text-lg md:text-xl font-light font-['Inter'] leading-relaxed px-4">
+          Design agile, centré utilisateurs, orienté livraison
         </p>
+        <Button className="w-full sm:w-auto px-4 sm:px-6 py-3 sm:py-4 bg-[#f9d45c] rounded-xl sm:rounded-2xl text-[#123293] text-sm sm:text-base font-bold font-['Inter'] leading-tight">
+          Discuter de votre projet
+        </Button>
       </div>
     </section>
   )
