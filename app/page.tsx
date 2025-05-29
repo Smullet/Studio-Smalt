@@ -512,7 +512,336 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer - Made responsive */}
+      {/* Pricing Section - New responsive section */}
+      <section className="w-full py-12 sm:py-16 md:py-24 bg-white flex flex-col justify-center items-center px-4 sm:px-6">
+        <div className="w-full max-w-7xl flex flex-col justify-center items-center">
+          <div className="w-full flex flex-col justify-start items-center gap-12 sm:gap-16 md:gap-24">
+            <div className="w-full flex flex-col justify-start items-center gap-5">
+              <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
+                <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
+                  Tarifs
+                </div>
+              </div>
+              <div className="text-center">
+                <span className="text-neutral-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
+                  Des offres{" "}
+                </span>
+                <span className="text-[#123293] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
+                  claires
+                </span>
+                <span className="text-neutral-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
+                  ,<br />
+                  des tarifs{" "}
+                </span>
+                <span className="text-[#123293] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
+                  justes
+                </span>
+              </div>
+            </div>
+
+            {/* Pricing Cards - Responsive grid */}
+            <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
+              {/* Product Design Card */}
+              <div className="relative">
+                <div className="p-2 sm:p-2.5 absolute -top-6 left-2 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] flex justify-center items-center gap-2.5 z-10">
+                  <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
+                    Product Design
+                  </div>
+                </div>
+                <Card className="h-auto min-h-[980px] p-4 sm:p-6 rounded-xl border border-[#123293] flex flex-col justify-start items-start gap-2.5 pt-8">
+                  <div className="w-full flex flex-col justify-start items-start gap-8 sm:gap-16">
+                    <div className="w-full h-auto min-h-[320px] flex flex-col justify-between items-start">
+                      <div className="py-2 flex flex-col justify-start items-start gap-4">
+                        <div className="text-left">
+                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                            Conception de produits
+                            <br />
+                          </span>
+                          <span className="text-[#123293] text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                            numériques utiles,
+                            <br />
+                            ergonomiques et désirables{" "}
+                          </span>
+                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                            .
+                          </span>
+                        </div>
+                        <div className="w-full text-black/50 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                          Je vous accompagne de l'idée au prototype fonctionnel, en passant par la recherche
+                          utilisateur, les wireframes, les maquettes et les tests. Idéal pour les startups et équipes
+                          produit en phase de création ou d'évolution.
+                        </div>
+                      </div>
+                      <div className="w-full h-auto flex justify-start items-end gap-1">
+                        <div className="flex justify-start items-baseline">
+                          <span className="text-neutral-900 text-3xl sm:text-4xl md:text-5xl font-bold font-['Inter'] leading-tight">
+                            380{" "}
+                          </span>
+                          <span className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
+                            €
+                          </span>
+                        </div>
+                        <div className="text-neutral-900 text-lg sm:text-2xl font-normal font-['Helvetica_Neue'] leading-relaxed">
+                          / jour
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="w-full flex flex-col justify-start items-start gap-3.5">
+                      {[
+                        "Analyse des besoins utilisateurs et des objectifs métier pour poser des bases solides.",
+                        "Organisation de sessions de co-conception pour aligner les équipes et générer des idées.",
+                        "Conception de l'architecture et des flux de navigation pour optimiser l'expérience",
+                        "Réalisation de maquettes cliquables pour tester rapidement les fonctionnalités clés.",
+                        "Mise en place ou amélioration d'un système de composants pour assurer la cohérence et la scalabilité.",
+                        "Recueil de retours concrets pour ajuster le design avant la mise en production.",
+                      ].map((feature, index) => (
+                        <div key={index} className="w-full flex justify-start items-start gap-4">
+                          <div className="w-7 h-7 bg-[#123293] rounded-full flex items-center justify-center flex-shrink-0">
+                            <div className="w-2 h-2 bg-white rounded-sm" />
+                          </div>
+                          <div className="flex-1 text-neutral-900 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                            {feature}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
+              {/* Web Design Card */}
+              <div className="relative">
+                <div className="p-2 sm:p-2.5 absolute -top-6 left-2 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] flex justify-center items-center gap-2.5 z-10">
+                  <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
+                    Web Design
+                  </div>
+                </div>
+                <Card className="h-auto min-h-[980px] p-4 sm:p-6 rounded-xl border border-[#123293] flex flex-col justify-start items-start gap-2.5 pt-8">
+                  <div className="w-full flex flex-col justify-start items-start gap-8 sm:gap-16">
+                    <div className="w-full h-auto min-h-[320px] flex flex-col justify-between items-start">
+                      <div className="py-2 flex flex-col justify-start items-start gap-4">
+                        <div className="text-left">
+                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                            Des sites{" "}
+                          </span>
+                          <span className="text-[#123293] text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                            web épurés,
+                            <br />
+                            performants
+                          </span>
+                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                            , pensés pour
+                            <br />
+                            convertir.
+                          </span>
+                        </div>
+                        <div className="w-full text-black/50 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                          Idéal pour les entrepreneur·es, petites entreprises ou associations qui veulent une présence
+                          en ligne efficace et facile à prendre en main.
+                        </div>
+                      </div>
+                      <div className="h-auto flex justify-start items-end gap-1">
+                        <div className="text-neutral-900 text-lg sm:text-2xl font-normal font-['Helvetica_Neue'] leading-relaxed">
+                          à partir de
+                        </div>
+                        <div className="flex justify-start items-baseline">
+                          <span className="text-neutral-900 text-3xl sm:text-4xl md:text-5xl font-bold font-['Inter'] leading-tight">
+                            700{" "}
+                          </span>
+                          <span className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
+                            €
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="w-full flex flex-col justify-start items-start gap-3.5">
+                      {[
+                        "Un site clair, responsive et optimisé pour présenter votre activité avec impact.",
+                        "Une identité visuelle cohérente avec vos valeurs, vos couleurs, vos typographies et vos visuels.",
+                        "Un site rapide, léger et facile à maintenir, conçu sur un outil no-code selon vos besoins.",
+                        "Des balises, métadonnées et bonnes pratiques intégrées pour améliorer votre visibilité sur Google.",
+                        "Mentions légales, politique de confidentialité et gestion des cookies incluses.",
+                        "Une session pour vous apprendre à gérer votre site en toute autonomie, sans jargon technique.",
+                      ].map((feature, index) => (
+                        <div key={index} className="w-full flex justify-start items-start gap-4">
+                          <div className="w-7 h-7 bg-[#123293] rounded-full flex items-center justify-center flex-shrink-0">
+                            <div className="w-2 h-2 bg-white rounded-sm" />
+                          </div>
+                          <div className="flex-1 text-neutral-900 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                            {feature}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
+              {/* Facilitation Card */}
+              <div className="relative">
+                <div className="p-2 sm:p-2.5 absolute -top-6 left-2 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] flex justify-center items-center gap-2.5 z-10">
+                  <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
+                    Facilitation
+                  </div>
+                </div>
+                <Card className="h-auto min-h-[980px] p-4 sm:p-6 rounded-xl border border-[#123293] flex flex-col justify-start items-start gap-2.5 pt-8">
+                  <div className="w-full flex flex-col justify-start items-start gap-8 sm:gap-16">
+                    <div className="w-full h-auto min-h-[320px] flex flex-col justify-between items-start">
+                      <div className="py-2 flex flex-col justify-start items-start gap-4">
+                        <div className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                          Workshops, design sprints,
+                          <br />
+                          ateliers d'alignement ou
+                          <br />
+                          d'idéation.
+                        </div>
+                        <div className="w-full">
+                          <span className="text-neutral-900/50 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                            Je conçois et anime des sessions collaboratives qui font avancer vos projets, en impliquant
+                            vos équipes. Disponible à la session ou en accompagnement régulier{" "}
+                          </span>
+                          <span className="text-black/50 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                            .
+                          </span>
+                        </div>
+                      </div>
+                      <div className="w-full h-auto flex justify-start items-end gap-1">
+                        <div className="flex justify-start items-baseline">
+                          <span className="text-neutral-900 text-3xl sm:text-4xl md:text-5xl font-bold font-['Inter'] leading-tight">
+                            450{" "}
+                          </span>
+                          <span className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
+                            €{" "}
+                          </span>
+                        </div>
+                        <div className="text-neutral-900 text-lg sm:text-2xl font-normal font-['Helvetica_Neue'] leading-relaxed">
+                          / jour
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="w-full flex flex-col justify-start items-start gap-3.5">
+                      {[
+                        "Un cadrage stratégique pour définir les objectifs, les parties prenantes et le périmètre du projet pour démarrer sur de bonnes bases.",
+                        "Création sur-mesure de formats collaboratifs adaptés à votre contexte et à vos enjeux.",
+                        "Conduite dynamique et bienveillante pour faire émerger les idées et favoriser l'intelligence collective.",
+                        "Utilisation d'outils comme le design thinking, le design sprint ou le co-développement selon les besoins.",
+                        "Restitution claire et actionnable de ce qui a été produit pendant l'atelier.",
+                        "Faire émerger collectivement des pistes réalistes, utiles et alignées sur les objectifs du groupe.",
+                      ].map((feature, index) => (
+                        <div key={index} className="w-full flex justify-start items-start gap-4">
+                          <div className="w-7 h-7 bg-[#123293] rounded-full flex items-center justify-center flex-shrink-0">
+                            <div className="w-2 h-2 bg-white rounded-sm" />
+                          </div>
+                          <div className="flex-1 text-neutral-900 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                            {feature}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Discussion Section */}
+      <section className="w-full py-12 sm:py-16 md:py-24 bg-white flex flex-col justify-center items-center px-4 sm:px-6">
+        <div className="w-full max-w-7xl flex flex-col justify-center items-center gap-8 sm:gap-16">
+          <div className="w-full flex flex-col justify-start items-center gap-12 sm:gap-24">
+            <div className="w-full flex flex-col justify-start items-center gap-5">
+              <div className="text-center">
+                <span className="text-neutral-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
+                  Parlons de{" "}
+                </span>
+                <span className="text-[#123293] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
+                  votre projet
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-3">
+            <Card className="w-full min-h-96 p-3 bg-[#123293] rounded-xl flex flex-col justify-start items-center gap-4">
+              <img
+                className="w-full h-52 rounded-md object-cover"
+                src="/placeholder.svg?height=204&width=327&text=Project+Discussion"
+              />
+              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                Parlez-moi de votre projet
+              </div>
+              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                Un échange de 30 minutes pour comprendre vos besoins et voir comment Studio Smalt peut transformer votre
+                idée en produit digital concret et performant.
+              </div>
+            </Card>
+
+            <Card className="w-full min-h-96 p-3 bg-[#f9d45c] rounded-xl flex flex-col justify-start items-center gap-4">
+              <img
+                className="w-full h-52 rounded-md object-cover"
+                src="/placeholder.svg?height=204&width=327&text=Detailed+Proposal"
+              />
+              <div className="w-full text-center text-[#191818] text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                Recevez une proposition détaillée et sur-mesure
+              </div>
+              <div className="w-full text-center text-[#191818] text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                En moins de 24h, recevez un devis clair et actionnable.
+              </div>
+            </Card>
+
+            <Card className="w-full min-h-96 p-3 bg-[#0f0f0f] rounded-xl flex flex-col justify-start items-center gap-4">
+              <img
+                className="w-full h-52 rounded-md object-cover"
+                src="/placeholder.svg?height=204&width=327&text=Quick+Start"
+              />
+              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                Démarrez rapidement
+              </div>
+              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                On définit ensemble le périmètre (atelier de cadrage, recherches, prototype, tests), et vous bénéficiez
+                d'un suivi itératif dès les premiers jours.
+              </div>
+            </Card>
+          </div>
+
+          <div className="flex flex-col justify-start items-center gap-6 w-full">
+            <Button className="w-full sm:w-auto px-6 py-4 bg-[#123293] rounded-2xl text-white text-base font-bold font-['Inter'] leading-tight">
+              Discuter de votre projet
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Studio Smalt Section */}
+      <section className="w-full py-12 sm:py-16 md:py-24 bg-[#0f0f0f] flex flex-col justify-center items-center gap-8 sm:gap-16 px-4 sm:px-6">
+        <div className="w-full max-w-7xl flex flex-col lg:flex-row justify-start items-center gap-6">
+          <div className="flex flex-col justify-start items-start gap-6 flex-1">
+            <div className="w-full text-white text-xl sm:text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-relaxed">
+              Pourquoi choisir Studio Smalt ?
+            </div>
+            <div className="w-full text-white text-base sm:text-lg font-normal font-['Inter'] leading-relaxed">
+              ✅ Expertise produit et UX/UI : de l'idée au produit final, en passant par des ateliers de cadrage, des
+              tests utilisateurs et des itérations rapides.
+              <br />
+              <br />✅ Approche agile et humaine : nous travaillons main dans la main avec vos équipes pour
+              co-construire des solutions qui répondent à vos enjeux business et utilisateurs.
+              <br />
+              <br />✅ Transparence et réactivité : devis sous 24h, planning clair, livrables concrets, accompagnement
+              sur-mesure.
+            </div>
+          </div>
+          <img
+            className="w-full lg:w-[574px] h-64 sm:h-80 rounded-2xl object-cover"
+            src="/placeholder.svg?height=314&width=574&text=Studio+Smalt+Team"
+          />
+        </div>
+      </section>
+
+      {/* Footer - Updated responsive footer */}
       <footer className="w-full py-8 sm:py-12 bg-[#0f0f0f] flex flex-col justify-center items-center gap-2">
         <div className="w-full max-w-7xl px-4 sm:px-6 flex flex-col lg:flex-row justify-start items-start gap-6 lg:gap-6">
           <div className="w-full lg:w-96 flex flex-col justify-start items-start gap-4 sm:gap-8">
@@ -520,6 +849,10 @@ export default function Home() {
               <div className="flex flex-col justify-start items-start gap-2">
                 <div className="text-white text-xl sm:text-2xl font-bold font-['Inter']">smalt</div>
               </div>
+            </div>
+            <div className="flex justify-start items-start gap-4">
+              <div className="w-6 h-6 rounded border border-white/50"></div>
+              <div className="w-6 h-6 rounded border border-white/50"></div>
             </div>
           </div>
 
