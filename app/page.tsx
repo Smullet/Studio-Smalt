@@ -7,15 +7,8 @@ export default function Home() {
     <div className="w-full relative bg-white overflow-hidden">
       {/* Header */}
       <header className="w-full px-80 py-6 bg-white rounded-bl-[20px] rounded-br-[20px] shadow-[0px_24px_48px_-12px_rgba(10,13,18,0.18)] flex justify-between items-center fixed top-0 z-50">
-        <div className="w-36 h-14 relative overflow-hidden">
-          <div className="w-16 h-7 left-[5.60px] top-[19px] absolute bg-black" />
-          <div className="w-[5px] h-1.5 left-[5.60px] top-[8px] absolute bg-black" />
-          <div className="w-1 h-2 left-[11.60px] top-[6px] absolute bg-black" />
-          <div className="w-1.5 h-1.5 left-[16.60px] top-[8px] absolute bg-black" />
-          <div className="w-1.5 h-2.5 left-[22.60px] top-[4px] absolute bg-black" />
-          <div className="w-0.5 h-2.5 left-[30.60px] top-[5px] absolute bg-black" />
-          <div className="w-1.5 h-1.5 left-[32.60px] top-[8px] absolute bg-black" />
-          <div className="w-1.5 h-[4.78px] left-[70.40px] top-[50.03px] absolute bg-[#123293]" />
+        <div className="flex items-center">
+          <div className="text-[#123293] text-2xl font-bold font-['Inter']">smalt</div>
         </div>
 
         <div className="flex justify-end items-center gap-4">
@@ -519,16 +512,7 @@ export default function Home() {
           <div className="w-96 flex flex-col justify-start items-start gap-8">
             <div className="self-stretch flex flex-col justify-start items-start gap-2">
               <div className="flex flex-col justify-start items-start gap-2">
-                <div className="w-36 h-14 relative overflow-hidden">
-                  <div className="w-16 h-7 left-[5.60px] top-[19px] absolute bg-white" />
-                  <div className="w-[5px] h-1.5 left-[5.60px] top-[8px] absolute bg-white" />
-                  <div className="w-1 h-2 left-[11.60px] top-[6px] absolute bg-white" />
-                  <div className="w-1.5 h-1.5 left-[16.60px] top-[8px] absolute bg-white" />
-                  <div className="w-1.5 h-2.5 left-[22.60px] top-[4px] absolute bg-white" />
-                  <div className="w-0.5 h-2.5 left-[30.60px] top-[5px] absolute bg-white" />
-                  <div className="w-1.5 h-1.5 left-[32.60px] top-[8px] absolute bg-white" />
-                  <div className="w-1.5 h-[4.78px] left-[70.40px] top-[50.03px] absolute bg-white" />
-                </div>
+                <div className="text-white text-2xl font-bold font-['Inter']">smalt</div>
               </div>
             </div>
           </div>

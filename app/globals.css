@@ -21,56 +21,6 @@
   --body-regular-m-font-weight: 400;
   --body-regular-m-letter-spacing: 0px;
   --body-regular-m-line-height: 24px;
-  --deprecated-desktop-subtitle-regular-font-family: var(--font-be-vietnam-pro), "Be Vietnam Pro", Helvetica;
-  --deprecated-desktop-subtitle-regular-font-size: 24px;
-  --deprecated-desktop-subtitle-regular-font-style: normal;
-  --deprecated-desktop-subtitle-regular-font-weight: 400;
-  --deprecated-desktop-subtitle-regular-letter-spacing: 0px;
-  --deprecated-desktop-subtitle-regular-line-height: 150%;
-  --primaryprimary-light: rgba(102, 46, 255, 1);
-  --relevant-places-631301-framer-app-inter-medium-font-family: var(--font-inter), "Inter", Helvetica;
-  --relevant-places-631301-framer-app-inter-medium-font-size: 15px;
-  --relevant-places-631301-framer-app-inter-medium-font-style: normal;
-  --relevant-places-631301-framer-app-inter-medium-font-weight: 500;
-  --relevant-places-631301-framer-app-inter-medium-letter-spacing: -0.44999998807907104px;
-  --relevant-places-631301-framer-app-inter-medium-line-height: 22.5px;
-  --relevant-places-631301-framer-app-inter-regular-font-family: var(--font-inter), "Inter", Helvetica;
-  --relevant-places-631301-framer-app-inter-regular-font-size: 18px;
-  --relevant-places-631301-framer-app-inter-regular-font-style: normal;
-  --relevant-places-631301-framer-app-inter-regular-font-weight: 400;
-  --relevant-places-631301-framer-app-inter-regular-letter-spacing: -0.18000000715255737px;
-  --relevant-places-631301-framer-app-inter-regular-line-height: 25.200000762939453px;
-  --relevant-places-631301-framer-app-semantic-heading-2-font-family: "Helvetica Neue", Helvetica;
-  --relevant-places-631301-framer-app-semantic-heading-2-font-size: 48.00001525878906px;
-  --relevant-places-631301-framer-app-semantic-heading-2-font-style: normal;
-  --relevant-places-631301-framer-app-semantic-heading-2-font-weight: 400;
-  --relevant-places-631301-framer-app-semantic-heading-2-letter-spacing: 0px;
-  --relevant-places-631301-framer-app-semantic-heading-2-line-height: 52.79999923706055px;
-  --relevant-places-631301-framer-app-semantic-heading-3-font-family: "Helvetica Neue", Helvetica;
-  --relevant-places-631301-framer-app-semantic-heading-3-font-size: 26px;
-  --relevant-places-631301-framer-app-semantic-heading-3-font-style: normal;
-  --relevant-places-631301-framer-app-semantic-heading-3-font-weight: 400;
-  --relevant-places-631301-framer-app-semantic-heading-3-letter-spacing: -1.0399999618530273px;
-  --relevant-places-631301-framer-app-semantic-heading-3-line-height: 26px;
-  --relevant-places-631301-framer-app-semantic-link-font-family: var(--font-epilogue), "Epilogue", Helvetica;
-  --relevant-places-631301-framer-app-semantic-link-font-size: 16px;
-  --relevant-places-631301-framer-app-semantic-link-font-style: normal;
-  --relevant-places-631301-framer-app-semantic-link-font-weight: 600;
-  --relevant-places-631301-framer-app-semantic-link-letter-spacing: 0px;
-  --relevant-places-631301-framer-app-semantic-link-line-height: 19.200000762939453px;
-  --relevant-places-631301framerappathens-gray: rgba(236, 238, 242, 1);
-  --relevant-places-631301framerappblack: rgba(0, 0, 0, 1);
-  --relevant-places-631301framerappblack-60: rgba(0, 0, 0, 0.6);
-  --relevant-places-631301framerappblack-white: rgba(255, 254, 245, 1);
-  --relevant-places-631301framerappcod-gray: rgba(10, 10, 10, 1);
-  --relevant-places-631301framerappmischka: rgba(213, 217, 226, 1);
-  --relevant-places-631301framerapptorea-bay: rgba(18, 50, 147, 1);
-  --relevant-places-631301framerappwhite: rgba(255, 255, 255, 1);
-  --relevant-places-631301framerappwild-sand: rgba(245, 245, 245, 1);
-  --relevant-places-631301framerappwoodsmoke: rgba(18, 18, 20, 1);
-  --secondarysecondary-light: rgba(196, 77, 255, 1);
-  --tertiarytertiary: rgba(245, 157, 69, 1);
-  --whites-white-12: rgba(255, 255, 255, 0.12);
 }
 
 @layer base {
@@ -163,7 +113,6 @@ html {
 }
 
 /* Add a specific style for buttons to ensure they use Helvetica Neue */
-
 button,
 .button,
 [type="button"],
