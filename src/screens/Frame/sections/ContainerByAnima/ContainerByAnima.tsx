@@ -1,3 +1,5 @@
+import type { JSX } from "@emotion/react"
+
 export const ContainerByAnima = (): JSX.Element => {
   // Footer links data for easy maintenance
   const footerLinks = [
@@ -8,7 +10,9 @@ export const ContainerByAnima = (): JSX.Element => {
 
   return (
     <footer className="flex justify-between items-center w-full px-10 py-8">
-      <div className="relative w-32 h-[67.11px] [background:url(..//link-1.png)_50%_50%_/_cover]" />
+      <div className="flex items-center">
+        <div className="text-[#123293] text-xl font-bold font-['Inter']">smalt</div>
+      </div>
 
       <div className="flex gap-8">
         {footerLinks.map((link, index) => (

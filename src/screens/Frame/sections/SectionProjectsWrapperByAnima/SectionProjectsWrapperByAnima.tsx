@@ -1,6 +1,7 @@
 import { Badge } from "../../../../components/ui/badge"
 import { Button } from "../../../../components/ui/button"
 import { Card, CardContent, CardFooter } from "../../../../components/ui/card"
+import type { JSX } from "react" // Declare JSX variable
 
 export const SectionProjectsWrapperByAnima = (): JSX.Element => {
   // Bio paragraphs data
@@ -55,7 +56,7 @@ export const SectionProjectsWrapperByAnima = (): JSX.Element => {
             J&apos;aime <br />
             travailler avec celles et ceux qui veulent rendre leur{" "}
           </span>
-          <span className="font-medium text-[#0f0f0f] tracking-[-0.12px] leading-[22.1px]">
+          <span className="font-medium text-[#0f0f0f] tracking-[0] leading-[0.1px]">
             communication plus claire, leur produit plus fluide, leur <br />
             idée plus tangible.
           </span>
@@ -85,7 +86,7 @@ export const SectionProjectsWrapperByAnima = (): JSX.Element => {
             {/* "A propos" badge */}
             <Badge className="flex items-center gap-[7px] pl-0.5 pr-2.5 py-0.5 bg-[#f6f7f9] rounded-[25px] text-[#0f0f0f] font-relevant-places-631301-framer-app-inter-medium">
               <div className="inline-flex items-center justify-center p-[9px] bg-relevant-places-631301framerapptorea-bay rounded-[40px]">
-                <img className="w-[11px]" alt="Component" src="/component-1-1.svg" />
+                <img className="w-[11px]" alt="Component" src="/placeholder.svg?height=11&width=11" />
               </div>
               A propos
             </Badge>
@@ -116,7 +117,11 @@ export const SectionProjectsWrapperByAnima = (): JSX.Element => {
                   <div className="absolute w-[91px] top-2.5 left-[43px] [font-family:'Inter',Helvetica] font-normal text-relevant-places-631301framerappblack-white text-[11px] tracking-[0] leading-[15.4px] whitespace-nowrap">
                     Product Designer
                   </div>
-                  <img className="absolute w-[19px] h-[19px] top-2.5 left-3.5" alt="Component" src="/component-1.svg" />
+                  <img
+                    className="absolute w-[19px] h-[19px] top-2.5 left-3.5"
+                    alt="Component"
+                    src="/placeholder.svg?height=19&width=19"
+                  />
                 </div>
               </div>
 
@@ -133,7 +138,11 @@ export const SectionProjectsWrapperByAnima = (): JSX.Element => {
 
                 <div className="flex w-[252.5px] min-h-[30px] items-center relative">
                   <div className="flex w-[30px] h-[30px] items-center justify-center p-px relative bg-[#0000000d] rounded-[5px]">
-                    <img className="relative self-stretch w-7" alt="Component" src="/component-1-4.svg" />
+                    <img
+                      className="relative self-stretch w-7"
+                      alt="Component"
+                      src="/placeholder.svg?height=28&width=28"
+                    />
                   </div>
                 </div>
               </CardContent>

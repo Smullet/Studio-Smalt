@@ -13,7 +13,9 @@ export const Frame = (): JSX.Element => {
     <div className="flex flex-col items-start w-full bg-white">
       <header className="flex w-full items-center justify-center py-4 px-8 sticky top-0 z-10 bg-[#ffffffbf] backdrop-blur-[32px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(32px)_brightness(100%)]">
         <div className="flex w-full max-w-[980px] items-center justify-between">
-          <div className="relative w-32 h-[53px] [background:url(..//link-1.png)_50%_50%_/_cover]" />
+          <div className="flex items-center">
+            <div className="text-[#123293] text-2xl font-bold font-['Inter']">smalt</div>
+          </div>
 
           <div className="flex items-center justify-end gap-4 rounded-[10px] border border-solid border-black">
             <Button

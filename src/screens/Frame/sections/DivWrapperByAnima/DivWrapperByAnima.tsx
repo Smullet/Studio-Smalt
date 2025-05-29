@@ -7,7 +7,7 @@ export const DivWrapperByAnima = (): JSX.Element => {
   const steps = [
     {
       id: 1,
-      icon: "/component-1-2.svg",
+      icon: "/placeholder.svg?height=11&width=11",
       title: "Appel découverte",
       description: [
         "Réservez un appel gratuit de 20 minutes",
@@ -18,7 +18,7 @@ export const DivWrapperByAnima = (): JSX.Element => {
     },
     {
       id: 2,
-      icon: "/component-1-5.svg",
+      icon: "/placeholder.svg?height=11&width=11",
       title: "Devis sur-mesure",
       description: [
         "On démarre sous 5 jours Pas de process complexes,",
@@ -28,7 +28,7 @@ export const DivWrapperByAnima = (): JSX.Element => {
     },
     {
       id: 3,
-      icon: "/component-1-3.svg",
+      icon: "/placeholder.svg?height=11&width=11",
       title: "Démarrage express",
       description: [
         "Un site bien référencé sur les moteurs de recherche",
@@ -75,7 +75,11 @@ export const DivWrapperByAnima = (): JSX.Element => {
 
                   <div className="flex items-start gap-6 relative self-stretch w-full">
                     <div className="flex items-center justify-center p-3 relative bg-relevant-places-631301framerapptorea-bay rounded-[96px]">
-                      <img className="relative self-stretch w-[11px]" alt={`Step ${step.id} icon`} src={step.icon} />
+                      <img
+                        className="relative self-stretch w-[11px]"
+                        alt={`Step ${step.id} icon`}
+                        src={step.icon || "/placeholder.svg"}
+                      />
                       <div className="w-[35px] h-[35px] rounded-[96px] border-neutral-950 absolute top-0 left-0 border border-solid" />
                     </div>
 
