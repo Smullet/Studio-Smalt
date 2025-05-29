@@ -1,573 +1,572 @@
 "use client"
-
-import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 
 export default function Home() {
-  const services = [
-    {
-      title: "Product Design",
-      subtitle: "VOTRE SITE EST-IL VRAIMENT À LA HAUTEUR DE VOS AMBITIONS ?",
-      description:
-        "Audit UX/UI complet, refonte d'interface, optimisation de l'expérience utilisateur pour maximiser vos conversions",
-      features: ["Audit UX/UI", "Wireframing", "Prototypage", "Tests utilisateurs", "Design system"],
-      color: "bg-[#123293]",
-      textColor: "text-white",
-    },
-    {
-      title: "Web Design",
-      subtitle: "VOTRE SITE EST-IL VRAIMENT À LA HAUTEUR DE VOS AMBITIONS ?",
-      description: "Création de sites web sur-mesure, landing pages performantes, refonte complète orientée conversion",
-      features: ["Site vitrine", "E-commerce", "Landing page", "Responsive design", "SEO optimisé"],
-      color: "bg-[#f9d45c]",
-      textColor: "text-black",
-    },
-    {
-      title: "Facilitation",
-      subtitle: "VOTRE SITE EST-IL VRAIMENT À LA HAUTEUR DE VOS AMBITIONS ?",
-      description: "Animation d'ateliers de co-création, facilitation de projets, accompagnement équipes produit",
-      features: ["Ateliers UX", "Design thinking", "Idéation", "Prototypage rapide", "Formation"],
-      color: "bg-[#0f0f0f]",
-      textColor: "text-white",
-    },
-  ]
-
-  const processSteps = [
-    {
-      number: "1",
-      title: "Comprendre",
-      description: "Analyse de vos besoins, audit de l'existant, définition des objectifs et contraintes techniques",
-      color: "bg-white",
-      textColor: "text-black",
-      icon: "🔍",
-    },
-    {
-      number: "2",
-      title: "Concevoir",
-      description:
-        "Idéation, wireframing, prototypage et tests utilisateurs pour valider les concepts avant développement",
-      color: "bg-[#f9d45c]",
-      textColor: "text-black",
-      icon: "💻",
-    },
-    {
-      number: "3",
-      title: "Valider",
-      description: "Tests utilisateurs, itérations, validation des parcours et optimisation continue des performances",
-      color: "bg-[#0f0f0f]",
-      textColor: "text-white",
-      icon: "✓",
-    },
-    {
-      number: "4",
-      title: "Comprendre",
-      description: "Livraison des maquettes finales, accompagnement développement et suivi post-livraison personnalisé",
-      color: "bg-white",
-      textColor: "text-black",
-      icon: "🎯",
-    },
-  ]
-
-  const pricingPlans = [
-    {
-      title: "Product Design",
-      price: "380",
-      period: "/ jour",
-      description: "Conception d'interfaces utilisateur, audit UX/UI complet, prototypage interactif",
-      features: [
-        "Audit UX/UI complet et recommandations",
-        "Wireframing et prototypage interactif",
-        "Tests utilisateurs et itérations",
-        "Design system et guidelines",
-        "Accompagnement développement",
-        "Suivi post-livraison 1 mois",
-        "Formation équipe interne",
-        "Documentation complète",
-      ],
-      color: "border-[#123293]",
-      buttonColor: "bg-[#123293]",
-      dotColor: "text-[#123293]",
-    },
-    {
-      title: "Web Design",
-      price: "700",
-      period: "/ projet",
-      description: "Création de sites web complets, landing pages performantes, refonte orientée conversion",
-      features: [
-        "Site vitrine complet responsive",
-        "Design moderne et sur-mesure",
-        "Optimisation SEO technique",
-        "Intégration CMS au choix",
-        "Formation client complète",
-        "Maintenance incluse 3 mois",
-        "Support technique prioritaire",
-        "Analytics et suivi performance",
-      ],
-      color: "border-[#f9d45c]",
-      buttonColor: "bg-[#f9d45c]",
-      popular: true,
-      dotColor: "text-[#f9d45c]",
-    },
-    {
-      title: "Facilitation",
-      price: "450",
-      period: "/ jour",
-      description: "Animation d'ateliers créatifs, facilitation de projets, formation équipes produit",
-      features: [
-        "Ateliers de co-création sur-mesure",
-        "Méthodes design thinking éprouvées",
-        "Formation équipes aux bonnes pratiques",
-        "Accompagnement projet personnalisé",
-        "Outils et templates fournis",
-        "Suivi et coaching continu",
-        "Rapport détaillé post-atelier",
-        "Recommandations stratégiques",
-      ],
-      color: "border-[#0f0f0f]",
-      buttonColor: "bg-[#0f0f0f]",
-      dotColor: "text-[#0f0f0f]",
-    },
-  ]
-
-  const projects = [
-    {
-      title: "Refonte UX d'une plateforme SaaS",
-      description: "Amélioration de l'expérience utilisateur d'une plateforme de gestion de projets pour startup tech",
-      image: "/placeholder.svg?height=200&width=300",
-      color: "bg-[#123293]",
-    },
-    {
-      title: "Création d'un site e-commerce",
-      description: "Conception et développement d'une boutique en ligne pour une marque de mode éthique",
-      image: "/placeholder.svg?height=200&width=300",
-      color: "bg-[#f9d45c]",
-    },
-    {
-      title: "Design system pour startup",
-      description: "Création d'un système de design complet pour une startup fintech en croissance",
-      image: "/placeholder.svg?height=200&width=300",
-      color: "bg-[#0f0f0f]",
-    },
-  ]
-
   return (
-    <div className="flex flex-col w-full bg-white">
+    <div className="w-full relative bg-white overflow-hidden">
       {/* Header */}
-      <header className="flex w-full items-center justify-between py-6 px-8 bg-white">
-        <div className="flex items-center">
-          <div className="font-studio-smalt">
-            <span className="bg-[#123293] text-white px-3 py-1.5 rounded-md">smalt</span>
+      <header className="w-full px-80 py-6 bg-white rounded-bl-[20px] rounded-br-[20px] shadow-[0px_24px_48px_-12px_rgba(10,13,18,0.18)] flex justify-between items-center fixed top-0 z-50">
+        <div className="w-36 h-14 relative overflow-hidden">
+          <div className="w-16 h-7 left-[5.60px] top-[19px] absolute bg-black" />
+          <div className="w-[5px] h-1.5 left-[5.60px] top-[8px] absolute bg-black" />
+          <div className="w-1 h-2 left-[11.60px] top-[6px] absolute bg-black" />
+          <div className="w-1.5 h-1.5 left-[16.60px] top-[8px] absolute bg-black" />
+          <div className="w-1.5 h-2.5 left-[22.60px] top-[4px] absolute bg-black" />
+          <div className="w-0.5 h-2.5 left-[30.60px] top-[5px] absolute bg-black" />
+          <div className="w-1.5 h-1.5 left-[32.60px] top-[8px] absolute bg-black" />
+          <div className="w-1.5 h-[4.78px] left-[70.40px] top-[50.03px] absolute bg-[#123293]" />
+        </div>
+
+        <div className="flex justify-end items-center gap-4">
+          <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
+            <div className="text-right text-[#191818] text-base font-normal font-['Inter'] leading-tight">
+              Mes projets
+            </div>
+          </div>
+          <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
+            <div className="text-right text-[#191818] text-base font-normal font-['Inter'] leading-tight">
+              Ressources
+            </div>
           </div>
         </div>
 
-        <nav className="flex items-center gap-12">
-          <a href="#" className="font-text-regular-m text-[#191818] hover:text-[#123293] transition-colors">
-            Mes projets
-          </a>
-          <a href="#" className="font-text-regular-m text-[#191818] hover:text-[#123293] transition-colors">
-            Ressources
-          </a>
-        </nav>
-
-        <Button className="bg-[#123293] text-white px-6 py-3 rounded-lg font-text-emphasis-m hover:bg-[#0f2570] transition-colors">
+        <Button className="px-6 py-4 bg-[#123293] rounded-2xl text-white text-base font-bold font-['Inter'] leading-tight">
           Discuter de votre projet
         </Button>
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-[#123293] py-24 px-8 overflow-hidden min-h-[600px] flex items-center">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border-2 border-white/10 rotate-45"></div>
-          <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] border border-white/5 rotate-12"></div>
-        </div>
+      <section className="w-full h-[1148px] pt-28 pb-24 relative bg-[#123293] flex justify-center items-center overflow-hidden">
+        <div className="w-[679.59px] h-[754.89px] absolute right-[200px] top-[419.12px] origin-top-left rotate-[103.80deg] bg-white/10 rounded-sm border-2 border-white/20" />
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <p className="text-white/70 font-text-regular-m uppercase tracking-[0.2em] mb-8">STUDIO DIGITAL</p>
-            <h1 className="font-display-display-XL text-white mb-6 leading-none">Smart</h1>
-            <div className="inline-block bg-white px-8 py-4 rounded-lg transform -rotate-1 shadow-2xl mb-8">
-              <span className="text-[#123293] font-display-display-XL leading-none">Alternative</span>
+        <div className="w-[1284px] px-80 flex flex-col justify-start items-center gap-8 relative z-10">
+          <div className="w-[862px] flex flex-col justify-start items-start gap-5">
+            <div className="self-stretch h-4 text-center text-white text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-loose">
+              Studio digital
             </div>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white/90 font-body-regular-l mb-12 max-w-2xl mx-auto"
-          >
-            Design agile, centré utilisateurs, orienté livraison
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <Button className="bg-[#f9d45c] text-[#123293] px-8 py-4 rounded-lg font-text-emphasis-m hover:bg-[#f7d03c] transition-colors shadow-lg">
-              Discuter de votre projet
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Client Logos */}
-      <section className="py-6 px-8 bg-[#123293] border-t border-white/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between opacity-50">
-            <div className="text-white font-text-regular-m">nestor</div>
-            <div className="text-white font-text-regular-m">monabanq</div>
-            <div className="text-white font-text-regular-m">🍎</div>
-            <div className="text-white font-text-regular-m">Devtrotter</div>
-            <div className="text-white font-text-regular-m">Fresh Sara</div>
-            <div className="text-white font-text-regular-m">Morpland</div>
-            <div className="text-white font-text-regular-m">OVHcloud</div>
-            <div className="text-white font-text-regular-m">meneq</div>
+            <div className="self-stretch px-20 flex flex-col justify-center items-center gap-2.5">
+              <div className="w-96 h-28 text-center text-white text-9xl font-bold font-['Helvetica_Neue'] leading-[142.80px]">
+                Smart
+              </div>
+              <div className="w-[860.78px] h-28 px-2.5 py-1.5 origin-top-left -rotate-1 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(18,18,20,1.00)] flex justify-center items-center gap-2.5">
+                <div className="w-[862.36px] h-32 text-center text-[#123293] text-9xl font-bold font-['Helvetica_Neue'] leading-[142.80px]">
+                  Alternative
+                </div>
+              </div>
+            </div>
           </div>
+          <div className="self-stretch h-7 text-center text-white text-xl font-light font-['Inter'] leading-loose">
+            Design agile, centré utilisateurs, orienté livraison
+          </div>
+          <Button className="px-6 py-4 bg-[#f9d45c] rounded-2xl text-[#123293] text-base font-bold font-['Inter'] leading-tight">
+            Discuter de votre projet
+          </Button>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-8 bg-[#0f0f0f] text-white">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="inline-block bg-[#123293] text-white px-4 py-2 rounded-lg mb-8 font-text-emphasis-m">
-              Studio Smalt
+      <section className="w-full pl-[470px] pr-72 py-24 bg-[#0f0f0f] flex flex-col justify-center items-center">
+        <div className="self-stretch flex flex-col justify-center items-start gap-16">
+          <div className="self-stretch flex flex-col justify-center items-start gap-6">
+            <div className="p-2.5 origin-top-left -rotate-2 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
+              <div className="text-[#123293] text-2xl font-bold font-['Inter'] leading-loose">Studio Smalt</div>
             </div>
-
-            <h2 className="font-display-display-s mb-8 leading-tight">
-              Freelance oui,
-              <br />
-              freestyle non
-            </h2>
-
-            <p className="text-white/90 font-body-regular-l mb-6">
-              Chez Studio Smalt, je ne fais pas de design "au feeling".
-            </p>
-
-            <p className="text-white/80 font-text-regular-l mb-6">
-              Je suis <strong className="text-white font-text-emphasis-m">Salomé Mullet</strong>, freelance en product
-              design, et j'accompagne les équipes produit, tech et marketing dans la création d'interfaces claires,
-              utiles et testées.
-            </p>
-
-            <p className="text-white/80 font-text-regular-l mb-8">
-              Pas de blabla ni de refontes uniquement cosmétiques : chaque mission suit une méthodologie éprouvée, de
-              l'atelier de cadrage jusqu'à la livraison prête à intégrer.
-            </p>
-
-            <div className="mb-8">
-              <p className="text-[#f9d45c] font-text-emphasis-m mb-4">❤️ Mon approche :</p>
-              <ul className="space-y-2 text-white/80 font-text-regular-m">
-                <li>• Structurer vos idées avec vos utilisateurs</li>
-                <li>• Prototyper vite pour tester mieux</li>
-                <li>• Livrer des parcours cohérents, conçus pour durer</li>
-              </ul>
+            <div className="w-[574px] h-32 text-white text-6xl font-black font-['Helvetica_Neue'] leading-[64px]">
+              Freelance oui, freestyle non
             </div>
-
-            <p className="text-white/70 font-text-regular-m italic">En solo, oui — mais avec une rigueur de studio.</p>
-          </motion.div>
+            <div className="w-[587.83px]">
+              <span className="text-white text-xl font-normal font-['Inter'] leading-loose">
+                Chez Studio Smalt, je ne fais pas de design "au feeling".
+                <br />
+                Je suis{" "}
+              </span>
+              <span className="text-white text-xl font-bold font-['Inter'] leading-loose">Salomé Mullet</span>
+              <span className="text-white text-xl font-normal font-['Inter'] leading-loose">
+                , freelance en product design, et j'accompagne les équipes produit, tech et marketing dans la création
+                d'interfaces claires, utiles et testées.
+                <br />
+                Pas de blabla ni de refontes uniquement cosmétiques : <br />
+                chaque mission suit une méthodologie éprouvée, de l'atelier de cadrage jusqu'à la livraison prête à
+                intégrer.
+              </span>
+            </div>
+            <div className="w-[510.70px]">
+              <span className="text-white text-xl font-bold font-['Inter'] leading-loose">
+                🎯 Mon approche :<br />
+              </span>
+              <span className="text-white text-xl font-bold font-['Inter'] leading-loose">
+                Structurer vos idées avec vos utilisateurs
+                <br />
+                Prototyper vite pour tester mieux
+                <br />
+                Livrer des parcours cohérents, conçus pour durer
+              </span>
+            </div>
+            <div className="w-[638px] h-6 text-white text-xl font-bold font-['Inter'] leading-loose">
+              En solo, oui — mais avec une rigueur de studio.
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-20 px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-ttile-title-m text-[#123293] mb-4">Des solutions digitales qui vous</h2>
-            <h2 className="font-ttile-title-m text-[#123293] mb-4">ressemblent,</h2>
-            <h2 className="font-ttile-title-m text-[#123293]">et qui fonctionnent</h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className={`${service.color} ${service.textColor} p-8 rounded-lg`}>
-                  <CardContent className="p-0">
-                    <h3 className="font-text-emphasis-XL mb-2">{service.title}</h3>
-                    <p className="font-text-regular-m opacity-80 mb-4">{service.subtitle}</p>
-                    <p className="font-text-regular-l mb-6 opacity-90">{service.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {service.features.map((feature, idx) => (
-                        <span
-                          key={idx}
-                          className="font-text-regular-m opacity-70 bg-black/10 px-2 py-1 rounded text-xs"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+      <section className="w-full py-24 flex flex-col justify-center items-center">
+        <div className="w-[1046.20px] flex flex-col justify-start items-center gap-12">
+          <div className="self-stretch flex flex-col justify-start items-center gap-5">
+            <div className="p-2.5 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
+              <div className="text-white text-2xl font-bold font-['Inter'] leading-loose">Mes services</div>
+            </div>
+            <div className="self-stretch flex flex-col justify-start items-center gap-5">
+              <div className="self-stretch text-center">
+                <span className="text-neutral-900 text-6xl font-black font-['Helvetica_Neue'] leading-[64px]">
+                  Des solutions digitales qui{" "}
+                </span>
+                <span className="text-[#123293] text-6xl font-black font-['Helvetica_Neue'] leading-[64px]">
+                  vous ressemblent
+                </span>
+                <span className="text-neutral-900 text-6xl font-black font-['Helvetica_Neue'] leading-[64px]">
+                  , <br />
+                  et qui fonctionnent{" "}
+                </span>
+              </div>
+            </div>
+            <div className="self-stretch opacity-70 text-center text-neutral-900 text-lg font-normal font-['Inter'] leading-snug">
+              Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.
+              <br />
+              On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos
+              utilisateurs.
+            </div>
           </div>
 
-          <div className="text-center mt-12">
-            <Button className="bg-[#123293] text-white px-8 py-3 rounded-lg font-text-emphasis-m hover:bg-[#0f2570] transition-colors">
-              Voir mes projets
+          {/* Service Cards */}
+          <div className="flex flex-col gap-8 w-full max-w-[985px]">
+            {/* Product Design Card */}
+            <Card className="p-10 bg-[#123293] rounded-[20px] flex justify-between items-start">
+              <div className="h-52 py-px flex flex-col justify-between items-start">
+                <div className="text-white text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-loose">
+                  VOTRE SITE EST-IL
+                  <br />
+                  VRAIMENT À LA
+                  <br />
+                  HAUTEUR ?
+                </div>
+                <div className="p-2.5 origin-top-left -rotate-2 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
+                  <div className="text-[#123293] text-4xl font-bold font-['Helvetica_Neue'] leading-10">
+                    Product Design
+                  </div>
+                </div>
+              </div>
+              <div className="w-[464px] self-stretch flex flex-col justify-between items-start">
+                <div className="self-stretch opacity-80 text-white text-base font-normal font-['Inter'] leading-tight">
+                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives,
+                  parcours fluides, maquettes testables, design systems…
+                  <br />
+                  Je travaille en collaboration étroite avec vos équipes produit et tech.
+                </div>
+                <div className="self-stretch flex flex-col justify-start items-start gap-2.5">
+                  <div className="self-stretch flex justify-start items-center gap-4 overflow-hidden">
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">UI UX Design</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Design System</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Delivery</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">
+                        Prototype Figma
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-start items-center gap-4 overflow-hidden">
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Discovery</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Design Sprint</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">
+                        Test Utilisateurs
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Web Design Card */}
+            <Card className="p-10 bg-[#f9d45c] rounded-[20px] flex justify-between items-start">
+              <div className="h-52 py-px flex flex-col justify-between items-start">
+                <div className="text-[#191818] text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-loose">
+                  VOTRE SITE EST-IL
+                  <br />
+                  VRAIMENT À LA
+                  <br />
+                  HAUTEUR ?
+                </div>
+                <div className="p-2.5 origin-top-left -rotate-2 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
+                  <div className="text-[#123293] text-4xl font-bold font-['Helvetica_Neue'] leading-10">Web Design</div>
+                </div>
+              </div>
+              <div className="w-[464px] self-stretch flex flex-col justify-between items-start">
+                <div className="self-stretch opacity-80 text-[#191818] text-base font-normal font-['Inter'] leading-tight">
+                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives,
+                  parcours fluides, maquettes testables, design systems…
+                  <br />
+                  Je travaille en collaboration étroite avec vos équipes produit et tech.
+                </div>
+                <div className="self-stretch flex flex-col justify-start items-start gap-2.5">
+                  <div className="self-stretch flex justify-start items-center gap-4 overflow-hidden">
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
+                      </div>
+                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
+                        UI UX Design
+                      </div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
+                      </div>
+                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
+                        Design System
+                      </div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
+                      </div>
+                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">Delivery</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
+                      </div>
+                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
+                        Prototype Figma
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-start items-center gap-4 overflow-hidden">
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
+                      </div>
+                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">Discovery</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
+                      </div>
+                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
+                        Design Sprint
+                      </div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
+                      </div>
+                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
+                        Test Utilisateurs
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Facilitation Card */}
+            <Card className="p-10 bg-[#0f0f0f] rounded-[20px] flex justify-between items-start">
+              <div className="h-52 py-px flex flex-col justify-between items-start">
+                <div className="text-white text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-loose">
+                  VOTRE SITE EST-IL
+                  <br />
+                  VRAIMENT À LA
+                  <br />
+                  HAUTEUR ?
+                </div>
+                <div className="p-2.5 origin-top-left -rotate-2 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
+                  <div className="text-[#123293] text-4xl font-bold font-['Helvetica_Neue'] leading-10">
+                    Facilitation
+                  </div>
+                </div>
+              </div>
+              <div className="w-[464px] self-stretch flex flex-col justify-between items-start">
+                <div className="self-stretch opacity-80 text-white text-base font-normal font-['Inter'] leading-tight">
+                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives,
+                  parcours fluides, maquettes testables, design systems…
+                  <br />
+                  Je travaille en collaboration étroite avec vos équipes produit et tech.
+                </div>
+                <div className="self-stretch flex flex-col justify-start items-start gap-2.5">
+                  <div className="self-stretch flex justify-start items-center gap-4 overflow-hidden">
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">UI UX Design</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Design System</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Delivery</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">
+                        Prototype Figma
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-start items-center gap-4 overflow-hidden">
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Discovery</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Design Sprint</div>
+                    </div>
+                    <div className="rounded-[40px] flex justify-start items-center gap-1.5 overflow-hidden">
+                      <div className="w-3 h-3 relative overflow-hidden">
+                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
+                      </div>
+                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">
+                        Test Utilisateurs
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          <div className="flex flex-col justify-start items-center gap-6">
+            <Button className="self-stretch px-6 py-4 bg-[#123293] rounded-2xl text-white text-base font-bold font-['Inter'] leading-tight">
+              Discuter de votre projet
             </Button>
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-8 bg-[#123293] text-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-ttile-title-m mb-4">Une approche agile, simple</h2>
-            <h2 className="font-ttile-title-m">et humaine</h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className={`${step.color} ${step.textColor} p-8 rounded-lg h-full`}>
-                  <CardContent className="p-0">
-                    <div className="flex items-center mb-4">
-                      <span className="font-display-display-s mr-4">{step.number}</span>
-                      <h3 className="font-text-emphasis-XL">{step.title}</h3>
-                    </div>
-                    <p className="font-text-regular-l opacity-80">{step.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+      <section className="w-full py-24 bg-[#123293] flex flex-col justify-center items-center gap-12">
+        <div className="w-[1046.20px] flex flex-col justify-start items-center gap-12">
+          <div className="self-stretch flex flex-col justify-start items-center gap-5">
+            <div className="self-stretch text-center text-white text-6xl font-black font-['Helvetica_Neue'] leading-[64px]">
+              Une approche agile, simple et humaine
+            </div>
+            <div className="self-stretch opacity-70 text-center text-white text-lg font-normal font-['Inter'] leading-snug">
+              Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.
+              <br />
+              On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos
+              utilisateurs.
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Pricing Section */}
-      <section className="py-20 px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-ttile-title-m text-[#123293] mb-4">Des offres claires,</h2>
-            <h2 className="font-ttile-title-m text-[#123293]">des tarifs justes</h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {pricingPlans.map((plan, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card
-                  className={`border-2 ${plan.color} p-8 rounded-lg h-full relative ${plan.popular ? "ring-2 ring-[#f9d45c]" : ""}`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#f9d45c] text-black px-4 py-1 rounded-full font-text-emphasis-m">
-                      Populaire
-                    </div>
-                  )}
-                  <CardContent className="p-0">
-                    <h3 className="font-text-emphasis-XL mb-2">{plan.title}</h3>
-                    <div className="mb-4">
-                      <span className="font-display-display-s">{plan.price}</span>
-                      <span className="font-text-regular-l opacity-70">{plan.period}</span>
-                    </div>
-                    <p className="font-text-regular-l opacity-80 mb-6">{plan.description}</p>
-                    <ul className="space-y-3 mb-8">
-                      {plan.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center font-text-regular-m">
-                          <span className={`${plan.dotColor} mr-2`}>•</span>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      className={`w-full ${plan.buttonColor} text-white py-3 rounded-lg font-text-emphasis-m hover:opacity-90 transition-opacity`}
-                    >
-                      Choisir cette offre
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Section */}
-      <section className="py-20 px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-ttile-title-m text-[#123293]">Parlons de votre projet</h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className={`${project.color} text-white p-6 rounded-lg h-full`}>
-                  <CardContent className="p-0">
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      className="w-full h-32 object-cover rounded mb-4"
-                    />
-                    <h3 className="font-text-emphasis-m mb-2">{project.title}</h3>
-                    <p className="font-text-regular-l opacity-80">{project.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button className="bg-[#123293] text-white px-8 py-3 rounded-lg font-text-emphasis-m hover:bg-[#0f2570] transition-colors">
-              Voir tous mes projets
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Section */}
-      <section className="py-20 px-8 bg-[#0f0f0f] text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="font-ttile-title-m mb-12">POURQUOI CHOISIR STUDIO SMALT ?</h3>
-
-              <div className="space-y-8">
-                <div className="flex items-start gap-4">
-                  <span className="text-green-400 text-lg mt-1">✅</span>
-                  <div>
-                    <p className="font-text-emphasis-m text-white mb-2">Expertise produit et UX/UI :</p>
-                    <p className="text-white/70 font-text-regular-l">
-                      de l'idée au produit fini, en passant par des ateliers de cadrage, des tests utilisateurs et des
-                      itérations rapides.
-                    </p>
+        <div className="flex justify-start items-start gap-6">
+          <Card className="max-h-[461px] min-h-[461px] px-8 py-10 bg-white rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-12">
+            <div className="w-40 h-40 relative">
+              <img className="w-40 h-40 left-0 top-0 absolute" src="/placeholder.svg?height=157&width=164" />
+            </div>
+            <div className="flex justify-start items-start gap-12">
+              <div className="text-[#191818] text-8xl font-black font-['Helvetica_Neue'] leading-[114px]">1</div>
+              <div className="flex flex-col justify-start items-start gap-5">
+                <div className="flex justify-center items-center gap-2.5">
+                  <div className="text-neutral-900 text-3xl font-bold font-['Helvetica_Neue'] leading-9">
+                    Comprendre
                   </div>
                 </div>
-
-                <div className="flex items-start gap-4">
-                  <span className="text-green-400 text-lg mt-1">✅</span>
-                  <div>
-                    <p className="font-text-emphasis-m text-white mb-2">Approche agile et humaine :</p>
-                    <p className="text-white/70 font-text-regular-l">
-                      nous travaillons main dans la main avec vos équipes pour co-construire des solutions qui répondent
-                      à vos enjeux business et utilisateurs.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <span className="text-green-400 text-lg mt-1">✅</span>
-                  <div>
-                    <p className="font-text-emphasis-m text-white mb-2">Transparence et réactivité :</p>
-                    <p className="text-white/70 font-text-regular-l">
-                      devis sous 24h, planning clair, livrables concrets, accompagnement sur-mesure.
-                    </p>
-                  </div>
+                <div className="w-80 text-[#191818] text-base font-normal font-['Inter'] leading-tight">
+                  À travers des ateliers collaboratifs, des
+                  <br />
+                  interviews ciblées ou une observation
+                  <br />
+                  de vosusages terrain, je m'attache à<br />
+                  comprendre vos objectifs, vos
+                  <br />
+                  contraintes, mais surtout vos
+                  <br />
+                  utilisateurs.
                 </div>
               </div>
-            </motion.div>
+            </div>
+          </Card>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <img
-                src="/placeholder.svg?height=400&width=500"
-                alt="Équipe en atelier collaboratif"
-                className="rounded-xl w-full h-auto shadow-2xl"
-              />
-            </motion.div>
-          </div>
+          <Card className="max-h-[461px] min-h-[461px] px-8 py-10 bg-[#f9d45c] rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-12">
+            <div className="w-52 h-40 relative">
+              <img className="w-52 h-40 left-0 top-0 absolute" src="/placeholder.svg?height=155&width=203" />
+            </div>
+            <div className="flex justify-start items-start gap-12">
+              <div className="text-[#191818] text-8xl font-black font-['Helvetica_Neue'] leading-[114px]">2</div>
+              <div className="flex flex-col justify-start items-start gap-5">
+                <div className="flex justify-center items-center gap-2.5">
+                  <div className="text-neutral-900 text-3xl font-bold font-['Helvetica_Neue'] leading-9">Concevoir</div>
+                </div>
+                <div className="w-80 text-neutral-900 text-base font-normal font-['Inter'] leading-tight">
+                  Une fois les besoins clarifiés, je passe à<br />
+                  la conception. Je traduis les idées en
+                  <br />
+                  parcours, puis en interfaces, à travers
+                  <br />
+                  des wireframes, des maquettes
+                  <br />
+                  interactives et un design UI soigné.
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        <div className="flex justify-start items-start gap-6">
+          <Card className="max-h-[461px] min-h-[461px] px-8 py-10 bg-[#0f0f0f] rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-12">
+            <img className="w-32 h-40" src="/placeholder.svg?height=157&width=129" />
+            <div className="flex justify-start items-start gap-12">
+              <div className="text-white text-8xl font-black font-['Helvetica_Neue'] leading-[114px]">3</div>
+              <div className="flex flex-col justify-start items-start gap-5">
+                <div className="flex justify-center items-center gap-2.5">
+                  <div className="text-white text-3xl font-bold font-['Helvetica_Neue'] leading-9">Valider</div>
+                </div>
+                <div className="w-80 text-white text-base font-normal font-['Inter'] leading-tight">
+                  Grâce à des retours utilisateurs
+                  <br />
+                  concrets et des itérations rapides, je
+                  <br />
+                  valide chaque étape avec vous pour
+                  <br />
+                  m'assurer que le produit répond
+                  <br />
+                  vraiment à vos enjeux et ceux de vos
+                  <br />
+                  utilisateurs.
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="max-h-[461px] min-h-[461px] px-8 py-10 bg-white rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-12">
+            <div className="w-44 h-36 relative">
+              <img className="w-44 h-36 left-0 top-0 absolute" src="/placeholder.svg?height=144&width=173" />
+            </div>
+            <div className="flex justify-start items-start gap-12">
+              <div className="text-[#191818] text-8xl font-black font-['Helvetica_Neue'] leading-[114px]">4</div>
+              <div className="flex flex-col justify-start items-start gap-5">
+                <div className="flex justify-center items-center gap-2.5">
+                  <div className="text-neutral-900 text-3xl font-bold font-['Helvetica_Neue'] leading-9">Livrer</div>
+                </div>
+                <div className="w-80 text-[#191818] text-base font-normal font-['Inter'] leading-tight">
+                  Enfin, je vous remets un livrable propre,
+                  <br />
+                  structuré et prêt à l'usage. Que ce soit
+                  <br />
+                  un design finalisé prêt à être développé,
+                  <br />
+                  un design system complet, ou un site
+                  <br />
+                  Web mis en ligne sur une plateforme
+                  <br />
+                  no-code.
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-16 px-8 bg-[#0f0f0f] text-white border-t border-white/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
-            <div className="flex items-center">
-              <div className="font-studio-smalt">
-                <span className="bg-[#123293] text-white px-3 py-1.5 rounded-md">smalt</span>
+      <footer className="w-full py-12 bg-[#0f0f0f] flex flex-col justify-center items-center gap-2">
+        <div className="w-[1200px] px-6 flex justify-start items-start gap-6">
+          <div className="w-96 flex flex-col justify-start items-start gap-8">
+            <div className="self-stretch flex flex-col justify-start items-start gap-2">
+              <div className="flex flex-col justify-start items-start gap-2">
+                <div className="w-36 h-14 relative overflow-hidden">
+                  <div className="w-16 h-7 left-[5.60px] top-[19px] absolute bg-white" />
+                  <div className="w-[5px] h-1.5 left-[5.60px] top-[8px] absolute bg-white" />
+                  <div className="w-1 h-2 left-[11.60px] top-[6px] absolute bg-white" />
+                  <div className="w-1.5 h-1.5 left-[16.60px] top-[8px] absolute bg-white" />
+                  <div className="w-1.5 h-2.5 left-[22.60px] top-[4px] absolute bg-white" />
+                  <div className="w-0.5 h-2.5 left-[30.60px] top-[5px] absolute bg-white" />
+                  <div className="w-1.5 h-1.5 left-[32.60px] top-[8px] absolute bg-white" />
+                  <div className="w-1.5 h-[4.78px] left-[70.40px] top-[50.03px] absolute bg-white" />
+                </div>
               </div>
             </div>
+          </div>
 
-            <div className="flex flex-col lg:flex-row gap-16">
-              <div className="flex flex-col gap-4">
-                <a href="#" className="text-white/70 hover:text-white transition-colors font-text-regular-m">
+          <div className="flex-1 flex flex-col justify-start items-start gap-2">
+            <div className="flex justify-start items-center gap-4">
+              <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
+                <div className="text-right text-white/70 text-base font-normal font-['Inter'] leading-tight">
                   Mes projets
-                </a>
-                <a href="#" className="text-white/70 hover:text-white transition-colors font-text-regular-m">
-                  Ressources
-                </a>
-                <a href="#" className="text-white/70 hover:text-white transition-colors font-text-regular-m">
-                  Mentions légales
-                </a>
+                </div>
               </div>
+            </div>
+            <div className="flex justify-start items-center gap-4">
+              <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
+                <div className="text-right text-white/70 text-base font-normal font-['Inter'] leading-tight">
+                  Ressources
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-start items-center gap-4">
+              <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
+                <div className="text-right text-white/70 text-base font-normal font-['Inter'] leading-tight">
+                  Mentions légales
+                </div>
+              </div>
+            </div>
+          </div>
 
-              <div className="flex flex-col gap-2 text-sm text-white/50 font-text-regular-m">
-                <p>Incubée à la BGE</p>
-                <p>9, Rue Denis Papin</p>
-                <p>Business Pôle Les Prés,</p>
-                <p>59650 Villeneuve d'Ascq</p>
+          <div className="flex-1 self-stretch flex flex-col justify-between items-start">
+            <div className="self-stretch h-20 flex flex-col justify-start items-start gap-2">
+              <div className="self-stretch text-white/75 text-lg font-normal font-['Inter'] leading-snug">
+                Incubée à la BGE
+                <br />
+                8, Rue Denis Papin
+                <br />
+                Business Pôle Les Prés,
+                <br />
+                59650 Villeneuve-d'Ascq
               </div>
             </div>
           </div>
