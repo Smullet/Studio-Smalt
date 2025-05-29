@@ -1,29 +1,14 @@
-import type { Config } from "tailwindcss"
-
-const config: Config = {
+module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{html,js,ts,jsx,tsx}",
+    "app/**/*.{ts,tsx}",
+    "components/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        "primaryprimary-light": "var(--primaryprimary-light)",
-        "relevant-places-631301framerappathens-gray": "var(--relevant-places-631301framerappathens-gray)",
-        "relevant-places-631301framerappblack": "var(--relevant-places-631301framerappblack)",
-        "relevant-places-631301framerappblack-60": "var(--relevant-places-631301framerappblack-60)",
-        "relevant-places-631301framerappblack-white": "var(--relevant-places-631301framerappblack-white)",
-        "relevant-places-631301framerappcod-gray": "var(--relevant-places-631301framerappcod-gray)",
-        "relevant-places-631301framerappmischka": "var(--relevant-places-631301framerappmischka)",
-        "relevant-places-631301framerapptorea-bay": "var(--relevant-places-631301framerapptorea-bay)",
-        "relevant-places-631301framerappwhite": "var(--relevant-places-631301framerappwhite)",
-        "relevant-places-631301framerappwild-sand": "var(--relevant-places-631301framerappwild-sand)",
-        "relevant-places-631301framerappwoodsmoke": "var(--relevant-places-631301framerappwoodsmoke)",
-        "secondarysecondary-light": "var(--secondarysecondary-light)",
-        tertiarytertiary: "var(--tertiarytertiary)",
-        "whites-white-12": "var(--whites-white-12)",
+        "whites-white-75": "var(--whites-white-75)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -59,28 +44,26 @@ const config: Config = {
         },
       },
       fontFamily: {
-        "body-emphasis-m": "var(--body-emphasis-m-font-family)",
-        "body-regular-m": "var(--body-regular-m-font-family)",
-        "deprecated-desktop-subtitle-regular": "var(--deprecated-desktop-subtitle-regular-font-family)",
-        "relevant-places-631301-framer-app-inter-medium":
-          "var(--relevant-places-631301-framer-app-inter-medium-font-family)",
-        "relevant-places-631301-framer-app-inter-regular":
-          "var(--relevant-places-631301-framer-app-inter-regular-font-family)",
-        "relevant-places-631301-framer-app-semantic-heading-2":
-          "var(--relevant-places-631301-framer-app-semantic-heading-2-font-family)",
-        "relevant-places-631301-framer-app-semantic-heading-3":
-          "var(--relevant-places-631301-framer-app-semantic-heading-3-font-family)",
-        "relevant-places-631301-framer-app-semantic-link":
-          "var(--relevant-places-631301-framer-app-semantic-link-font-family)",
+        "body-regular-l": "var(--body-regular-l-font-family)",
+        "display-display-s": "var(--display-display-s-font-family)",
+        "display-display-XL": "var(--display-display-XL-font-family)",
+        "studio-smalt": "var(--studio-smalt-font-family)",
+        "text-emphasis-m": "var(--text-emphasis-m-font-family)",
+        "text-emphasis-XL": "var(--text-emphasis-XL-font-family)",
+        "text-regular-l": "var(--text-regular-l-font-family)",
+        "text-regular-m": "var(--text-regular-m-font-family)",
+        "ttile-title-m": "var(--ttile-title-m-font-family)",
         sans: [
-          "var(--font-inter)",
-          "var(--font-be-vietnam-pro)",
-          "var(--font-epilogue)",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"',
         ],
       },
+      boxShadow: { "shadow-2xl": "var(--shadow-2xl)" },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -106,5 +89,3 @@ const config: Config = {
   plugins: [],
   darkMode: ["class"],
 }
-
-export default config

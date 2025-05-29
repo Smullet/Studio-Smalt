@@ -1,145 +1,110 @@
-@tailwind components;
-@tailwind utilities;
-
-@layer components {
-  .all-\[unset\] {
-    all: unset;
-  }
-}
-
-:root {
-  --body-emphasis-m-font-family: "Be Vietnam Pro", Helvetica;
-  --body-emphasis-m-font-size: 16px;
-  --body-emphasis-m-font-style: normal;
-  --body-emphasis-m-font-weight: 600;
-  --body-emphasis-m-letter-spacing: 0px;
-  --body-emphasis-m-line-height: 24px;
-  --body-regular-m-font-family: "Be Vietnam Pro", Helvetica;
-  --body-regular-m-font-size: 16px;
-  --body-regular-m-font-style: normal;
-  --body-regular-m-font-weight: 400;
-  --body-regular-m-letter-spacing: 0px;
-  --body-regular-m-line-height: 24px;
-  --deprecated-desktop-subtitle-regular-font-family: "Be Vietnam Pro", Helvetica;
-  --deprecated-desktop-subtitle-regular-font-size: 24px;
-  --deprecated-desktop-subtitle-regular-font-style: normal;
-  --deprecated-desktop-subtitle-regular-font-weight: 400;
-  --deprecated-desktop-subtitle-regular-letter-spacing: 0px;
-  --deprecated-desktop-subtitle-regular-line-height: 150%;
-  --primaryprimary-light: rgba(102, 46, 255, 1);
-  --relevant-places-631301-framer-app-inter-medium-font-family: "Inter", Helvetica;
-  --relevant-places-631301-framer-app-inter-medium-font-size: 15px;
-  --relevant-places-631301-framer-app-inter-medium-font-style: normal;
-  --relevant-places-631301-framer-app-inter-medium-font-weight: 500;
-  --relevant-places-631301-framer-app-inter-medium-letter-spacing: -0.44999998807907104px;
-  --relevant-places-631301-framer-app-inter-medium-line-height: 22.5px;
-  --relevant-places-631301-framer-app-inter-regular-font-family: "Inter", Helvetica;
-  --relevant-places-631301-framer-app-inter-regular-font-size: 18px;
-  --relevant-places-631301-framer-app-inter-regular-font-style: normal;
-  --relevant-places-631301-framer-app-inter-regular-font-weight: 400;
-  --relevant-places-631301-framer-app-inter-regular-letter-spacing: -0.18000000715255737px;
-  --relevant-places-631301-framer-app-inter-regular-line-height: 25.200000762939453px;
-  --relevant-places-631301-framer-app-semantic-heading-2-font-family: "Helvetica Neue", Helvetica;
-  --relevant-places-631301-framer-app-semantic-heading-2-font-size: 48.00001525878906px;
-  --relevant-places-631301-framer-app-semantic-heading-2-font-style: normal;
-  --relevant-places-631301-framer-app-semantic-heading-2-font-weight: 400;
-  --relevant-places-631301-framer-app-semantic-heading-2-letter-spacing: 0px;
-  --relevant-places-631301-framer-app-semantic-heading-2-line-height: 52.79999923706055px;
-  --relevant-places-631301-framer-app-semantic-heading-3-font-family: "Helvetica Neue", Helvetica;
-  --relevant-places-631301-framer-app-semantic-heading-3-font-size: 26px;
-  --relevant-places-631301-framer-app-semantic-heading-3-font-style: normal;
-  --relevant-places-631301-framer-app-semantic-heading-3-font-weight: 400;
-  --relevant-places-631301-framer-app-semantic-heading-3-letter-spacing: -1.0399999618530273px;
-  --relevant-places-631301-framer-app-semantic-heading-3-line-height: 26px;
-  --relevant-places-631301-framer-app-semantic-link-font-family: "Epilogue", Helvetica;
-  --relevant-places-631301-framer-app-semantic-link-font-size: 16px;
-  --relevant-places-631301-framer-app-semantic-link-font-style: normal;
-  --relevant-places-631301-framer-app-semantic-link-font-weight: 600;
-  --relevant-places-631301-framer-app-semantic-link-letter-spacing: 0px;
-  --relevant-places-631301-framer-app-semantic-link-line-height: 19.200000762939453px;
-  --relevant-places-631301framerappathens-gray: rgba(236, 238, 242, 1);
-  --relevant-places-631301framerappblack: rgba(0, 0, 0, 1);
-  --relevant-places-631301framerappblack-60: rgba(0, 0, 0, 0.6);
-  --relevant-places-631301framerappblack-white: rgba(255, 254, 245, 1);
-  --relevant-places-631301framerappcod-gray: rgba(10, 10, 10, 1);
-  --relevant-places-631301framerappmischka: rgba(213, 217, 226, 1);
-  --relevant-places-631301framerapptorea-bay: rgba(18, 50, 147, 1);
-  --relevant-places-631301framerappwhite: rgba(255, 255, 255, 1);
-  --relevant-places-631301framerappwild-sand: rgba(245, 245, 245, 1);
-  --relevant-places-631301framerappwoodsmoke: rgba(18, 18, 20, 1);
-  --secondarysecondary-light: rgba(196, 77, 255, 1);
-  --tertiarytertiary: rgba(245, 157, 69, 1);
-  --whites-white-12: rgba(255, 255, 255, 0.12);
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --body-regular-l-font-family: "Inter", Helvetica;
+  --body-regular-l-font-size: 18px;
+  --body-regular-l-font-style: normal;
+  --body-regular-l-font-weight: 400;
+  --body-regular-l-letter-spacing: 0px;
+  --body-regular-l-line-height: 26px;
+  --display-display-s-font-family: "Helvetica Neue", Helvetica;
+  --display-display-s-font-size: 61px;
+  --display-display-s-font-style: normal;
+  --display-display-s-font-weight: 900;
+  --display-display-s-letter-spacing: -2.44px;
+  --display-display-s-line-height: 64px;
+  --display-display-XL-font-family: "Helvetica Neue", Helvetica;
+  --display-display-XL-font-size: 119px;
+  --display-display-XL-font-style: normal;
+  --display-display-XL-font-weight: 700;
+  --display-display-XL-letter-spacing: -2.38px;
+  --display-display-XL-line-height: 120.00000762939453%;
+  --shadow-2xl: 0px 24px 48px -12px rgba(10, 13, 18, 0.18);
+  --studio-smalt-font-family: "Inter", Helvetica;
+  --studio-smalt-font-size: 27px;
+  --studio-smalt-font-style: normal;
+  --studio-smalt-font-weight: 700;
+  --studio-smalt-letter-spacing: -1.0800000429153445px;
+  --studio-smalt-line-height: 32.400001525878906px;
+  --text-emphasis-m-font-family: "Inter", Helvetica;
+  --text-emphasis-m-font-size: 16px;
+  --text-emphasis-m-font-style: normal;
+  --text-emphasis-m-font-weight: 700;
+  --text-emphasis-m-letter-spacing: 0px;
+  --text-emphasis-m-line-height: 120.00000762939453%;
+  --text-emphasis-XL-font-family: "Inter", Helvetica;
+  --text-emphasis-XL-font-size: 20px;
+  --text-emphasis-XL-font-style: normal;
+  --text-emphasis-XL-font-weight: 700;
+  --text-emphasis-XL-letter-spacing: 0px;
+  --text-emphasis-XL-line-height: 32px;
+  --text-regular-l-font-family: "Inter", Helvetica;
+  --text-regular-l-font-size: 18px;
+  --text-regular-l-font-style: normal;
+  --text-regular-l-font-weight: 400;
+  --text-regular-l-letter-spacing: 0px;
+  --text-regular-l-line-height: 120.00000762939453%;
+  --text-regular-m-font-family: "Inter", Helvetica;
+  --text-regular-m-font-size: 16px;
+  --text-regular-m-font-style: normal;
+  --text-regular-m-font-weight: 400;
+  --text-regular-m-letter-spacing: 0px;
+  --text-regular-m-line-height: 120.00000762939453%;
+  --ttile-title-m-font-family: "Helvetica Neue", Helvetica;
+  --ttile-title-m-font-size: 25px;
+  --ttile-title-m-font-style: normal;
+  --ttile-title-m-font-weight: 700;
+  --ttile-title-m-letter-spacing: 0px;
+  --ttile-title-m-line-height: 120.00000762939453%;
+  --whites-white-75: rgba(255, 255, 255, 0.75);
+}
 
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-
     --card: transparent;
     --card-foreground: 222.2 47.4% 11.2%;
-
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
-
     --ring: 215 20.2% 65.1%;
-
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 224 71% 4%;
     --foreground: 213 31% 91%;
-
     --muted: 223 47% 11%;
     --muted-foreground: 215.4 16.3% 56.9%;
-
     --accent: 216 34% 17%;
     --accent-foreground: 210 40% 98%;
-
     --popover: 224 71% 4%;
     --popover-foreground: 215 20.2% 65.1%;
-
     --border: 216 34% 17%;
     --input: 216 34% 17%;
-
     --card: transparent;
     --card-foreground: 213 31% 91%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 1.2%;
-
     --secondary: 222.2 47.4% 11.2%;
     --secondary-foreground: 210 40% 98%;
-
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-
     --ring: 216 34% 17%;
-
     --radius: 0.5rem;
   }
 }
@@ -152,5 +117,11 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
   }
 }
