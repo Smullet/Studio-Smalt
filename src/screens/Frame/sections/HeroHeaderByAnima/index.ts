@@ -1,0 +1,1 @@
+export { HeroHeaderByAnima } from "./HeroHeaderByAnima"
