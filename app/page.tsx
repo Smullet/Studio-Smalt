@@ -766,8 +766,8 @@ export default function Home() {
             <Card className="w-full min-h-96 p-3 bg-[#123293] rounded-xl flex flex-col justify-start items-center gap-4">
               <img
                 className="w-full h-52 rounded-md object-cover"
-                src="/placeholder.svg?height=204&width=327&text=Project+Discussion"
-                alt=""
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Call-5drVA2MdTaS3HrMZMU6Y9JXBMk9dFT.png"
+                alt="Appel vidéo de consultation"
               />
               <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
                 Parlez-moi de votre projet
@@ -781,8 +781,8 @@ export default function Home() {
             <Card className="w-full min-h-96 p-3 bg-[#f9d45c] rounded-xl flex flex-col justify-start items-center gap-4">
               <img
                 className="w-full h-52 rounded-md object-cover"
-                src="/placeholder.svg?height=204&width=327&text=Detailed+Proposal"
-                alt=""
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/proposition-CNe9enbmJ40w4YwGMgyIRtk5bdPJTr.png"
+                alt="Document de proposition de design produit"
               />
               <div className="w-full text-center text-[#191818] text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
                 Recevez une proposition détaillée et sur-mesure
@@ -795,8 +795,8 @@ export default function Home() {
             <Card className="w-full min-h-96 p-3 bg-[#0f0f0f] rounded-xl flex flex-col justify-start items-center gap-4">
               <img
                 className="w-full h-52 rounded-md object-cover"
-                src="/placeholder.svg?height=204&width=327&text=Quick+Start"
-                alt=""
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
+                alt="Création de projet sur tableau blanc"
               />
               <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
                 Démarrez rapidement
