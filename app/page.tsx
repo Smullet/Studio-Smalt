@@ -8,29 +8,23 @@ export default function Home() {
   return (
     <div className="w-full relative bg-white overflow-hidden">
       {/* Header - Responsive */}
-      <header className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-80 py-4 sm:py-6 bg-white rounded-bl-[20px] rounded-br-[20px] shadow-[0px_24px_48px_-12px_rgba(10,13,18,0.18)] flex justify-between items-center fixed top-0 z-50">
-        <div className="flex items-center">
-          <div className="text-[#123293] text-xl sm:text-2xl font-bold font-['Inter']">smalt</div>
-        </div>
+      <header className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-80 py-6 bg-white shadow-[0px_24px_48px_-12px_rgba(10,13,18,0.18)] flex justify-between items-center fixed top-0 z-50">
+        <div className="text-2xl font-bold text-[#123293]">smalt</div>
 
         {/* Navigation - Hidden on mobile, visible on larger screens */}
-        <div className="hidden md:flex justify-end items-center gap-4">
-          <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
-            <div className="text-right text-[#191818] text-sm lg:text-base font-normal font-['Inter'] leading-tight">
-              Mes projets
-            </div>
-          </div>
-          <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
-            <div className="text-right text-[#191818] text-sm lg:text-base font-normal font-['Inter'] leading-tight">
-              Ressources
-            </div>
-          </div>
-        </div>
+        <nav className="hidden md:flex space-x-6">
+          <a href="#projets" className="text-gray-800 hover:text-[#123293] transition-colors">
+            Mes projets
+          </a>
+          <a href="#ressources" className="text-gray-800 hover:text-[#123293] transition-colors">
+            Ressources
+          </a>
+        </nav>
 
-        <Button className="px-3 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 bg-[#123293] rounded-xl sm:rounded-2xl text-white text-sm sm:text-base font-bold font-['Inter'] leading-tight">
+        <a href="#contact" className="bg-[#123293] text-white px-4 py-2 rounded-xl hover:bg-blue-900 transition-colors">
           <span className="hidden sm:inline">Discuter de votre projet</span>
           <span className="sm:hidden">Contact</span>
-        </Button>
+        </a>
       </header>
 
       {/* Hero Section - Already responsive with HeroHeader component */}
