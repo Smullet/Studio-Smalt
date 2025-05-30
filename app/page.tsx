@@ -39,7 +39,7 @@ export default function Home() {
                 Studio Smalt
               </div>
             </div>
-            <div className="w-full text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-['Helvetica_Neue'] leading-tight sm:leading-[64px]">
+            <div className="w-full text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-['Helvetica_Neue-Black',Helvetica] leading-tight sm:leading-[64px]">
               Freelance oui, freestyle non
             </div>
             <div className="w-full">
@@ -385,7 +385,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-white rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
               <div className="w-32 sm:w-40 h-32 sm:h-40 relative">
-                <img className="w-full h-full object-contain" src="/placeholder.svg?height=157&width=164" />
+                <img className="w-full h-full object-contain" src="/placeholder.svg?height=157&width=164" alt="" />
               </div>
               <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
                 <div className="text-[#191818] text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
@@ -415,7 +415,7 @@ export default function Home() {
 
             <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-[#f9d45c] rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
               <div className="w-40 sm:w-52 h-32 sm:h-40 relative">
-                <img className="w-full h-full object-contain" src="/placeholder.svg?height=155&width=203" />
+                <img className="w-full h-full object-contain" src="/placeholder.svg?height=155&width=203" alt="" />
               </div>
               <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
                 <div className="text-[#191818] text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
@@ -444,7 +444,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-[#0f0f0f] rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
-              <img className="w-24 sm:w-32 h-32 sm:h-40 object-contain" src="/placeholder.svg?height=157&width=129" />
+              <img
+                className="w-24 sm:w-32 h-32 sm:h-40 object-contain"
+                src="/placeholder.svg?height=157&width=129"
+                alt=""
+              />
               <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
                 <div className="text-white text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
                   3
@@ -474,7 +478,7 @@ export default function Home() {
 
             <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-white rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
               <div className="w-36 sm:w-44 h-28 sm:h-36 relative">
-                <img className="w-full h-full object-contain" src="/placeholder.svg?height=144&width=173" />
+                <img className="w-full h-full object-contain" src="/placeholder.svg?height=144&width=173" alt="" />
               </div>
               <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
                 <div className="text-[#191818] text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
@@ -575,7 +579,7 @@ export default function Home() {
                             €
                           </span>
                         </div>
-                        <div className="text-neutral-900 text-lg sm:text-2xl font-normal font-['Helvetica_Neue'] leading-relaxed">
+                        <div className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
                           / jour
                         </div>
                       </div>
@@ -636,7 +640,7 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="h-auto flex justify-start items-end gap-1">
-                        <div className="text-neutral-900 text-lg sm:text-2xl font-normal font-['Helvetica_Neue'] leading-relaxed">
+                        <div className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
                           à partir de
                         </div>
                         <div className="flex justify-start items-baseline">
@@ -710,7 +714,7 @@ export default function Home() {
                             €{" "}
                           </span>
                         </div>
-                        <div className="text-neutral-900 text-lg sm:text-2xl font-normal font-['Helvetica_Neue'] leading-relaxed">
+                        <div className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
                           / jour
                         </div>
                       </div>
@@ -743,7 +747,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Project Discussion Section */}
       <section className="w-full py-12 sm:py-16 md:py-24 bg-white flex flex-col justify-center items-center px-4 sm:px-6">
         <div className="w-full max-w-7xl flex flex-col justify-center items-center gap-8 sm:gap-16">
           <div className="w-full flex flex-col justify-start items-center gap-12 sm:gap-24">
@@ -764,6 +767,7 @@ export default function Home() {
               <img
                 className="w-full h-52 rounded-md object-cover"
                 src="/placeholder.svg?height=204&width=327&text=Project+Discussion"
+                alt=""
               />
               <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
                 Parlez-moi de votre projet
@@ -778,6 +782,7 @@ export default function Home() {
               <img
                 className="w-full h-52 rounded-md object-cover"
                 src="/placeholder.svg?height=204&width=327&text=Detailed+Proposal"
+                alt=""
               />
               <div className="w-full text-center text-[#191818] text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
                 Recevez une proposition détaillée et sur-mesure
@@ -791,6 +796,7 @@ export default function Home() {
               <img
                 className="w-full h-52 rounded-md object-cover"
                 src="/placeholder.svg?height=204&width=327&text=Quick+Start"
+                alt=""
               />
               <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
                 Démarrez rapidement
@@ -810,7 +816,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Studio Smalt Section */}
       <section className="w-full py-12 sm:py-16 md:py-24 bg-[#0f0f0f] flex flex-col justify-center items-center gap-8 sm:gap-16 px-4 sm:px-6">
         <div className="w-full max-w-7xl flex flex-col lg:flex-row justify-start items-center gap-6">
           <div className="flex flex-col justify-start items-start gap-6 flex-1">
@@ -830,12 +835,12 @@ export default function Home() {
           </div>
           <img
             className="w-full lg:w-[574px] h-64 sm:h-80 rounded-2xl object-cover"
-            src="/placeholder.svg?height=314&width=574&text=Studio+Smalt+Team"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/000-looping-creatif.jpg-3zFiVWVXM2wTVvfN7jGmqg9SYuWqvc.jpeg"
+            alt="Studio Smalt - Processus créatif et collaboratif"
           />
         </div>
       </section>
 
-      {/* Footer - Updated responsive footer */}
       <footer className="w-full py-8 sm:py-12 bg-[#0f0f0f] flex flex-col justify-center items-center gap-2">
         <div className="w-full max-w-7xl px-4 sm:px-6 flex flex-col lg:flex-row justify-start items-start gap-6 lg:gap-6">
           <div className="w-full lg:w-96 flex flex-col justify-start items-start gap-4 sm:gap-8">
