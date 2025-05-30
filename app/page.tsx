@@ -39,7 +39,7 @@ export default function Home() {
                 Studio Smalt
               </div>
             </div>
-            <div className="w-full text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-['Helvetica_Neue-Black',Helvetica] leading-tight sm:leading-[64px]">
+            <div className="w-full text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-['Helvetica_Neue',Helvetica] leading-tight sm:leading-[64px]">
               Freelance oui, freestyle non
             </div>
             <div className="w-full">
@@ -385,7 +385,11 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-white rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
               <div className="w-32 sm:w-40 h-32 sm:h-40 relative">
-                <img className="w-full h-full object-contain" src="/placeholder.svg?height=157&width=164" alt="" />
+                <img
+                  className="w-full h-full object-contain"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/comprendre-9wh6bDjLrCh4ZqIyuWZz47JdT91AoM.png"
+                  alt="Comprendre - Loupe avec œil symbolisant l'analyse et la compréhension"
+                />
               </div>
               <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
                 <div className="text-[#191818] text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
@@ -415,7 +419,11 @@ export default function Home() {
 
             <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-[#f9d45c] rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
               <div className="w-40 sm:w-52 h-32 sm:h-40 relative">
-                <img className="w-full h-full object-contain" src="/placeholder.svg?height=155&width=203" alt="" />
+                <img
+                  className="w-full h-full object-contain"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/concevoir-jXnXukmvdCd6kp1EYx6Y3MRxpTXYEb.png"
+                  alt="Concevoir - Ordinateur portable symbolisant la conception digitale"
+                />
               </div>
               <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
                 <div className="text-[#191818] text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
@@ -446,8 +454,8 @@ export default function Home() {
             <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-[#0f0f0f] rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
               <img
                 className="w-24 sm:w-32 h-32 sm:h-40 object-contain"
-                src="/placeholder.svg?height=157&width=129"
-                alt=""
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/valider-DGqVrFFf4WLmSGhDKNzNdp9qsj3k5l.png"
+                alt="Valider - Main tenant un téléphone symbolisant les tests et la validation"
               />
               <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
                 <div className="text-white text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
@@ -478,7 +486,11 @@ export default function Home() {
 
             <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-white rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
               <div className="w-36 sm:w-44 h-28 sm:h-36 relative">
-                <img className="w-full h-full object-contain" src="/placeholder.svg?height=144&width=173" alt="" />
+                <img
+                  className="w-full h-full object-contain"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/livrer-EWRQTCsS04fGS7q6ZwIguCQXcuZsoJ.png"
+                  alt="Livrer - Avion en papier symbolisant la livraison et le déploiement"
+                />
               </div>
               <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
                 <div className="text-[#191818] text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
