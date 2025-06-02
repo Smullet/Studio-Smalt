@@ -18,11 +18,10 @@ export const HeroHeader = () => {
       </nav>
       
       <section className="hero-header w-full min-h-screen pt-20 sm:pt-28 pb-12 sm:pb-24 relative bg-[#123293] flex justify-center items-center overflow-hidden px-4 sm:px-6">
-        {/* Vector background - hidden on mobile for better performance */}
-        <img
-          className="vector absolute right-[10%] lg:right-[200px] top-[30%] lg:top-[419.12px] w-[400px] sm:w-[500px] lg:w-[679.59px] h-[400px] sm:h-[500px] lg:h-[754.89px] origin-top-left rotate-[103.80deg] bg-white/10 rounded-sm border-2 border-white/20 hidden sm:block"
-          alt="Vector"
-          src="/vector-13.png"
+        {/* Fond décoratif avec un dégradé au lieu d'une image */}
+        <div 
+          className="absolute right-[10%] lg:right-[200px] top-[30%] lg:top-[419.12px] w-[400px] sm:w-[500px] lg:w-[679.59px] h-[400px] sm:h-[500px] lg:h-[754.89px] origin-top-left rotate-[103.80deg] bg-gradient-to-br from-white/20 to-white/5 rounded-sm border-2 border-white/20 hidden sm:block"
+          aria-hidden="true"
         />
 
         <div className="container w-full max-w-6xl flex flex-col justify-start items-center gap-6 sm:gap-8 relative z-10">
