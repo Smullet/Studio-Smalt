@@ -53,12 +53,12 @@ export default function ResourcesPage() {
             </a>
             {/* Navigation desktop */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+              <Link href="https://www.studiosmalt.fr/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Mes projets
-              </a>
-              <a href="/ressources" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+              </Link>
+              <Link href="/ressources" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Ressources
-              </a>
+              </Link>
               <a 
                 href="mailto:salomemullet@studiosmalt.fr?subject=Discussion%20de%20projet&body=Bonjour%20Salomé%2C%0A%0AJe%20souhaite%20discuter%20d'un%20projet%20avec%20vous."
                 className="bg-[#123293] text-white px-6 py-2 rounded-[14px] hover:bg-blue-900 transition-colors text-base font-medium"
