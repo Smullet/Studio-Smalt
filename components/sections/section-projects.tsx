@@ -99,7 +99,7 @@ export const SectionProjects = () => {
                   >
                     <CardContent className="flex flex-col sm:flex-row items-start gap-4 sm:gap-[50px] p-5 sm:p-10">
                       <div
-                        className={`text-6xl sm:text-[90px] font-normal tracking-[-1.04px] leading-[1.1] sm:leading-[90px] ${step.textColor} font-['Helvetica_Neue-Bold',Helvetica] mb-2 sm:mb-0`}
+                        className={`text-6xl sm:text-[90px] font-black tracking-[-1.04px] leading-[1.1] sm:leading-[90px] ${step.textColor} font-['Helvetica_Neue-Bold',Helvetica] mb-2 sm:mb-0`}
                       >
                         {step.id}
                       </div>
@@ -134,7 +134,7 @@ export const SectionProjects = () => {
                   >
                     <CardContent className="flex flex-col sm:flex-row items-start gap-4 sm:gap-[50px] p-5 sm:p-10">
                       <div
-                        className={`text-6xl sm:text-[90px] font-normal tracking-[-1.04px] leading-[1.1] sm:leading-[90px] ${step.textColor} font-['Helvetica_Neue-Bold',Helvetica] mb-2 sm:mb-0`}
+                        className={`text-6xl sm:text-[90px] font-black tracking-[-1.04px] leading-[1.1] sm:leading-[90px] ${step.textColor} font-['Helvetica_Neue-Bold',Helvetica] mb-2 sm:mb-0`}
                       >
                         {step.id}
                       </div>

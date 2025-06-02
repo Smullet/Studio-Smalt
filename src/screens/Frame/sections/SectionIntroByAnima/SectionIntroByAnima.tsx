@@ -1,3 +1,4 @@
+import React from 'react';
 import { Badge } from "../../../../components/ui/badge"
 import { Card, CardContent } from "../../../../components/ui/card"
 
@@ -53,13 +54,13 @@ export const SectionIntroByAnima = (): JSX.Element => {
           </Badge>
 
           <div className="flex flex-col items-center gap-5 relative self-stretch w-full">
-            <h2 className="relative self-stretch h-11 mt-[-1.00px] font-normal text-5xl text-center tracking-[0] leading-[52.8px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
+            <h2 className="relative self-stretch h-11 mt-[-1.00px] font-black text-5xl text-center tracking-[0] leading-[52.8px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
               <span className="font-bold text-[#191818]">Des solutions digitales qui </span>
               <span className="font-bold text-[#123293]">vous ressemblent</span>
               <span className="font-bold text-[#191818]">,</span>
             </h2>
 
-            <h2 className="relative self-stretch h-11 font-normal text-5xl text-center tracking-[0] leading-[52.8px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
+            <h2 className="relative self-stretch h-11 font-black text-5xl text-center tracking-[0] leading-[52.8px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
               <span className="font-bold text-[#133293]">et qui </span>
               <span className="font-bold text-[#123293]">fonctionnent </span>
             </h2>

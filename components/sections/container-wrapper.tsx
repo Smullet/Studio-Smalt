@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { CheckIcon } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 // Service card data
 const services = [
@@ -59,6 +60,8 @@ const services = [
   },
 ]
 
+const MotionCard = motion(Card)
+
 export const ContainerWrapper = () => {
   // Animation variants
   const headerVariants = {
@@ -93,6 +96,29 @@ export const ContainerWrapper = () => {
       },
     }),
   }
+
+  const steps = [
+    {
+      title: "Comprendre",
+      description: "Découverte de vos besoins, objectifs et contraintes. Analyse de l'existant et benchmark.",
+      number: "01",
+    },
+    {
+      title: "Concevoir",
+      description: "Idéation, wireframes, maquettes, prototypes. Tests et itérations avec les utilisateurs.",
+      number: "02",
+    },
+    {
+      title: "Valider",
+      description: "Tests utilisateurs, retours clients, ajustements et validation finale.",
+      number: "03",
+    },
+    {
+      title: "Livrer",
+      description: "Documentation, design system, spécifications techniques et accompagnement.",
+      number: "04",
+    },
+  ]
 
   return (
     <section className="py-12 sm:py-16 md:py-24 px-4 flex flex-col items-center justify-center relative">
@@ -213,6 +239,31 @@ export const ContainerWrapper = () => {
                   </CardContent>
                 </Card>
               </motion.div>
+            ))}
+          </div>
+
+          {/* Process Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full mt-12">
+            {steps.map((step, index) => (
+              <MotionCard
+                key={step.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+                whileHover={{ scale: 1.05 }}
+                className="w-full sm:w-[340px] rounded-xl border border-solid border-[#123293] relative card-basic"
+              >
+                <div className="p-6 flex flex-col gap-4">
+                  <div className="flex justify-between items-start">
+                    <h3 className="text-[#123293] text-xl font-bold font-['Helvetica_Neue']">{step.title}</h3>
+                    <span className="text-[#123293] text-xl font-bold font-['Helvetica_Neue']">{step.number}</span>
+                  </div>
+                  <p className="text-neutral-600 text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </MotionCard>
             ))}
           </div>
         </div>

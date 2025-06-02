@@ -37,9 +37,9 @@ export const Footer = () => {
     <footer className="flex flex-col sm:flex-row justify-between items-center w-full px-4 sm:px-10 py-6 sm:py-8 gap-4 sm:gap-0">
       <Link href="/">
         <motion.img
-          src="/images/logo-alt.svg"
+          src="/logo.svg"
           alt="Studio Smalt"
-          className="h-8 sm:h-10"
+          className="h-8 sm:h-10 filter brightness-0 invert"
           initial="hidden"
           animate="visible"
           variants={logoVariants}

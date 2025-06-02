@@ -2,376 +2,98 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { HeroHeader } from "@/components/sections/hero-header"
-import { LogosSection } from "@/components/sections/logos-section"
+import { ServicesSection } from "@/components/sections/services-section"
+import { MobileMenu } from "@/components/mobile-menu"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
+import { RevealText } from '@/components/animations/RevealText'
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+}
+
+const staggerChildren = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+}
 
 export default function Home() {
+  const aboutRef = useRef(null)
+  const servicesRef = useRef(null)
+  const processRef = useRef(null)
+  const pricingRef = useRef(null)
+  const contactRef = useRef(null)
+
+  const isAboutInView = useInView(aboutRef, { once: true, margin: "-100px" })
+  const isServicesInView = useInView(servicesRef, { once: true, margin: "-100px" })
+  const isProcessInView = useInView(processRef, { once: true, margin: "-100px" })
+  const isPricingInView = useInView(pricingRef, { once: true, margin: "-100px" })
+  const isContactInView = useInView(contactRef, { once: true, margin: "-100px" })
+
   return (
     <div className="w-full relative bg-white overflow-hidden">
-      {/* Header - Responsive */}
-      <header className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-80 py-6 bg-white shadow-[0px_24px_48px_-12px_rgba(10,13,18,0.18)] flex justify-between items-center fixed top-0 z-50">
-        <div className="text-2xl font-bold text-[#123293]">smalt</div>
+      {/* Mobile menu */}
+      <MobileMenu />
 
-        {/* Navigation - Hidden on mobile, visible on larger screens */}
-        <nav className="hidden md:flex space-x-6">
-          <a href="#projets" className="text-gray-800 hover:text-[#123293] transition-colors">
-            Mes projets
-          </a>
-          <a href="#ressources" className="text-gray-800 hover:text-[#123293] transition-colors">
-            Ressources
-          </a>
-        </nav>
-
-        <a href="#contact" className="bg-[#123293] text-white px-4 py-2 rounded-xl hover:bg-blue-900 transition-colors">
-          <span className="hidden sm:inline">Discuter de votre projet</span>
-          <span className="sm:hidden">Contact</span>
-        </a>
-      </header>
-
-      {/* Hero Section - Already responsive with HeroHeader component */}
+      {/* Hero Section */}
       <HeroHeader />
 
-      {/* About Section - Made responsive */}
+      {/* About Section */}
       <section className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:pl-[470px] xl:pr-72 py-12 sm:py-16 md:py-24 bg-[#0f0f0f] flex flex-col justify-center items-center">
         <div className="w-full max-w-4xl xl:max-w-none flex flex-col justify-center items-start gap-8 sm:gap-12 md:gap-16">
           <div className="w-full flex flex-col justify-center items-start gap-4 sm:gap-6">
             <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
-              <div className="text-[#123293] text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
+              <div className="text-[#123293] text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose">
                 Studio Smalt
               </div>
             </div>
-            <div className="w-full text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-['Helvetica_Neue',Helvetica] leading-tight sm:leading-[64px]">
-              Freelance oui, freestyle non
+            <div className="w-full text-white text-3xl sm:text-4xl md:text-[48px] font-black font-['Helvetica_Neue'] leading-tight sm:leading-[64px]">
+              <RevealText delay={0.2}>
+                Freelance oui, freestyle non
+              </RevealText>
             </div>
             <div className="w-full">
-              <span className="text-white text-base sm:text-lg md:text-xl font-normal font-['Inter'] leading-relaxed">
+              <RevealText delay={0.4} className="text-white text-base sm:text-lg md:text-xl font-normal font-['Helvetica_Neue'] leading-relaxed">
                 Chez Studio Smalt, je ne fais pas de design "au feeling".
                 <br className="hidden sm:block" />
                 Je suis{" "}
-              </span>
-              <span className="text-white text-base sm:text-lg md:text-xl font-bold font-['Inter'] leading-relaxed">
-                Salomé Mullet
-              </span>
-              <span className="text-white text-base sm:text-lg md:text-xl font-normal font-['Inter'] leading-relaxed">
+                <span className="font-bold">Salomé Mullet</span>
                 , freelance en product design, et j'accompagne les équipes produit, tech et marketing dans la création
                 d'interfaces claires, utiles et testées.
                 <br className="hidden sm:block" />
                 Pas de blabla ni de refontes uniquement cosmétiques : <br className="hidden lg:block" />
                 chaque mission suit une méthodologie éprouvée, de l'atelier de cadrage jusqu'à la livraison prête à
                 intégrer.
-              </span>
-            </div>
-            <div className="w-full">
-              <span className="text-white text-base sm:text-lg md:text-xl font-bold font-['Inter'] leading-relaxed">
-                🎯 Mon approche :<br />
-              </span>
-              <span className="text-white text-base sm:text-lg md:text-xl font-bold font-['Inter'] leading-relaxed">
-                Structurer vos idées avec vos utilisateurs
-                <br />
-                Prototyper vite pour tester mieux
-                <br />
-                Livrer des parcours cohérents, conçus pour durer
-              </span>
-            </div>
-            <div className="w-full text-white text-base sm:text-lg md:text-xl font-bold font-['Inter'] leading-relaxed">
-              En solo, oui — mais avec une rigueur de studio.
+              </RevealText>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Logos Section - Already responsive */}
-      <LogosSection />
 
       {/* Services Section - Made responsive */}
-      <section className="w-full py-12 sm:py-16 md:py-24 flex flex-col justify-center items-center px-4 sm:px-6">
-        <div className="w-full max-w-6xl flex flex-col justify-start items-center gap-8 sm:gap-12">
-          <div className="w-full flex flex-col justify-start items-center gap-5">
-            <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
-              <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
-                Mes services
-              </div>
-            </div>
-            <div className="w-full flex flex-col justify-start items-center gap-5">
-              <div className="w-full text-center">
-                <span className="text-neutral-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-                  Des solutions digitales qui{" "}
-                </span>
-                <span className="text-[#123293] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-                  vous ressemblent
-                </span>
-                <span className="text-neutral-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-                  , <br />
-                  et qui fonctionnent{" "}
-                </span>
-              </div>
-            </div>
-            <div className="w-full opacity-70 text-center text-neutral-900 text-base sm:text-lg font-normal font-['Inter'] leading-relaxed px-4">
-              Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.
-              <br className="hidden sm:block" />
-              On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos
-              utilisateurs.
-            </div>
-          </div>
+      <ServicesSection />
 
-          {/* Service Cards - Made responsive */}
-          <div className="flex flex-col gap-6 sm:gap-8 w-full">
-            {/* Product Design Card */}
-            <Card className="p-4 sm:p-6 md:p-8 lg:p-10 bg-[#123293] rounded-[20px] flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-0">
-              <div className="w-full lg:w-auto lg:h-52 py-px flex flex-col justify-between items-start gap-4 lg:gap-0">
-                <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-relaxed">
-                  VOTRE SITE EST-IL
-                  <br />
-                  VRAIMENT À LA
-                  <br />
-                  HAUTEUR ?
-                </div>
-                <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
-                  <div className="text-[#123293] text-2xl sm:text-3xl md:text-4xl font-bold font-['Helvetica_Neue'] leading-10">
-                    Product Design
-                  </div>
-                </div>
-              </div>
-              <div className="w-full lg:w-[464px] flex flex-col justify-between items-start gap-4 lg:gap-0 lg:self-stretch">
-                <div className="w-full opacity-80 text-white text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
-                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives,
-                  parcours fluides, maquettes testables, design systems…
-                  <br className="hidden sm:block" />
-                  Je travaille en collaboration étroite avec vos équipes produit et tech.
-                </div>
-                <div className="w-full flex flex-col justify-start items-start gap-2.5">
-                  <div className="w-full flex flex-wrap justify-start items-center gap-2 sm:gap-4">
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">UI UX Design</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Design System</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Delivery</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">
-                        Prototype Figma
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap justify-start items-center gap-2 sm:gap-4">
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Discovery</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Design Sprint</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">
-                        Test Utilisateurs
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            {/* Web Design Card */}
-            <Card className="p-4 sm:p-6 md:p-8 lg:p-10 bg-[#f9d45c] rounded-[20px] flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-0">
-              <div className="w-full lg:w-auto lg:h-52 py-px flex flex-col justify-between items-start gap-4 lg:gap-0">
-                <div className="text-[#191818] text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-relaxed">
-                  VOTRE SITE EST-IL
-                  <br />
-                  VRAIMENT À LA
-                  <br />
-                  HAUTEUR ?
-                </div>
-                <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
-                  <div className="text-[#123293] text-2xl sm:text-3xl md:text-4xl font-bold font-['Helvetica_Neue'] leading-10">
-                    Web Design
-                  </div>
-                </div>
-              </div>
-              <div className="w-full lg:w-[464px] flex flex-col justify-between items-start gap-4 lg:gap-0 lg:self-stretch">
-                <div className="w-full opacity-80 text-[#191818] text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
-                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives,
-                  parcours fluides, maquettes testables, design systems…
-                  <br className="hidden sm:block" />
-                  Je travaille en collaboration étroite avec vos équipes produit et tech.
-                </div>
-                <div className="w-full flex flex-col justify-start items-start gap-2.5">
-                  <div className="w-full flex flex-wrap justify-start items-center gap-2 sm:gap-4">
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
-                      </div>
-                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
-                        UI UX Design
-                      </div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
-                      </div>
-                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
-                        Design System
-                      </div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
-                      </div>
-                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">Delivery</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
-                      </div>
-                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
-                        Prototype Figma
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap justify-start items-center gap-2 sm:gap-4">
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
-                      </div>
-                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">Discovery</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
-                      </div>
-                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
-                        Design Sprint
-                      </div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-[#191818]/70" />
-                      </div>
-                      <div className="text-[#191818]/70 text-xs font-normal font-['Inter'] leading-none">
-                        Test Utilisateurs
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            {/* Facilitation Card */}
-            <Card className="p-4 sm:p-6 md:p-8 lg:p-10 bg-[#0f0f0f] rounded-[20px] flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-0">
-              <div className="w-full lg:w-auto lg:h-52 py-px flex flex-col justify-between items-start gap-4 lg:gap-0">
-                <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-relaxed">
-                  VOTRE SITE EST-IL
-                  <br />
-                  VRAIMENT À LA
-                  <br />
-                  HAUTEUR ?
-                </div>
-                <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
-                  <div className="text-[#123293] text-2xl sm:text-3xl md:text-4xl font-bold font-['Helvetica_Neue'] leading-10">
-                    Facilitation
-                  </div>
-                </div>
-              </div>
-              <div className="w-full lg:w-[464px] flex flex-col justify-between items-start gap-4 lg:gap-0 lg:self-stretch">
-                <div className="w-full opacity-80 text-white text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
-                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives,
-                  parcours fluides, maquettes testables, design systems…
-                  <br className="hidden sm:block" />
-                  Je travaille en collaboration étroite avec vos équipes produit et tech.
-                </div>
-                <div className="w-full flex flex-col justify-start items-start gap-2.5">
-                  <div className="w-full flex flex-wrap justify-start items-center gap-2 sm:gap-4">
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">UI UX Design</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Design System</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Delivery</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">
-                        Prototype Figma
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap justify-start items-center gap-2 sm:gap-4">
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Discovery</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">Design Sprint</div>
-                    </div>
-                    <div className="rounded-[40px] flex justify-start items-center gap-1.5">
-                      <div className="w-3 h-3 relative">
-                        <div className="w-3 h-2.5 left-0 top-[1px] absolute bg-white/70" />
-                      </div>
-                      <div className="text-white/70 text-xs font-normal font-['Inter'] leading-none">
-                        Test Utilisateurs
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          <div className="flex flex-col justify-start items-center gap-6 w-full">
-            <Button className="w-full sm:w-auto px-6 py-4 bg-[#123293] rounded-2xl text-white text-base font-bold font-['Inter'] leading-tight">
-              Discuter de votre projet
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section - Made responsive */}
+      {/* Process Section */}
       <section className="w-full py-12 sm:py-16 md:py-24 bg-[#123293] flex flex-col justify-center items-center gap-8 sm:gap-12 px-4 sm:px-6">
         <div className="w-full max-w-6xl flex flex-col justify-start items-center gap-8 sm:gap-12">
           <div className="w-full flex flex-col justify-start items-center gap-5">
-            <div className="w-full text-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[61px] font-black font-['Helvetica_Neue'] leading-tight xl:leading-[64px]">
+            <div className="w-full text-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-black font-['Helvetica_Neue'] leading-tight xl:leading-[64px]">
               Une approche agile, simple et humaine
             </div>
-            <div className="w-full opacity-70 text-center text-white text-base sm:text-lg font-normal font-['Inter'] leading-relaxed px-4">
+            <div className="w-full opacity-70 text-center text-white text-base sm:text-lg font-normal font-['Helvetica_Neue'] leading-relaxed px-4">
               Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.
               <br className="hidden sm:block" />
               On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos
@@ -401,7 +123,7 @@ export default function Home() {
                       Comprendre
                     </div>
                   </div>
-                  <div className="text-[#191818] text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                  <div className="text-[#191818] text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                     À travers des ateliers collaboratifs, des
                     <br className="hidden sm:block" />
                     interviews ciblées ou une observation
@@ -435,7 +157,7 @@ export default function Home() {
                       Concevoir
                     </div>
                   </div>
-                  <div className="text-neutral-900 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                  <div className="text-neutral-900 text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                     Une fois les besoins clarifiés, je passe à<br className="hidden sm:block" />
                     la conception. Je traduis les idées en
                     <br className="hidden sm:block" />
@@ -467,7 +189,7 @@ export default function Home() {
                       Valider
                     </div>
                   </div>
-                  <div className="text-white text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                  <div className="text-white text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                     Grâce à des retours utilisateurs
                     <br className="hidden sm:block" />
                     concrets et des itérations rapides, je
@@ -502,7 +224,7 @@ export default function Home() {
                       Livrer
                     </div>
                   </div>
-                  <div className="text-[#191818] text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                  <div className="text-[#191818] text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                     Enfin, je vous remets un livrable propre,
                     <br className="hidden sm:block" />
                     structuré et prêt à l'usage. Que ce soit
@@ -523,12 +245,14 @@ export default function Home() {
       </section>
 
       {/* Pricing Section - New responsive section */}
-      <section className="w-full py-12 sm:py-16 md:py-24 bg-white flex flex-col justify-center items-center px-4 sm:px-6">
+      <section
+        className="w-full py-12 sm:py-16 md:py-24 bg-white flex flex-col justify-center items-center px-4 sm:px-6 animated-gradient"
+      >
         <div className="w-full max-w-7xl flex flex-col justify-center items-center">
           <div className="w-full flex flex-col justify-start items-center gap-12 sm:gap-16 md:gap-24">
             <div className="w-full flex flex-col justify-start items-center gap-5">
               <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
-                <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
+                <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose">
                   Tarifs
                 </div>
               </div>
@@ -554,7 +278,7 @@ export default function Home() {
               {/* Product Design Card */}
               <div className="relative">
                 <div className="p-2 sm:p-2.5 absolute -top-6 left-2 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] flex justify-center items-center gap-2.5 z-10">
-                  <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
+                  <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose">
                     Product Design
                   </div>
                 </div>
@@ -563,20 +287,20 @@ export default function Home() {
                     <div className="w-full h-auto min-h-[320px] flex flex-col justify-between items-start">
                       <div className="py-2 flex flex-col justify-start items-start gap-4">
                         <div className="text-left">
-                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                             Conception de produits
                             <br />
                           </span>
-                          <span className="text-[#123293] text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                          <span className="text-[#123293] text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                             numériques utiles,
                             <br />
                             ergonomiques et désirables{" "}
                           </span>
-                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                             .
                           </span>
                         </div>
-                        <div className="w-full text-black/50 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                        <div className="w-full text-black/50 text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                           Je vous accompagne de l'idée au prototype fonctionnel, en passant par la recherche
                           utilisateur, les wireframes, les maquettes et les tests. Idéal pour les startups et équipes
                           produit en phase de création ou d'évolution.
@@ -584,14 +308,14 @@ export default function Home() {
                       </div>
                       <div className="w-full h-auto flex justify-start items-end gap-1">
                         <div className="flex justify-start items-baseline">
-                          <span className="text-neutral-900 text-3xl sm:text-4xl md:text-5xl font-bold font-['Inter'] leading-tight">
+                          <span className="text-neutral-900 text-3xl sm:text-4xl md:text-5xl font-bold font-['Helvetica_Neue'] leading-tight">
                             380{" "}
                           </span>
-                          <span className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
+                          <span className="text-neutral-900 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-tight">
                             €
                           </span>
                         </div>
-                        <div className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
+                        <div className="text-neutral-900 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-tight">
                           / jour
                         </div>
                       </div>
@@ -610,7 +334,7 @@ export default function Home() {
                           <div className="w-7 h-7 bg-[#123293] rounded-full flex items-center justify-center flex-shrink-0">
                             <div className="w-2 h-2 bg-white rounded-sm" />
                           </div>
-                          <div className="flex-1 text-neutral-900 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                          <div className="flex-1 text-neutral-900 text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                             {feature}
                           </div>
                         </div>
@@ -623,7 +347,7 @@ export default function Home() {
               {/* Web Design Card */}
               <div className="relative">
                 <div className="p-2 sm:p-2.5 absolute -top-6 left-2 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] flex justify-center items-center gap-2.5 z-10">
-                  <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
+                  <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose">
                     Web Design
                   </div>
                 </div>
@@ -632,34 +356,34 @@ export default function Home() {
                     <div className="w-full h-auto min-h-[320px] flex flex-col justify-between items-start">
                       <div className="py-2 flex flex-col justify-start items-start gap-4">
                         <div className="text-left">
-                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                             Des sites{" "}
                           </span>
-                          <span className="text-[#123293] text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                          <span className="text-[#123293] text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                             web épurés,
                             <br />
                             performants
                           </span>
-                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                          <span className="text-stone-950 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                             , pensés pour
                             <br />
                             convertir.
                           </span>
                         </div>
-                        <div className="w-full text-black/50 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                        <div className="w-full text-black/50 text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                           Idéal pour les entrepreneur·es, petites entreprises ou associations qui veulent une présence
                           en ligne efficace et facile à prendre en main.
                         </div>
                       </div>
                       <div className="h-auto flex justify-start items-end gap-1">
-                        <div className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                        <div className="text-neutral-900 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                           à partir de
                         </div>
                         <div className="flex justify-start items-baseline">
-                          <span className="text-neutral-900 text-3xl sm:text-4xl md:text-5xl font-bold font-['Inter'] leading-tight">
+                          <span className="text-neutral-900 text-3xl sm:text-4xl md:text-5xl font-bold font-['Helvetica_Neue'] leading-tight">
                             700{" "}
                           </span>
-                          <span className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
+                          <span className="text-neutral-900 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-tight">
                             €
                           </span>
                         </div>
@@ -679,7 +403,7 @@ export default function Home() {
                           <div className="w-7 h-7 bg-[#123293] rounded-full flex items-center justify-center flex-shrink-0">
                             <div className="w-2 h-2 bg-white rounded-sm" />
                           </div>
-                          <div className="flex-1 text-neutral-900 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                          <div className="flex-1 text-neutral-900 text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                             {feature}
                           </div>
                         </div>
@@ -692,7 +416,7 @@ export default function Home() {
               {/* Facilitation Card */}
               <div className="relative">
                 <div className="p-2 sm:p-2.5 absolute -top-6 left-2 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] flex justify-center items-center gap-2.5 z-10">
-                  <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Inter'] leading-loose">
+                  <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose">
                     Facilitation
                   </div>
                 </div>
@@ -700,7 +424,7 @@ export default function Home() {
                   <div className="w-full flex flex-col justify-start items-start gap-8 sm:gap-16">
                     <div className="w-full h-auto min-h-[320px] flex flex-col justify-between items-start">
                       <div className="py-2 flex flex-col justify-start items-start gap-4">
-                        <div className="text-stone-950 text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+                        <div className="text-stone-950 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                           Workshops, design sprints,
                           <br />
                           ateliers d'alignement ou
@@ -708,25 +432,25 @@ export default function Home() {
                           d'idéation.
                         </div>
                         <div className="w-full">
-                          <span className="text-neutral-900/50 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                          <span className="text-neutral-900/50 text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                             Je conçois et anime des sessions collaboratives qui font avancer vos projets, en impliquant
                             vos équipes. Disponible à la session ou en accompagnement régulier{" "}
                           </span>
-                          <span className="text-black/50 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                          <span className="text-black/50 text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                             .
                           </span>
                         </div>
                       </div>
                       <div className="w-full h-auto flex justify-start items-end gap-1">
                         <div className="flex justify-start items-baseline">
-                          <span className="text-neutral-900 text-3xl sm:text-4xl md:text-5xl font-bold font-['Inter'] leading-tight">
+                          <span className="text-neutral-900 text-3xl sm:text-4xl md:text-5xl font-bold font-['Helvetica_Neue'] leading-tight">
                             450{" "}
                           </span>
-                          <span className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
+                          <span className="text-neutral-900 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-tight">
                             €{" "}
                           </span>
                         </div>
-                        <div className="text-neutral-900 text-lg sm:text-xl font-bold font-['Inter'] leading-tight">
+                        <div className="text-neutral-900 text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-tight">
                           / jour
                         </div>
                       </div>
@@ -745,7 +469,7 @@ export default function Home() {
                           <div className="w-7 h-7 bg-[#123293] rounded-full flex items-center justify-center flex-shrink-0">
                             <div className="w-2 h-2 bg-white rounded-sm" />
                           </div>
-                          <div className="flex-1 text-neutral-900 text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+                          <div className="flex-1 text-neutral-900 text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                             {feature}
                           </div>
                         </div>
@@ -781,10 +505,10 @@ export default function Home() {
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Call-5drVA2MdTaS3HrMZMU6Y9JXBMk9dFT.png"
                 alt="Appel vidéo de consultation"
               />
-              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                 Parlez-moi de votre projet
               </div>
-              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                 Un échange de 30 minutes pour comprendre vos besoins et voir comment Studio Smalt peut transformer votre
                 idée en produit digital concret et performant.
               </div>
@@ -796,10 +520,10 @@ export default function Home() {
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/proposition-CNe9enbmJ40w4YwGMgyIRtk5bdPJTr.png"
                 alt="Document de proposition de design produit"
               />
-              <div className="w-full text-center text-[#191818] text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+              <div className="w-full text-center text-[#191818] text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                 Recevez une proposition détaillée et sur-mesure
               </div>
-              <div className="w-full text-center text-[#191818] text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+              <div className="w-full text-center text-[#191818] text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                 En moins de 24h, recevez un devis clair et actionnable.
               </div>
             </Card>
@@ -810,10 +534,10 @@ export default function Home() {
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
                 alt="Création de projet sur tableau blanc"
               />
-              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Inter'] leading-relaxed">
+              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                 Démarrez rapidement
               </div>
-              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Inter'] leading-relaxed">
+              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                 On définit ensemble le périmètre (atelier de cadrage, recherches, prototype, tests), et vous bénéficiez
                 d'un suivi itératif dès les premiers jours.
               </div>
@@ -821,9 +545,12 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col justify-start items-center gap-6 w-full">
-            <Button className="w-full sm:w-auto px-6 py-4 bg-[#123293] rounded-2xl text-white text-base font-bold font-['Inter'] leading-tight">
+            <a 
+              href="mailto:salomemullet@studiosmalt.fr?subject=Discussion%20de%20projet&body=Bonjour%20Salomé%2C%0A%0AJe%20souhaite%20discuter%20d'un%20projet%20avec%20vous."
+              className="w-full sm:w-auto px-6 py-4 bg-[#123293] rounded-[14px] text-white text-base font-bold font-['Helvetica_Neue'] leading-tight hover:bg-blue-900 transition-colors text-center"
+            >
               Discuter de votre projet
-            </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -834,7 +561,7 @@ export default function Home() {
             <div className="w-full text-white text-xl sm:text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-relaxed">
               Pourquoi choisir Studio Smalt ?
             </div>
-            <div className="w-full text-white text-base sm:text-lg font-normal font-['Inter'] leading-relaxed">
+            <div className="w-full text-white text-base sm:text-lg font-normal font-['Helvetica_Neue'] leading-relaxed">
               ✅ Expertise produit et UX/UI : de l'idée au produit final, en passant par des ateliers de cadrage, des
               tests utilisateurs et des itérations rapides.
               <br />
@@ -853,51 +580,66 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="w-full py-8 sm:py-12 bg-[#0f0f0f] flex flex-col justify-center items-center gap-2">
-        <div className="w-full max-w-7xl px-4 sm:px-6 flex flex-col lg:flex-row justify-start items-start gap-6 lg:gap-6">
-          <div className="w-full lg:w-96 flex flex-col justify-start items-start gap-4 sm:gap-8">
-            <div className="w-full flex flex-col justify-start items-start gap-2">
-              <div className="flex flex-col justify-start items-start gap-2">
-                <div className="text-white text-xl sm:text-2xl font-bold font-['Inter']">smalt</div>
+      {/* Footer */}
+      <footer className="w-full py-12 bg-black">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {/* Logo and social links */}
+            <div className="flex flex-col gap-6">
+              <Image
+                src="/logo blanc.svg"
+                alt="Studio Smalt"
+                width={120}
+                height={40}
+                className="h-8 sm:h-10"
+              />
+              <div className="flex gap-4">
+                <a
+                  href="https://www.linkedin.com/in/salome-mullet/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded border border-white/50 flex items-center justify-center hover:border-white transition-colors"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M6 9H2V21H6V9Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+                <a
+                  href="https://dribbble.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded border border-white/50 flex items-center justify-center hover:border-white transition-colors"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M8.56 2.75C12.93 8.78 14.58 12.17 16.59 20.47" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M21.25 12.84C14.67 11.87 11.83 11.87 2.75 13.72" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
               </div>
             </div>
-            <div className="flex justify-start items-start gap-4">
-              <div className="w-6 h-6 rounded border border-white/50"></div>
-              <div className="w-6 h-6 rounded border border-white/50"></div>
-            </div>
-          </div>
 
-          <div className="w-full lg:flex-1 flex flex-col justify-start items-start gap-2">
-            <div className="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-2 sm:gap-4">
-              <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
-                <div className="text-white/70 text-sm sm:text-base font-normal font-['Inter'] leading-tight">
-                  Mes projets
-                </div>
-              </div>
-              <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
-                <div className="text-white/70 text-sm sm:text-base font-normal font-['Inter'] leading-tight">
-                  Ressources
-                </div>
-              </div>
-              <div className="py-1.5 rounded-lg flex justify-start items-center gap-2">
-                <div className="text-white/70 text-sm sm:text-base font-normal font-['Inter'] leading-tight">
-                  Mentions légales
-                </div>
-              </div>
+            {/* Navigation Links */}
+            <div className="flex flex-col gap-4">
+              <a href="#projets" className="text-white/70 hover:text-white transition-colors">
+                Mes projets
+              </a>
+              <a href="#ressources" className="text-white/70 hover:text-white transition-colors">
+                Ressources
+              </a>
+              <a href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
+                Mentions légales
+              </a>
             </div>
-          </div>
 
-          <div className="w-full lg:flex-1 flex flex-col justify-between items-start">
-            <div className="w-full flex flex-col justify-start items-start gap-2">
-              <div className="w-full text-white/75 text-base sm:text-lg font-normal font-['Inter'] leading-relaxed">
-                Incubée à la BGE
-                <br />
-                8, Rue Denis Papin
-                <br />
-                Business Pôle Les Prés,
-                <br />
-                59650 Villeneuve-d'Ascq
-              </div>
+            {/* Address */}
+            <div className="text-white/75 space-y-2">
+              <p>Incubée à la BGE</p>
+              <p>8, Rue Denis Papin</p>
+              <p>Business Pôle Les Prés,</p>
+              <p>59650 Villeneuve-d'Ascq</p>
             </div>
           </div>
         </div>

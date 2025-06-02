@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
+const MotionCard = motion(Card)
+
 export const Contact = () => {
   const contactCards = [
     {
@@ -102,36 +104,42 @@ export const Contact = () => {
 
         <div className="flex flex-col items-center gap-6 relative w-full md:flex-1 md:min-w-[300px] md:max-w-[436px]">
           {contactCards.map((card, index) => (
-            <motion.div key={index} custom={index} variants={cardVariants}>
-              <Card className="w-full bg-relevant-places-631301framerappwild-sand rounded-[16px] sm:rounded-[20px] overflow-hidden border-none card-basic">
-                <CardContent className="flex flex-col items-start gap-4 sm:gap-6 p-4 sm:p-6">
-                  <div className="flex flex-col items-start gap-6 w-full">
-                    <h3 className="mt-[-1.00px] font-['Helvetica_Neue-Bold',Helvetica] font-[number:var(--relevant-places-631301-framer-app-inter-medium-font-weight)] text-[#0f0f0f] text-base sm:text-[length:var(--relevant-places-631301-framer-app-inter-medium-font-size)] tracking-[var(--relevant-places-631301-framer-app-inter-medium-letter-spacing)] leading-[1.4] sm:leading-[var(--relevant-places-631301-framer-app-inter-medium-line-height)] [font-style:var(--relevant-places-631301-framer-app-inter-medium-font-style)]">
-                      {card.title}
-                    </h3>
+            <MotionCard
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              whileHover={{ scale: 1.02 }}
+              className="w-full bg-relevant-places-631301framerappwild-sand rounded-[16px] sm:rounded-[20px] overflow-hidden border-none card-basic"
+            >
+              <CardContent className="flex flex-col items-start gap-4 sm:gap-6 p-4 sm:p-6">
+                <div className="flex flex-col items-start gap-6 w-full">
+                  <h3 className="mt-[-1.00px] font-['Helvetica_Neue-Bold',Helvetica] font-[number:var(--relevant-places-631301-framer-app-inter-medium-font-weight)] text-[#0f0f0f] text-base sm:text-[length:var(--relevant-places-631301-framer-app-inter-medium-font-size)] tracking-[var(--relevant-places-631301-framer-app-inter-medium-letter-spacing)] leading-[1.4] sm:leading-[var(--relevant-places-631301-framer-app-inter-medium-line-height)] [font-style:var(--relevant-places-631301-framer-app-inter-medium-font-style)]">
+                    {card.title}
+                  </h3>
 
-                    <p className="font-['Inter',Helvetica] font-normal text-relevant-places-631301framerappblack-60 text-xs sm:text-[11px] tracking-[0] leading-[1.6] sm:leading-[15.4px]">
-                      {card.description}
-                    </p>
-                  </div>
+                  <p className="font-['Inter',Helvetica] font-normal text-relevant-places-631301framerappblack-60 text-xs sm:text-[11px] tracking-[0] leading-[1.6] sm:leading-[15.4px]">
+                    {card.description}
+                  </p>
+                </div>
 
-                  <Button
-                    variant="outline"
-                    className="h-[40px] sm:h-[47.4px] w-full bg-relevant-places-631301framerappwhite rounded-[8px] sm:rounded-[10px] border border-solid border-black px-3 sm:px-4 py-0"
-                    asChild
+                <Button
+                  variant="outline"
+                  className="h-[40px] sm:h-[47.4px] w-full bg-relevant-places-631301framerappwhite rounded-[8px] sm:rounded-[10px] border border-solid border-black px-3 sm:px-4 py-0"
+                  asChild
+                >
+                  <a
+                    className="font-['Helvetica_Neue-Bold',Helvetica] font-[number:var(--relevant-places-631301-framer-app-semantic-link-font-weight)] text-relevant-places-631301framerappblack text-sm sm:text-[length:var(--relevant-places-631301-framer-app-semantic-link-font-size)] tracking-[var(--relevant-places-631301-framer-app-semantic-link-letter-spacing)] leading-[1.4] sm:leading-[var(--relevant-places-631301-framer-app-semantic-link-line-height)] whitespace-nowrap [font-style:var(--relevant-places-631301-framer-app-semantic-link-font-style)]"
+                    href={card.buttonLink}
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
-                    <a
-                      className="font-['Helvetica_Neue-Bold',Helvetica] font-[number:var(--relevant-places-631301-framer-app-semantic-link-font-weight)] text-relevant-places-631301framerappblack text-sm sm:text-[length:var(--relevant-places-631301-framer-app-semantic-link-font-size)] tracking-[var(--relevant-places-631301-framer-app-semantic-link-letter-spacing)] leading-[1.4] sm:leading-[var(--relevant-places-631301-framer-app-semantic-link-line-height)] whitespace-nowrap [font-style:var(--relevant-places-631301-framer-app-semantic-link-font-style)]"
-                      href={card.buttonLink}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      {card.buttonText}
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
+                    {card.buttonText}
+                  </a>
+                </Button>
+              </CardContent>
+            </MotionCard>
           ))}
         </div>
       </div>

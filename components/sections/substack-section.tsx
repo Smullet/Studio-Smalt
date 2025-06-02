@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Calendar, Clock } from "lucide-react"
+import { motion } from "framer-motion"
 
 // Sample blog posts - replace with actual data from Substack API
 const blogPosts = [
@@ -39,6 +40,8 @@ const blogPosts = [
   },
 ]
 
+const MotionCard = motion(Card)
+
 export const SubstackSection = () => {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -67,7 +70,7 @@ export const SubstackSection = () => {
           </Badge>
 
           <div className="flex flex-col items-center gap-5 relative self-stretch w-full">
-            <h2 className="relative self-stretch mt-[-1.00px] font-normal text-3xl sm:text-4xl md:text-5xl text-center tracking-[0] leading-[1.2] sm:leading-[52.8px] font-['Helvetica_Neue-Bold',Helvetica]">
+            <h2 className="relative self-stretch mt-[-1.00px] font-black text-3xl sm:text-4xl md:text-5xl text-center tracking-[0] leading-[1.2] sm:leading-[52.8px] font-['Helvetica_Neue-Bold',Helvetica]">
               <span className="font-bold text-[#191818]">Insights et </span>
               <span className="font-bold text-[#123293]">réflexions</span>
               <span className="font-bold text-[#191818]"> sur le design</span>
@@ -123,8 +126,13 @@ export const SubstackSection = () => {
         {/* Blog Posts */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-[820px]">
           {blogPosts.map((post) => (
-            <Card
+            <MotionCard 
               key={post.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
               className="bg-white border border-[#e7e8f0] rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300"
             >
               <CardContent className="p-5">
@@ -159,7 +167,7 @@ export const SubstackSection = () => {
                   </a>
                 </div>
               </CardContent>
-            </Card>
+            </MotionCard>
           ))}
         </div>
 
