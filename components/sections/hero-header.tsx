@@ -11,17 +11,17 @@ export const HeroHeader = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm backdrop-blur-sm">
         <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
+            <Link href="https://www.studiosmalt.fr" className="flex items-center">
               <img src="/logo.svg" alt="Studio Smalt" className="h-8 sm:h-10" />
             </Link>
             {/* Navigation desktop */}
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+              <a href="https://www.studiosmalt.fr/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Mes projets
-              </Link>
-              <Link href="/ressources" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+              </a>
+              <a href="https://www.studiosmalt.fr/ressources" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Ressources
-              </Link>
+              </a>
               <a 
                 href="mailto:salomemullet@studiosmalt.fr?subject=Discussion%20de%20projet&body=Bonjour%20Salomé%2C%0A%0AJe%20souhaite%20discuter%20d'un%20projet%20avec%20vous."
                 className="bg-[#123293] text-white px-6 py-2 rounded-[14px] hover:bg-blue-900 transition-colors text-base font-medium"
