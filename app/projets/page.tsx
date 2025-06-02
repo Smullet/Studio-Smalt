@@ -183,50 +183,107 @@ export default function ProjectsPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="w-full py-12 sm:py-16 md:py-24 bg-gray-50">
-        <div className="container max-w-6xl mx-auto px-4 sm:px-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-12">
-            Parlons de <span className="text-[#123293]">votre projet</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {contactCards.map((card) => (
-              <MotionCard
-                key={card.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: card.id * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className={`overflow-hidden ${card.bgColor}`}
-              >
-                <div className="p-6">
-                  <div className="aspect-video relative rounded-lg overflow-hidden mb-6">
-                    <Image
-                      src={card.image}
-                      alt={card.title}
-                      width={400}
-                      height={300}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <h3 className={`text-xl font-bold mb-4 ${card.textColor}`}>
-                    {card.title}
-                  </h3>
-                  <p className={`text-sm ${card.textColor} opacity-80`}>
-                    {card.description}
-                  </p>
-                </div>
-              </MotionCard>
-            ))}
+      <section className="w-full py-12 sm:py-16 md:py-24 bg-white flex flex-col justify-center items-center px-4 sm:px-6">
+        <div className="w-full max-w-7xl flex flex-col justify-center items-center gap-8 sm:gap-16">
+          <div className="w-full flex flex-col justify-start items-center gap-5">
+            <div className="text-center">
+              <span className="text-neutral-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
+                Parlons de{" "}
+              </span>
+              <span className="text-[#123293] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
+                votre projet
+              </span>
+            </div>
           </div>
-          <div className="text-center mt-12">
-            <Link 
-              href="mailto:salomemullet@studiosmalt.fr"
-              className="inline-flex bg-[#123293] text-white px-6 py-2 rounded-[14px] hover:bg-blue-900 transition-colors text-base font-medium"
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <MotionCard
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+            >
+              <div className="p-6">
+                <div className="aspect-video relative rounded-lg overflow-hidden mb-6">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
+                    alt="Parlez-moi de votre projet"
+                    width={400}
+                    height={300}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-[#123293]">
+                  Parlez-moi de votre projet
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Un échange de 30 minutes pour comprendre vos besoins et voir comment Studio Smalt peut transformer votre idée en produit digital concret et performant.
+                </p>
+              </div>
+            </MotionCard>
+
+            <MotionCard
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+            >
+              <div className="p-6">
+                <div className="aspect-video relative rounded-lg overflow-hidden mb-6">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
+                    alt="Recevez une proposition détaillée"
+                    width={400}
+                    height={300}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-[#123293]">
+                  Recevez une proposition détaillée et sur-mesure
+                </h3>
+                <p className="text-sm text-gray-600">
+                  En moins de 24h, recevez un devis clair et actionnable.
+                </p>
+              </div>
+            </MotionCard>
+
+            <MotionCard
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+            >
+              <div className="p-6">
+                <div className="aspect-video relative rounded-lg overflow-hidden mb-6">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
+                    alt="Démarrez rapidement"
+                    width={400}
+                    height={300}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-[#123293]">
+                  Démarrez rapidement
+                </h3>
+                <p className="text-sm text-gray-600">
+                  On définit ensemble le périmètre (atelier de cadrage, wireframes, maquettes...) et on commence dès validation d'un suivi itératif dès les premiers jours.
+                </p>
+              </div>
+            </MotionCard>
+          </div>
+
+          <div className="flex flex-col justify-start items-center gap-6 w-full">
+            <a 
+              href="mailto:salomemullet@studiosmalt.fr?subject=Discussion%20de%20projet&body=Bonjour%20Salomé%2C%0A%0AJe%20souhaite%20discuter%20d'un%20projet%20avec%20vous."
+              className="w-auto px-6 py-4 bg-[#123293] rounded-[14px] text-white text-base font-bold font-['Helvetica_Neue'] leading-tight hover:bg-blue-900 transition-colors text-center"
             >
               Discuter de votre projet
-            </Link>
-            <p className="text-sm text-gray-500 mt-4">
+            </a>
+            <p className="text-sm text-gray-500">
               15 minutes pour comprendre ce qui vous bloque
             </p>
           </div>
