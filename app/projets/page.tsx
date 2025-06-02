@@ -50,7 +50,7 @@ const projects = [
     id: 6,
     title: "AMÉLIORATION DE L'ACCESSIBILITÉ NUMÉRIQUE DES ENTREPRISES",
     client: "WARREN WALTER",
-    image: "/projects/warren-walter.jpg",
+    image: "/projects/warrenwalter.jpg",
     link: "#"
   }
 ]
