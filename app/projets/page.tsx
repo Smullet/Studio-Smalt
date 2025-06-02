@@ -15,42 +15,42 @@ const projects = [
     id: 1,
     title: "MODERNISATION D'UN SITE COMPLEXE POUR UNE NAVIGATION INTUITIVE",
     client: "OVH",
-    image: "/projects/ovh-project.jpg",
+    image: "/projects/ovh.jpg",
     link: "#"
   },
   {
     id: 2,
     title: "PLATEFORME DE GESTION DES INVESTISSEMENTS",
     client: "Institut Catholique de Lille",
-    image: "/projects/icl-project.jpg",
+    image: "/projects/icl.jpg",
     link: "#"
   },
   {
     id: 3,
     title: "UNE REFONTE UX CENTRÉE UTILISATEUR",
     client: "Monabanq",
-    image: "/projects/monabanq-project.jpg",
+    image: "/projects/monabanq.jpg",
     link: "#"
   },
   {
     id: 4,
     title: "PLATEFORME DE MATCHING ENTRE CANDIDATS ET RECRUTEURS",
     client: "MENEA",
-    image: "/projects/menea-project.jpg",
+    image: "/projects/menea.jpg",
     link: "#"
   },
   {
     id: 5,
     title: "UNE REFONTE UX CENTRÉE UTILISATEUR",
     client: "FRESH DATA",
-    image: "/projects/freshdata-project.jpg",
+    image: "/projects/freshdata.jpg",
     link: "#"
   },
   {
     id: 6,
     title: "AMÉLIORATION DE L'ACCESSIBILITÉ NUMÉRIQUE DES ENTREPRISES",
     client: "WARREN WALTER",
-    image: "/projects/warren-walter-project.jpg",
+    image: "/projects/warren-walter.jpg",
     link: "#"
   }
 ]
