@@ -154,7 +154,9 @@ export default function ProjectsPage() {
                       alt={project.title}
                       width={800}
                       height={600}
-                      className="object-cover w-full h-full"
+                      className="object-cover w-full h-full rounded-lg"
+                      priority={project.id <= 2}
+                      quality={90}
                     />
                   </div>
                   <div className="mt-4">
