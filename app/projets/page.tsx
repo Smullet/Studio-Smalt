@@ -277,9 +277,6 @@ export default function ProjectsPage() {
             >
               Discuter de votre projet
             </a>
-            <p className="text-sm text-gray-500">
-              15 minutes pour comprendre ce qui vous bloque
-            </p>
           </div>
         </div>
       </section>
