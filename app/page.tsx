@@ -63,7 +63,7 @@ export default function Home() {
             </div>
             <div className="w-full text-white text-3xl sm:text-4xl md:text-[48px] font-black font-['Helvetica_Neue'] leading-tight sm:leading-[64px]">
               <RevealText delay={0.2}>
-                Freelance oui, freestyle non
+              Freelance oui, freestyle non
               </RevealText>
             </div>
             <div className="w-full">
@@ -619,21 +619,21 @@ export default function Home() {
                     <path d="M21.25 12.84C14.67 11.87 11.83 11.87 2.75 13.72" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </a>
-              </div>
             </div>
+          </div>
 
             {/* Navigation Links */}
             <div className="flex flex-col gap-4">
               <Link href="/projets" className="text-white/70 hover:text-white transition-colors">
-                Mes projets
+                  Mes projets
               </Link>
               <Link href="/ressources" className="text-white/70 hover:text-white transition-colors">
-                Ressources
+                  Ressources
               </Link>
               <Link href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
-                Mentions légales
+                  Mentions légales
               </Link>
-            </div>
+          </div>
 
             {/* Address */}
             <div className="text-white/75 space-y-2">

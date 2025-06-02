@@ -202,24 +202,22 @@ export default function ProjectsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+              className="w-full min-h-96 p-3 bg-[#123293] rounded-xl flex flex-col justify-start items-center gap-4"
             >
-              <div className="p-6">
-                <div className="aspect-video relative rounded-lg overflow-hidden mb-6">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
-                    alt="Parlez-moi de votre projet"
-                    width={400}
-                    height={300}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-[#123293]">
-                  Parlez-moi de votre projet
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Un échange de 30 minutes pour comprendre vos besoins et voir comment Studio Smalt peut transformer votre idée en produit digital concret et performant.
-                </p>
+              <div className="w-full h-52 rounded-md overflow-hidden">
+                <Image
+                  src="/contact/call.jpg"
+                  alt="Parlez-moi de votre projet"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
+                Parlez-moi de votre projet
+              </div>
+              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
+                Un échange de 30 minutes pour comprendre vos besoins et voir comment Studio Smalt peut transformer votre idée en produit digital concret et performant.
               </div>
             </MotionCard>
 
@@ -228,24 +226,22 @@ export default function ProjectsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+              className="w-full min-h-96 p-3 bg-[#f9d45c] rounded-xl flex flex-col justify-start items-center gap-4"
             >
-              <div className="p-6">
-                <div className="aspect-video relative rounded-lg overflow-hidden mb-6">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
-                    alt="Recevez une proposition détaillée"
-                    width={400}
-                    height={300}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-[#123293]">
-                  Recevez une proposition détaillée et sur-mesure
-                </h3>
-                <p className="text-sm text-gray-600">
-                  En moins de 24h, recevez un devis clair et actionnable.
-                </p>
+              <div className="w-full h-52 rounded-md overflow-hidden">
+                <Image
+                  src="/contact/proposal.jpg"
+                  alt="Recevez une proposition détaillée"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-full text-center text-[#123293] text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
+                Recevez une proposition détaillée et sur-mesure
+              </div>
+              <div className="w-full text-center text-[#123293] text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
+                En moins de 24h, recevez un devis clair et actionnable.
               </div>
             </MotionCard>
 
@@ -254,24 +250,22 @@ export default function ProjectsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+              className="w-full min-h-96 p-3 bg-[#0f0f0f] rounded-xl flex flex-col justify-start items-center gap-4"
             >
-              <div className="p-6">
-                <div className="aspect-video relative rounded-lg overflow-hidden mb-6">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
-                    alt="Démarrez rapidement"
-                    width={400}
-                    height={300}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-[#123293]">
-                  Démarrez rapidement
-                </h3>
-                <p className="text-sm text-gray-600">
-                  On définit ensemble le périmètre (atelier de cadrage, wireframes, maquettes...) et on commence dès validation d'un suivi itératif dès les premiers jours.
-                </p>
+              <div className="w-full h-52 rounded-md overflow-hidden">
+                <Image
+                  src="/contact/start.jpg"
+                  alt="Démarrez rapidement"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
+                Démarrez rapidement
+              </div>
+              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
+                On définit ensemble le périmètre (atelier de cadrage, wireframes, maquettes...) et on commence dès validation d'un suivi itératif dès les premiers jours.
               </div>
             </MotionCard>
           </div>
