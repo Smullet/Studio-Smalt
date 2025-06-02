@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -9,6 +11,9 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .font-helvetica {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 }
 
@@ -81,6 +86,37 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  @font-face {
+    font-family: 'Helvetica Neue';
+    src: url('/fonts/HelveticaNeueBold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Helvetica Neue';
+    src: url('/fonts/HelveticaNeueRoman.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Helvetica Neue';
+    src: url('/fonts/HelveticaNeueMedium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Helvetica Neue';
+    src: url('/fonts/HelveticaNeueBlack.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
   }
 }
 

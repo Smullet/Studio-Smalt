@@ -1,6 +1,8 @@
 "use client"
 
+import React from 'react'
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 export const Footer = () => {
   // Footer links data for easy maintenance
@@ -33,12 +35,16 @@ export const Footer = () => {
 
   return (
     <footer className="flex flex-col sm:flex-row justify-between items-center w-full px-4 sm:px-10 py-6 sm:py-8 gap-4 sm:gap-0">
-      <motion.div
-        className="relative w-24 sm:w-32 h-[50px] sm:h-[67.11px] [background:url(/link-1.png)_50%_50%_/_cover]"
-        initial="hidden"
-        animate="visible"
-        variants={logoVariants}
-      />
+      <Link href="/">
+        <motion.img
+          src="/images/logo-alt.svg"
+          alt="Studio Smalt"
+          className="h-8 sm:h-10"
+          initial="hidden"
+          animate="visible"
+          variants={logoVariants}
+        />
+      </Link>
 
       <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
         {footerLinks.map((link, index) => (
@@ -49,7 +55,7 @@ export const Footer = () => {
             animate="visible"
             variants={linkVariants}
             href="#"
-            className="font-['Helvetica_Neue-Regular',Helvetica] font-normal text-[#191818] text-[11px] leading-[15.4px] whitespace-nowrap text-center"
+            className="font-helvetica font-normal text-[#191818] text-[11px] leading-[15.4px] whitespace-nowrap text-center"
           >
             {link.text}
           </motion.a>

@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
   content: [
     "./src/**/*.{html,js,ts,jsx,tsx}",
     "app/**/*.{ts,tsx}",
@@ -63,6 +65,7 @@ module.exports = {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
+        helvetica: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
       },
       boxShadow: { "shadow-2xl": "var(--shadow-2xl)" },
       borderRadius: {
@@ -90,3 +93,5 @@ module.exports = {
   plugins: [],
   darkMode: ["class"],
 }
+
+export default config

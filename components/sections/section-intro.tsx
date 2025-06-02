@@ -19,6 +19,19 @@ const ServiceTag = ({ text, index }: { text: string; index: number }) => (
 )
 
 export const SectionIntro = () => {
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.5,
+      },
+    }),
+  }
+
   // Data for Product Design services
   const productDesignTags = [
     "UI UX Design",
@@ -50,139 +63,92 @@ export const SectionIntro = () => {
     "Pitch decks & presentations",
   ]
 
-  // Animation variants for cards
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.2,
-        duration: 0.5,
-      },
-    }),
-  }
-
   return (
-    <section className="py-12 sm:py-16 md:py-24 flex flex-col w-full items-center justify-center relative">
-      <div className="flex flex-col w-full max-w-[1046px] items-center gap-8 sm:gap-12 relative px-4">
-        <div className="flex flex-col items-center gap-[21px] relative self-stretch w-full">
-          <Badge className="inline-flex items-center justify-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 bg-[#123293] rounded-md shadow-[2px_2px_0px_#000000]">
-            <span className="font-bold text-white text-xl sm:text-[27px] tracking-[-1.08px] leading-[1.2] sm:leading-[32.4px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
-              Mes services
-            </span>
-          </Badge>
-
-          <div className="flex flex-col items-center gap-5 relative self-stretch w-full">
-            <motion.h2
-              className="relative self-stretch mt-[-1.00px] font-normal text-3xl sm:text-4xl md:text-5xl text-center tracking-[0] leading-[1.2] sm:leading-[52.8px] font-['Helvetica_Neue-Bold',Helvetica]"
+    <section className="w-full bg-white py-16 sm:py-24">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto space-y-16">
+          {/* Premier bloc */}
+          <motion.div 
+            className="text-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            custom={0}
+          >
+            <motion.h2 
+              className="text-3xl sm:text-4xl md:text-5xl font-black font-['Inter'] text-[#191818] mb-6 tracking-tight"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{ duration: 0.7 }}
+            >
+              <span>Freelance </span>
+              <span className="text-[#123293]">oui</span>
+              <span>, freestyle </span>
+              <span className="text-[#123293]">non</span>
+            </motion.h2>
+            <motion.p 
+              className="text-lg sm:text-xl text-[#191818] opacity-80"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.8 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <span className="font-bold text-[#191818]">Des solutions digitales qui </span>
-              <span className="font-bold text-[#123293]">vous ressemblent</span>
-              <span className="font-bold text-[#191818]">,</span>
-            </motion.h2>
+              Des solutions digitales qui <span className="text-[#123293]">vous ressemblent</span>,<br />
+              et qui <span className="text-[#123293]">fonctionnent</span>
+            </motion.p>
+          </motion.div>
 
-            <motion.h2
-              className="relative self-stretch font-normal text-3xl sm:text-4xl md:text-5xl text-center tracking-[0] leading-[1.2] sm:leading-[52.8px] font-['Helvetica_Neue-Bold',Helvetica]"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+          {/* Deuxième bloc */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <motion.div 
+              className="space-y-4"
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              custom={1}
             >
-              <span className="font-bold text-[#133293]">et qui </span>
-              <span className="font-bold text-[#123293]">fonctionnent </span>
-            </motion.h2>
+              <h3 className="text-2xl sm:text-3xl font-black font-['Inter'] text-[#191818] tracking-tight">
+                Une approche <span className="text-[#123293]">agile</span>,<br />
+                <span className="text-[#123293]">simple</span> et <span className="text-[#123293]">humaine</span>
+              </h3>
+              <p className="text-[#191818] opacity-80">
+                Je m'adapte à vos besoins et à votre contexte pour vous proposer des solutions sur mesure.
+              </p>
+            </motion.div>
+            <motion.div 
+              className="space-y-4"
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              custom={2}
+            >
+              <h3 className="text-2xl sm:text-3xl font-black font-['Inter'] text-[#191818] tracking-tight">
+                Des offres <span className="text-[#123293]">claires</span>,<br />
+                des tarifs <span className="text-[#123293]">justes</span>
+              </h3>
+              <p className="text-[#191818] opacity-80">
+                Transparence et simplicité dans la collaboration pour une relation de confiance.
+              </p>
+            </motion.div>
           </div>
 
-          <motion.p
-            className="max-w-[913px] opacity-70 font-normal text-[#191818] text-base sm:text-lg text-center tracking-[-0.18px] leading-[1.6] sm:leading-[25.2px] font-['Inter',Helvetica] px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.7 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
+          {/* Call to action */}
+          <motion.div 
+            className="text-center"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={3}
           >
-            Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases. On crée
-            ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos utilisateurs.
-          </motion.p>
-        </div>
-
-        <div className="flex flex-col w-full max-w-[820px] items-start gap-5">
-          <motion.div custom={0} initial="hidden" animate="visible" variants={cardVariants} className="w-full">
-            <Card className="flex flex-col items-start gap-4 sm:gap-6 px-4 sm:px-6 py-5 sm:py-[31px] w-full bg-[#f6f7f9] rounded-[24px] sm:rounded-[34px] border-none card-basic">
-              <CardContent className="p-0 w-full">
-                <div className="flex flex-col w-full items-start gap-[17px]">
-                  <h3 className="self-stretch mt-[-1.00px] font-bold text-[#123293] text-[20px] tracking-[-1.04px] leading-[26px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
-                    Product&nbsp;&nbsp;Design
-                  </h3>
-
-                  <p className="self-stretch opacity-80 font-normal text-[#191818] text-[15px] tracking-[-0.45px] leading-[22.5px] font-['Inter',Helvetica]">
-                    Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs
-                    <br />: interfaces intuitives, parcours fluides, maquettes testables, design systems…
-                    <br />
-                    Je travaille en collaboration étroite avec vos équipes produit et tech.
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-start gap-[5px] mt-6 w-full">
-                  {productDesignTags.map((tag, index) => (
-                    <ServiceTag key={index} text={tag} index={index} />
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <motion.div custom={1} initial="hidden" animate="visible" variants={cardVariants} className="w-full">
-            <Card className="flex flex-col items-start gap-4 sm:gap-6 px-4 sm:px-6 py-5 sm:py-[31px] w-full bg-[#f6f7f9] rounded-[24px] sm:rounded-[34px] border-none card-basic">
-              <CardContent className="p-0 w-full">
-                <div className="flex flex-col w-full items-start gap-[17px] py-px">
-                  <h3 className="w-[136px] mt-[-1.00px] font-bold text-[#123293] text-[20px] tracking-[-1.04px] leading-[26px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
-                    Web Design
-                  </h3>
-
-                  <p className="opacity-80 font-normal text-[#191818] text-[15px] tracking-[-0.45px] leading-[22.5px] font-['Inter',Helvetica]">
-                    Vous avez des idées, des projets ou des équipes à aligner ? J&apos;anime des ateliers pour
-                    structurer votre
-                    <br />
-                    vision, clarifier vos priorités et avancer ensemble avec des formats courts, concrets et
-                    collaboratifs.
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-start gap-[10px_9px] mt-6">
-                  {webDesignTags.map((tag, index) => (
-                    <ServiceTag key={index} text={tag} index={index} />
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <motion.div custom={2} initial="hidden" animate="visible" variants={cardVariants} className="w-full">
-            <Card className="flex flex-col items-start gap-4 sm:gap-6 px-4 sm:px-6 py-5 sm:py-[31px] w-full bg-[#f6f7f9] rounded-[24px] sm:rounded-[34px] border-none card-basic">
-              <CardContent className="p-0 w-full">
-                <div className="flex flex-col items-start gap-[25px] w-full">
-                  <h3 className="self-stretch mt-[-1.00px] font-bold text-[#123293] text-[20px] tracking-[-1.04px] leading-[26px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
-                    Facilitation
-                  </h3>
-
-                  <p className="opacity-80 font-normal text-[#191818] text-[15px] tracking-[-0.45px] leading-[22.5px] font-['Inter',Helvetica]">
-                    Je crée des sites clairs, performants et modernes pour valoriser votre activité.
-                    <br />
-                    Sites vitrine, pages d&apos;atterrissage ou plateformes simples, développés en no-
-                    <br />
-                    code (Webflow, Framer…) et pensés pour être autonomes et évolutifs.
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-start gap-[10px_9px] mt-6 w-full">
-                  {facilitationTags.map((tag, index) => (
-                    <ServiceTag key={index} text={tag} index={index} />
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <h2 className="text-3xl sm:text-4xl font-black font-['Inter'] text-[#191818] mb-8 tracking-tight">
+              Parlons de <span className="text-[#123293]">votre projet</span>
+            </h2>
+            <motion.button 
+              className="px-6 py-3 bg-[#123293] text-white rounded-lg font-black font-['Inter'] text-lg tracking-wide hover:bg-[#0f2875] transition-colors duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Prendre rendez-vous
+            </motion.button>
           </motion.div>
         </div>
       </div>
