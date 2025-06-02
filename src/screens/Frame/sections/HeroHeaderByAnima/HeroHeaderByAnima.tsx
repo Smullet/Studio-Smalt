@@ -9,13 +9,13 @@ export const HeroHeaderByAnima = (): JSX.Element => {
             </h1>
 
             <div className="inline-flex items-center justify-center px-2.5 py-1.5 bg-[#123293] rounded-md shadow-[2px_2px_0px_#121214]">
-              <span className="font-bold text-white text-[84.9px] tracking-[-1.08px] leading-[80px] [font-family:'Inter',Helvetica]">
+              <span className="font-bold text-white text-[84.9px] tracking-[-1.08px] leading-[80px] [font-family:'Helvetica_Neue-Bold',Helvetica]">
                 Alternative
               </span>
             </div>
           </div>
 
-          <h2 className="w-full font-bold text-[80px] text-[#191818] leading-[80px] [font-family:'Inter',Helvetica]">
+          <h2 className="w-full font-bold text-[80px] text-[#191818] leading-[80px] [font-family:'Helvetica_Neue-Bold',Helvetica]">
             Studio digital
           </h2>
         </div>

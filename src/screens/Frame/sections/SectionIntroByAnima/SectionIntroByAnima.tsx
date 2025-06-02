@@ -47,7 +47,7 @@ export const SectionIntroByAnima = (): JSX.Element => {
       <div className="flex flex-col w-full max-w-[1046px] items-center gap-12 relative">
         <div className="flex flex-col items-center gap-[21px] relative self-stretch w-full">
           <Badge className="inline-flex items-center justify-center gap-2.5 p-2.5 bg-[#123293] rounded-md shadow-[2px_2px_0px_#000000]">
-            <span className="font-bold text-white text-[27px] tracking-[-1.08px] leading-[32.4px] whitespace-nowrap font-['Inter',Helvetica]">
+            <span className="font-bold text-white text-[27px] tracking-[-1.08px] leading-[32.4px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
               Mes services
             </span>
           </Badge>

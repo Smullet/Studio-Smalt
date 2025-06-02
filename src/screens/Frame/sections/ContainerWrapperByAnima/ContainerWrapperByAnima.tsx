@@ -64,7 +64,7 @@ export const ContainerWrapperByAnima = (): JSX.Element => {
           {/* Section Header */}
           <div className="flex flex-col items-center gap-[22px] w-full">
             <Badge className="w-[79px] h-[51.75px] bg-[#123293] rounded-md shadow-[2px_2px_0px_#121214] flex items-center justify-center">
-              <span className="font-['Inter',Helvetica] font-bold text-white text-[27px] tracking-[-1.08px] leading-[32.4px]">
+              <span className="font-['Helvetica_Neue-Bold',Helvetica] font-bold text-white text-[27px] tracking-[-1.08px] leading-[32.4px]">
                 Tarifs
               </span>
             </Badge>
@@ -91,7 +91,7 @@ export const ContainerWrapperByAnima = (): JSX.Element => {
                       service.title === "Product Design" ? "212px" : service.title === "Web Design" ? "163px" : "149px",
                   }}
                 >
-                  <span className="font-['Inter',Helvetica] font-bold text-white text-[27px] tracking-[-1.08px] leading-[32.4px]">
+                  <span className="font-['Helvetica_Neue-Bold',Helvetica] font-bold text-white text-[27px] tracking-[-1.08px] leading-[32.4px]">
                     {service.title}
                   </span>
                 </Badge>
@@ -101,7 +101,7 @@ export const ContainerWrapperByAnima = (): JSX.Element => {
                     {/* Service Description */}
                     <div className="h-[340px]">
                       <div className="mb-[43px]">
-                        <div className="font-['Inter',Helvetica] font-bold text-xl tracking-[-0.40px] leading-6 mb-4">
+                        <div className="font-['Helvetica_Neue-Bold',Helvetica] font-bold text-xl tracking-[-0.40px] leading-6 mb-4">
                           {service.title === "Product Design" ? (
                             <>
                               <span className="text-[#0f0f0f] tracking-[-0.08px]">
