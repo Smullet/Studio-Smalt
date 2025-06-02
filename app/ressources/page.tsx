@@ -53,7 +53,7 @@ export default function ResourcesPage() {
             </a>
             {/* Navigation desktop */}
             <div className="hidden md:flex items-center gap-8">
-              <Link href="https://www.studiosmalt.fr/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+              <Link href="/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Mes projets
               </Link>
               <Link href="/ressources" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
@@ -206,10 +206,10 @@ export default function ResourcesPage() {
 
             {/* Navigation Links */}
             <div className="flex flex-col gap-4">
-              <Link href="https://www.studiosmalt.fr/projets" className="text-white/70 hover:text-white transition-colors">
+              <Link href="/projets" className="text-white/70 hover:text-white transition-colors">
                 Mes projets
               </Link>
-              <Link href="https://www.studiosmalt.fr/ressources" className="text-white/70 hover:text-white transition-colors">
+              <Link href="/ressources" className="text-white/70 hover:text-white transition-colors">
                 Ressources
               </Link>
               <Link href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">

@@ -106,7 +106,7 @@ export default function ProjectsPage() {
               <Image src="/logo.svg" alt="Studio Smalt" width={120} height={40} className="h-8 sm:h-10" />
             </Link>
             <div className="hidden md:flex items-center gap-8">
-              <Link href="https://www.studiosmalt.fr/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+              <Link href="/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Mes projets
               </Link>
               <Link href="/ressources" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
