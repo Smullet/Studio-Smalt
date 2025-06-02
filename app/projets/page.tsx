@@ -145,7 +145,7 @@ export default function ProjectsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.02 }}
-                className="overflow-hidden rounded-[24px] bg-white shadow-none border-none transition-all duration-300 hover:bg-[#102D84] group"
+                className="overflow-hidden rounded-[24px] bg-white shadow-none border-none transition-all duration-300 hover:bg-[#102D84] group p-4"
               >
                 <div className="aspect-[4/3] relative">
                   <Image
