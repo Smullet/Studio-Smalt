@@ -206,7 +206,7 @@ export default function ProjectsPage() {
             >
               <div className="w-full h-52 rounded-md overflow-hidden">
                 <Image
-                  src="/contact/call.jpg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Call-5drVA2MdTaS3HrMZMU6Y9JXBMk9dFT.png"
                   alt="Parlez-moi de votre projet"
                   width={400}
                   height={300}
@@ -230,17 +230,17 @@ export default function ProjectsPage() {
             >
               <div className="w-full h-52 rounded-md overflow-hidden">
                 <Image
-                  src="/contact/proposal.jpg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/proposition-CNe9enbmJ40w4YwGMgyIRtk5bdPJTr.png"
                   alt="Recevez une proposition détaillée"
                   width={400}
                   height={300}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="w-full text-center text-[#123293] text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
+              <div className="w-full text-center text-[#191818] text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                 Recevez une proposition détaillée et sur-mesure
               </div>
-              <div className="w-full text-center text-[#123293] text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
+              <div className="w-full text-center text-[#191818] text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
                 En moins de 24h, recevez un devis clair et actionnable.
               </div>
             </MotionCard>
@@ -254,7 +254,7 @@ export default function ProjectsPage() {
             >
               <div className="w-full h-52 rounded-md overflow-hidden">
                 <Image
-                  src="/contact/start.jpg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
                   alt="Démarrez rapidement"
                   width={400}
                   height={300}
