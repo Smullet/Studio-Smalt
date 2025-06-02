@@ -16,55 +16,43 @@ const projects = [
     title: "MODERNISATION D'UN SITE COMPLEXE POUR UNE NAVIGATION INTUITIVE",
     client: "OVH",
     image: "/projects/ovh-project.jpg",
-    link: "#",
-    bgColor: "bg-[#123293]",
-    textColor: "text-white",
+    link: "#"
   },
   {
     id: 2,
-    title: "INSTITUT CATHOLIQUE DE LILLE – PLATEFORME DE GESTION DES INVESTISSEMENTS",
+    title: "PLATEFORME DE GESTION DES INVESTISSEMENTS",
     client: "Institut Catholique de Lille",
     image: "/projects/icl-project.jpg",
-    link: "#",
-    bgColor: "bg-white",
-    textColor: "text-[#123293]",
+    link: "#"
   },
   {
     id: 3,
     title: "UNE REFONTE UX CENTRÉE UTILISATEUR",
     client: "Monabanq",
     image: "/projects/monabanq-project.jpg",
-    link: "#",
-    bgColor: "bg-[#9FD067]",
-    textColor: "text-[#123293]",
+    link: "#"
   },
   {
     id: 4,
     title: "PLATEFORME DE MATCHING ENTRE CANDIDATS ET RECRUTEURS",
     client: "MENEA",
     image: "/projects/menea-project.jpg",
-    link: "#",
-    bgColor: "bg-gray-100",
-    textColor: "text-[#123293]",
+    link: "#"
   },
   {
     id: 5,
     title: "UNE REFONTE UX CENTRÉE UTILISATEUR",
     client: "FRESH DATA",
     image: "/projects/freshdata-project.jpg",
-    link: "#",
-    bgColor: "bg-[#9FD067]",
-    textColor: "text-[#123293]",
+    link: "#"
   },
   {
     id: 6,
     title: "AMÉLIORATION DE L'ACCESSIBILITÉ NUMÉRIQUE DES ENTREPRISES",
     client: "WARREN WALTER",
     image: "/projects/warren-walter-project.jpg",
-    link: "#",
-    bgColor: "bg-[#0f0f0f]",
-    textColor: "text-white",
-  },
+    link: "#"
+  }
 ]
 
 // Données des cartes de contact
@@ -157,24 +145,24 @@ export default function ProjectsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.02 }}
-                className={`overflow-hidden rounded-xl ${project.bgColor}`}
+                className="overflow-hidden rounded-xl bg-white"
               >
+                <div className="aspect-[4/3] relative">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={800}
+                    height={600}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
                 <div className="p-6 sm:p-8">
-                  <h3 className={`text-xl sm:text-2xl font-bold mb-4 ${project.textColor}`}>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-neutral-900">
                     {project.title}
                   </h3>
-                  <p className={`text-base sm:text-lg mb-6 ${project.textColor} opacity-80`}>
+                  <p className="text-base sm:text-lg text-neutral-900">
                     {project.client}
                   </p>
-                  <div className="aspect-[4/3] relative rounded-lg overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={800}
-                      height={600}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
                 </div>
               </MotionCard>
             ))}
