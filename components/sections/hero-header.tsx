@@ -36,8 +36,8 @@ export const HeroHeader = () => {
       <section className="hero-header w-full min-h-screen pt-20 sm:pt-28 pb-12 sm:pb-24 relative bg-[#123293] flex justify-center items-center overflow-hidden px-4 sm:px-6">
         <div className="container w-full max-w-3xl mx-auto flex flex-col justify-center items-center gap-8 relative z-10">
           <div className="heading-pourquoi text-center text-white text-lg sm:text-xl md:text-2xl font-black font-['Helvetica_Neue'] uppercase tracking-wide">
-            STUDIO DIGITAL
-          </div>
+              STUDIO DIGITAL
+            </div>
           <div className="flex flex-col items-center gap-6">
             <div className="flex flex-col items-center gap-11">
               <div className="text-center text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-['Helvetica_Neue'] leading-tight tracking-tight">

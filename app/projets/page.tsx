@@ -6,8 +6,38 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { ProjectModal } from "@/components/ui/project-modal"
+import { useState } from "react"
 
 const MotionCard = motion(Card)
+
+const ovhProjectData = {
+  title: "OVH-Refonte UX/UI d'un site complexe et multi-parcours",
+  context: "OVH, leader européen des solutions cloud et d'hébergement, souhaitait moderniser son site web pour améliorer l'expérience utilisateur et refléter une image plus professionnelle et innovante. La complexité des parcours et la multiplicité des services proposés rendaient la navigation confuse et peu engageante, aussi bien pour les développeurs techniques que pour les PME et grandes entreprises à la recherche de solutions adaptées.",
+  objectives: [
+    "Clarifier la structure du site en divisant les offres en trois univers distincts : Cloud, Sites & Hébergements, Serveurs Dédiés.",
+    "Simplifier les parcours d'achat et de souscription pour tous les profils d'utilisateurs.",
+    "Renforcer l'image de marque d'OVH avec un design moderne, cohérent et orienté utilisateur."
+  ],
+  contribution: {
+    analysis: "Analyse des besoins utilisateurs : identification des attentes et des points de friction sur le site existant, prise en compte des usages spécifiques (techniques, PME, grandes entreprises).",
+    uxDesign: [
+      "Wireframes clairs et hiérarchisés par univers, guidant chaque utilisateur vers les informations pertinentes.",
+      "Parcours simplifiés pour l'achat et la souscription, intégrant des comparateurs de produits et des guides pédagogiques pour les non-initiés."
+    ],
+    visualIdentity: [
+      "Charte graphique professionnelle alignée avec le positionnement innovant d'OVH.",
+      "Typographies modernes, palettes de couleurs adaptées, composants cohérents pour une expérience fluide sur desktop et mobile."
+    ],
+    responsive: "Conception responsive : interfaces optimisées pour une expérience utilisateur sans friction sur tous les supports."
+  },
+  images: [
+    "/projects/ovh-1.jpg",
+    "/projects/ovh-2.jpg",
+    "/projects/ovh-3.jpg",
+    "/projects/ovh-4.jpg"
+  ]
+}
 
 // Données des projets
 const projects = [
@@ -84,6 +114,8 @@ const contactCards = [
 ]
 
 export default function ProjectsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       {/* Navigation */}
@@ -145,7 +177,8 @@ export default function ProjectsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.02 }}
-                className="overflow-hidden rounded-[24px] bg-white shadow-none border-none transition-all duration-300 hover:bg-[#102D84] group"
+                className="overflow-hidden rounded-[24px] bg-white shadow-none border-none transition-all duration-300 hover:bg-[#102D84] group cursor-pointer"
+                onClick={() => project.id === 1 && setIsModalOpen(true)}
               >
                 <div className="p-4">
                   <div className="aspect-[4/3] relative">
@@ -337,6 +370,12 @@ export default function ProjectsPage() {
           </div>
         </div>
       </footer>
+
+      <ProjectModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        project={ovhProjectData}
+      />
     </main>
   )
 } 

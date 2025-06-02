@@ -118,40 +118,40 @@ export const SectionProjectsWrapper = () => {
   return (
     <section id="projets" className="w-full py-12 sm:py-16 md:py-24 flex flex-col justify-center items-center px-4 sm:px-6">
       <div className="w-full max-w-6xl flex flex-col justify-start items-center gap-8 sm:gap-12">
-        <div className="flex flex-col w-full max-w-[1200px] items-center justify-center px-4 sm:px-6 py-0 relative">
-          <div className="flex flex-col items-start gap-8 sm:gap-[60px] py-12 sm:py-16 md:py-[100px] relative self-stretch w-full">
-            {/* About section header and bio */}
-            <div className="flex flex-col max-w-[1200px] items-start justify-center gap-2.5 relative w-full">
-              {/* "A propos" badge */}
-              <motion.div initial="hidden" animate="visible" variants={badgeVariants}>
-                <Badge className="flex items-center gap-[7px] pl-0.5 pr-2.5 py-0.5 bg-[#f6f7f9] rounded-[25px] text-[#0f0f0f] font-relevant-places-631301-framer-app-inter-medium">
-                  <div className="inline-flex items-center justify-center p-[9px] bg-relevant-places-631301framerapptorea-bay rounded-[40px]">
-                    <img className="w-[11px]" alt="Component" src="/component-1-1.svg" />
-                  </div>
-                  A propos
-                </Badge>
-              </motion.div>
+      <div className="flex flex-col w-full max-w-[1200px] items-center justify-center px-4 sm:px-6 py-0 relative">
+        <div className="flex flex-col items-start gap-8 sm:gap-[60px] py-12 sm:py-16 md:py-[100px] relative self-stretch w-full">
+          {/* About section header and bio */}
+          <div className="flex flex-col max-w-[1200px] items-start justify-center gap-2.5 relative w-full">
+            {/* "A propos" badge */}
+            <motion.div initial="hidden" animate="visible" variants={badgeVariants}>
+              <Badge className="flex items-center gap-[7px] pl-0.5 pr-2.5 py-0.5 bg-[#f6f7f9] rounded-[25px] text-[#0f0f0f] font-relevant-places-631301-framer-app-inter-medium">
+                <div className="inline-flex items-center justify-center p-[9px] bg-relevant-places-631301framerapptorea-bay rounded-[40px]">
+                  <img className="w-[11px]" alt="Component" src="/component-1-1.svg" />
+                </div>
+                A propos
+              </Badge>
+            </motion.div>
 
-              {/* Bio paragraphs */}
-              <div className="flex flex-col max-w-full sm:max-w-[800px] w-full sm:w-[800px] items-start gap-4 sm:gap-[21.2px] relative">
-                {bioParagraphs.map((paragraph, index) => (
-                  <motion.div
-                    key={paragraph.id}
-                    custom={index}
-                    initial="hidden"
-                    animate="visible"
-                    variants={paragraphVariants}
-                    className="relative w-fit font-['Inter',Helvetica] font-normal text-transparent text-[17px] leading-[17px]"
-                  >
-                    {paragraph.content}
-                  </motion.div>
-                ))}
-              </div>
+            {/* Bio paragraphs */}
+            <div className="flex flex-col max-w-full sm:max-w-[800px] w-full sm:w-[800px] items-start gap-4 sm:gap-[21.2px] relative">
+              {bioParagraphs.map((paragraph, index) => (
+                <motion.div
+                  key={paragraph.id}
+                  custom={index}
+                  initial="hidden"
+                  animate="visible"
+                  variants={paragraphVariants}
+                  className="relative w-fit font-['Inter',Helvetica] font-normal text-transparent text-[17px] leading-[17px]"
+                >
+                  {paragraph.content}
+                </motion.div>
+              ))}
             </div>
+          </div>
 
-            {/* Profile and collaboration cards */}
+          {/* Profile and collaboration cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {/* Profile card */}
+            {/* Profile card */}
               <MotionCard 
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -196,7 +196,7 @@ export const SectionProjectsWrapper = () => {
                 </CardContent>
               </MotionCard>
 
-              {/* Collaboration card */}
+            {/* Collaboration card */}
               <MotionCard 
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
