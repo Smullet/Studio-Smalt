@@ -103,22 +103,21 @@ export default function ProjectsPage() {
         <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center">
-              <img src="/logo.svg" alt="Studio Smalt" className="h-8 sm:h-10" />
+              <Image src="/logo.svg" alt="Studio Smalt" width={120} height={40} className="h-8 sm:h-10" />
             </Link>
-            {/* Navigation desktop */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+              <Link href="/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Mes projets
-              </a>
+              </Link>
               <Link href="/ressources" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Ressources
               </Link>
-              <a 
-                href="mailto:salomemullet@studiosmalt.fr?subject=Discussion%20de%20projet&body=Bonjour%20Salomé%2C%0A%0AJe%20souhaite%20discuter%20d'un%20projet%20avec%20vous."
+              <Link 
+                href="mailto:salomemullet@studiosmalt.fr"
                 className="bg-[#123293] text-white px-6 py-2 rounded-[14px] hover:bg-blue-900 transition-colors text-base font-medium"
               >
                 Discuter de votre projet
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -129,24 +128,19 @@ export default function ProjectsPage() {
         <div className="container max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center gap-6 text-center">
             <Badge className="inline-flex items-center justify-center gap-2.5 p-2.5 bg-[#123293] rounded-md shadow-[2px_2px_0px_#000000]">
-              <span className="font-bold text-white text-xl sm:text-[27px] tracking-[-1.08px] leading-[1.2] sm:leading-[32.4px] whitespace-nowrap font-['Helvetica_Neue-Bold',Helvetica]">
+              <span className="font-bold text-white text-xl sm:text-[27px] tracking-[-1.08px] leading-[1.2] sm:leading-[32.4px] whitespace-nowrap">
                 Mes projets
               </span>
             </Badge>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-              Des solutions digitales qui <span className="text-[#123293]">vous ressemblent</span>,
-              <br />et qui <span className="text-[#123293]">fonctionnent</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
+              Des solutions digitales qui <span className="text-[#123293]">vous ressemblent</span>
             </h1>
             
-            <p className="max-w-2xl text-lg sm:text-xl opacity-90 font-light">
+            <p className="max-w-2xl text-lg sm:text-xl opacity-90">
               Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.
-              On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos utilisateurs.
+              On crée ensemble des solutions utiles, alignées sur votre vision.
             </p>
-
-            <Button className="mt-4 bg-[#123293] text-white hover:bg-blue-900">
-              Discuter de votre projet
-            </Button>
           </div>
         </div>
       </section>
@@ -173,9 +167,11 @@ export default function ProjectsPage() {
                     {project.client}
                   </p>
                   <div className="aspect-[4/3] relative rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={800}
+                      height={600}
                       className="object-cover w-full h-full"
                     />
                   </div>
@@ -205,9 +201,11 @@ export default function ProjectsPage() {
               >
                 <div className="p-6">
                   <div className="aspect-video relative rounded-lg overflow-hidden mb-6">
-                    <img
+                    <Image
                       src={card.image}
                       alt={card.title}
+                      width={400}
+                      height={300}
                       className="object-cover w-full h-full"
                     />
                   </div>
@@ -222,9 +220,12 @@ export default function ProjectsPage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Button className="bg-[#123293] text-white hover:bg-blue-900">
+            <Link 
+              href="mailto:salomemullet@studiosmalt.fr"
+              className="inline-flex bg-[#123293] text-white px-6 py-2 rounded-[14px] hover:bg-blue-900 transition-colors text-base font-medium"
+            >
               Discuter de votre projet
-            </Button>
+            </Link>
             <p className="text-sm text-gray-500 mt-4">
               15 minutes pour comprendre ce qui vous bloque
             </p>
@@ -239,14 +240,14 @@ export default function ProjectsPage() {
             {/* Logo and social links */}
             <div className="flex flex-col gap-6">
               <Image
-                src="/logo blanc.svg"
+                src="/logo-blanc.svg"
                 alt="Studio Smalt"
                 width={120}
                 height={40}
                 className="h-8 sm:h-10"
               />
               <div className="flex gap-4">
-                <a
+                <Link
                   href="https://www.linkedin.com/in/salome-mullet/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -257,8 +258,8 @@ export default function ProjectsPage() {
                     <path d="M6 9H2V21H6V9Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                </a>
-                <a
+                </Link>
+                <Link
                   href="https://dribbble.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -269,21 +270,21 @@ export default function ProjectsPage() {
                     <path d="M8.56 2.75C12.93 8.78 14.58 12.17 16.59 20.47" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M21.25 12.84C14.67 11.87 11.83 11.87 2.75 13.72" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Navigation Links */}
             <div className="flex flex-col gap-4">
-              <a href="/projets" className="text-white/70 hover:text-white transition-colors">
+              <Link href="/projets" className="text-white/70 hover:text-white transition-colors">
                 Mes projets
-              </a>
+              </Link>
               <Link href="/ressources" className="text-white/70 hover:text-white transition-colors">
                 Ressources
               </Link>
-              <a href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
+              <Link href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
                 Mentions légales
-              </a>
+              </Link>
             </div>
 
             {/* Address */}
