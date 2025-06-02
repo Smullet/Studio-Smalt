@@ -36,13 +36,13 @@ export const MobileMenu = () => {
             className="fixed inset-x-0 top-[72px] bg-white shadow-lg p-4"
           >
             <nav className="flex flex-col space-y-4">
-              <a
-                href="#projets"
+              <Link
+                href="/projets"
                 className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium px-4 py-2"
                 onClick={toggleMenu}
               >
                 Mes projets
-              </a>
+              </Link>
               <Link
                 href="/ressources"
                 className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium px-4 py-2"

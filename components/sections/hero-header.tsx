@@ -16,9 +16,9 @@ export const HeroHeader = () => {
             </Link>
             {/* Navigation desktop */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+              <Link href="/projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Mes projets
-              </a>
+              </Link>
               <Link href="/ressources" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
                 Ressources
               </Link>
