@@ -145,7 +145,7 @@ export default function ProjectsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.02 }}
-                className="overflow-hidden rounded-xl bg-white"
+                className="overflow-hidden rounded-xl bg-white shadow-none border-none"
               >
                 <div className="aspect-[4/3] relative">
                   <Image
@@ -157,7 +157,7 @@ export default function ProjectsPage() {
                   />
                 </div>
                 <div className="p-6 sm:p-8">
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-neutral-900">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-[#102D84]">
                     {project.title}
                   </h3>
                   <p className="text-base sm:text-lg text-neutral-900">
