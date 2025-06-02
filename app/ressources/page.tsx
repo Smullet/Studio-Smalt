@@ -9,6 +9,7 @@ import { HeroHeader } from "@/components/sections/hero-header"
 import { MobileMenu } from "@/components/mobile-menu"
 import { Footer } from "@/components/sections/footer"
 import Image from "next/image"
+import Link from "next/link"
 
 const MotionCard = motion(Card)
 
@@ -205,15 +206,15 @@ export default function ResourcesPage() {
 
             {/* Navigation Links */}
             <div className="flex flex-col gap-4">
-              <a href="#projets" className="text-white/70 hover:text-white transition-colors">
+              <Link href="/projets" className="text-white/70 hover:text-white transition-colors">
                 Mes projets
-              </a>
-              <a href="#ressources" className="text-white/70 hover:text-white transition-colors">
+              </Link>
+              <Link href="/ressources" className="text-white/70 hover:text-white transition-colors">
                 Ressources
-              </a>
-              <a href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
+              </Link>
+              <Link href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
                 Mentions légales
-              </a>
+              </Link>
             </div>
 
             {/* Address */}

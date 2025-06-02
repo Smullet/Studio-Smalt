@@ -9,6 +9,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { RevealText } from '@/components/animations/RevealText'
+import Link from "next/link"
 
 // Animation variants
 const fadeInUp = {
@@ -623,15 +624,15 @@ export default function Home() {
 
             {/* Navigation Links */}
             <div className="flex flex-col gap-4">
-              <a href="#projets" className="text-white/70 hover:text-white transition-colors">
+              <Link href="/projets" className="text-white/70 hover:text-white transition-colors">
                 Mes projets
-              </a>
-              <a href="#ressources" className="text-white/70 hover:text-white transition-colors">
+              </Link>
+              <Link href="/ressources" className="text-white/70 hover:text-white transition-colors">
                 Ressources
-              </a>
-              <a href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
+              </Link>
+              <Link href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
                 Mentions légales
-              </a>
+              </Link>
             </div>
 
             {/* Address */}
