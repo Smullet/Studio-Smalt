@@ -53,6 +53,7 @@ module.exports = {
         "text-regular-l": "var(--text-regular-l-font-family)",
         "text-regular-m": "var(--text-regular-m-font-family)",
         "ttile-title-m": "var(--ttile-title-m-font-family)",
+        "heading": "var(--heading-font-family)",
         sans: [
           "ui-sans-serif",
           "system-ui",

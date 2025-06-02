@@ -22,7 +22,10 @@
   --display-display-XL-letter-spacing: -2.38px;
   --display-display-XL-line-height: 120.00000762939453%;
   --shadow-2xl: 0px 24px 48px -12px rgba(10, 13, 18, 0.18);
-  --studio-smalt-font-family: "Inter", Helvetica;
+  --heading-font-family: "Helvetica Neue", Helvetica;
+  --heading-font-weight: 700;
+  --heading-font-style: normal;
+  --studio-smalt-font-family: "Helvetica Neue", Helvetica;
   --studio-smalt-font-size: 27px;
   --studio-smalt-font-style: normal;
   --studio-smalt-font-weight: 700;
