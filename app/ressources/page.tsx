@@ -5,6 +5,8 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Calendar } from "lucide-react"
 import { motion } from "framer-motion"
+import { HeroHeader } from "@/components/sections/hero-header"
+import { MobileMenu } from "@/components/mobile-menu"
 
 const MotionCard = motion(Card)
 
@@ -39,8 +41,35 @@ const resources = [
 export default function ResourcesPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm backdrop-blur-sm">
+        <div className="container mx-auto px-4 sm:px-6 py-4">
+          <div className="flex justify-between items-center">
+            <a href="/" className="flex items-center">
+              <img src="/logo.svg" alt="Studio Smalt" className="h-8 sm:h-10" />
+            </a>
+            {/* Navigation desktop */}
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#projets" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+                Mes projets
+              </a>
+              <a href="/ressources" className="text-gray-800 hover:text-[#123293] transition-colors text-base font-medium">
+                Ressources
+              </a>
+              <a 
+                href="mailto:salomemullet@studiosmalt.fr?subject=Discussion%20de%20projet&body=Bonjour%20Salomé%2C%0A%0AJe%20souhaite%20discuter%20d'un%20projet%20avec%20vous."
+                className="bg-[#123293] text-white px-6 py-2 rounded-[14px] hover:bg-blue-900 transition-colors text-base font-medium"
+              >
+                Discuter de votre projet
+              </a>
+            </div>
+            <MobileMenu />
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="w-full py-12 sm:py-16 md:py-24 bg-[#123293] text-white">
+      <section className="w-full py-12 sm:py-16 md:py-24 bg-[#123293] text-white mt-20">
         <div className="container max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center gap-6 text-center">
             <Badge className="inline-flex items-center justify-center gap-2.5 p-2.5 bg-white rounded-md shadow-[2px_2px_0px_#000000]">
