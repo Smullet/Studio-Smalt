@@ -276,10 +276,10 @@ export default function ProjectsPage() {
 
             {/* Navigation Links */}
             <div className="flex flex-col gap-4">
-              <Link href="/projets" className="text-white/70 hover:text-white transition-colors">
+              <Link href="https://www.studiosmalt.fr/projets" className="text-white/70 hover:text-white transition-colors">
                 Mes projets
               </Link>
-              <Link href="/ressources" className="text-white/70 hover:text-white transition-colors">
+              <Link href="https://www.studiosmalt.fr/ressources" className="text-white/70 hover:text-white transition-colors">
                 Ressources
               </Link>
               <Link href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
