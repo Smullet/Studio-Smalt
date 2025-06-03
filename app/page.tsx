@@ -124,65 +124,128 @@ export default function Home(): JSX.Element {
           {/* Cards des services */}
           <div className="relative w-[734px] h-[927px]">
             {/* Product Design Card */}
-            <div className="absolute left-0 top-0 w-[338px] h-[441px] bg-white rounded-[24px] shadow-[0px_32px_64px_-12px_rgba(0,0,0,0.14)] overflow-hidden">
-              <div className="relative w-[321.67px] h-[213px] mx-2 mt-2 rounded-xl overflow-hidden">
-                <Image
-                  src="/images/services/product-design.jpg"
-                  alt="Product Design"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black opacity-40"/>
-              </div>
-              <div className="p-4 mt-[32px]">
-                <h3 className="text-[25px] font-bold font-['Helvetica_Neue'] uppercase leading-[30px] text-[#1D1F29]">
+            <div className="OverlayShadow" style={{width: 338, height: 441, position: 'relative', background: 'rgba(255, 255, 255, 0)', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
+              <div className="Heading3" style={{width: 305.67, height: 72, left: 16, top: 245, position: 'absolute'}}>
+                <div className="ProductDesign" style={{width: 350, height: 26, left: 0.34, top: 5.61, position: 'absolute', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#1D1F29', fontSize: 25, fontFamily: 'Helvetica Neue', fontWeight: '700', textTransform: 'uppercase', lineHeight: 30, wordWrap: 'break-word'}}>
                   Product Design
-                </h3>
-                <p className="mt-4 text-[16px] font-normal font-['Inter'] leading-[19.2px] text-[#121212]">
-                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives, parcours fluides, maquettes testables, design systems... Je travaille en collaboration étroite avec vos équipes produit et tech.
-                </p>
+                </div>
+              </div>
+              <div style={{width: 306, height: 117, left: 16.34, top: 291, position: 'absolute', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'var(--text-secondary-bright, #121212)', fontSize: 16, fontFamily: 'Inter', fontWeight: '400', lineHeight: 19.20, wordWrap: 'break-word'}}>
+                Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives, parcours fluides, maquettes testables, design systems... Je travaille en collaboration étroite avec vos équipes produit et tech.
+              </div>
+              <div className="Container" style={{width: 321.67, height: 213, left: 8, top: 8, position: 'absolute', overflow: 'hidden', borderRadius: 12}}>
+                <div className="Container" style={{width: 321.67, height: 213, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                  <div className="Iframe" style={{width: 378.67, height: 213, left: -28, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                    <div className="HtmlBody" style={{width: 379, height: 213, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                      <Image
+                        src="/images/services/product-design.jpg"
+                        alt="Product Design"
+                        width={379}
+                        height={213}
+                        className="absolute left-0 top-0"
+                      />
+                      <div className="Container" style={{width: 379, height: 213, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                        <div className="Background" style={{width: 379, height: 213, left: 0, top: 0, position: 'absolute', opacity: 0.40, background: 'black'}} />
+                        <div className="Svg" style={{width: 68.22, height: 68.22, left: 155.39, top: 72.39, position: 'absolute'}}>
+                          <div className="Vector" style={{left: 2.84, top: 2.84, position: 'absolute'}}>
+                            <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M32.995 64.4466C50.2636 64.4466 64.2625 50.4477 64.2625 33.1791C64.2625 15.9106 50.2636 1.91162 32.995 1.91162C15.7265 1.91162 1.72754 15.9106 1.72754 33.1791C1.72754 50.4477 15.7265 64.4466 32.995 64.4466Z" stroke="white" strokeOpacity="0.2" strokeWidth="2.84245"/>
+                            </svg>
+                          </div>
+                          <div className="Vector" style={{left: 2.84, top: 2.84, position: 'absolute'}}>
+                            <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M32.995 64.4466C50.2636 64.4466 64.2625 50.4477 64.2625 33.1791C64.2625 15.9106 50.2636 1.91162 32.995 1.91162C15.7265 1.91162 1.72754 15.9106 1.72754 33.1791C1.72754 50.4477 15.7265 64.4466 32.995 64.4466Z" stroke="white" strokeWidth="2.84245" strokeLinecap="round" strokeDasharray="284.24 284.24"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Web Design Card */}
-            <div className="absolute left-[396px] top-[217px] w-[338px] h-[441px] bg-white rounded-[24px] shadow-[0px_32px_64px_-12px_rgba(0,0,0,0.14)] overflow-hidden">
-              <div className="relative w-[321.67px] h-[213px] mx-2 mt-2 rounded-xl overflow-hidden">
-                <Image
-                  src="/images/services/web-design.jpg"
-                  alt="Web Design"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black opacity-40"/>
-              </div>
-              <div className="p-4 mt-[32px]">
-                <h3 className="text-[25px] font-bold font-['Helvetica_Neue'] uppercase leading-[30px] text-[#1D1F29]">
+            <div className="OverlayShadow" style={{width: 338, height: 441, left: 396, top: 217, position: 'absolute', background: 'rgba(255, 255, 255, 0)', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
+              <div className="Heading3" style={{width: 305.67, height: 72, left: 16, top: 245, position: 'absolute'}}>
+                <div className="ProductDesign" style={{width: 350, height: 26, left: 0.34, top: 5.61, position: 'absolute', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#1D1F29', fontSize: 25, fontFamily: 'Helvetica Neue', fontWeight: '700', textTransform: 'uppercase', lineHeight: 30, wordWrap: 'break-word'}}>
                   Web Design
-                </h3>
-                <p className="mt-4 text-[16px] font-normal font-['Inter'] leading-[19.2px] text-[#121212]">
-                  Je vous aide à concevoir des sites web qui convertissent : interfaces intuitives, parcours fluides, design moderne et adaptatif. Je travaille en collaboration étroite avec vos équipes marketing et communication.
-                </p>
+                </div>
+              </div>
+              <div style={{width: 306, height: 117, left: 16.34, top: 291, position: 'absolute', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'var(--text-secondary-bright, #121212)', fontSize: 16, fontFamily: 'Inter', fontWeight: '400', lineHeight: 19.20, wordWrap: 'break-word'}}>
+                Je vous aide à concevoir des sites web qui convertissent : interfaces intuitives, parcours fluides, design moderne et adaptatif. Je travaille en collaboration étroite avec vos équipes marketing et communication.
+              </div>
+              <div className="Container" style={{width: 321.67, height: 213, left: 8, top: 8, position: 'absolute', overflow: 'hidden', borderRadius: 12}}>
+                <div className="Container" style={{width: 321.67, height: 213, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                  <div className="Iframe" style={{width: 378.67, height: 213, left: -28, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                    <div className="HtmlBody" style={{width: 379, height: 213, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                      <Image
+                        src="/images/services/web-design.jpg"
+                        alt="Web Design"
+                        width={379}
+                        height={213}
+                        className="absolute left-0 top-0"
+                      />
+                      <div className="Container" style={{width: 379, height: 213, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                        <div className="Background" style={{width: 379, height: 213, left: 0, top: 0, position: 'absolute', opacity: 0.40, background: 'black'}} />
+                        <div className="Svg" style={{width: 68.22, height: 68.22, left: 155.39, top: 72.39, position: 'absolute'}}>
+                          <div className="Vector" style={{left: 2.84, top: 2.84, position: 'absolute'}}>
+                            <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M32.995 64.4466C50.2636 64.4466 64.2625 50.4477 64.2625 33.1791C64.2625 15.9106 50.2636 1.91162 32.995 1.91162C15.7265 1.91162 1.72754 15.9106 1.72754 33.1791C1.72754 50.4477 15.7265 64.4466 32.995 64.4466Z" stroke="white" strokeOpacity="0.2" strokeWidth="2.84245"/>
+                            </svg>
+                          </div>
+                          <div className="Vector" style={{left: 2.84, top: 2.84, position: 'absolute'}}>
+                            <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M32.995 64.4466C50.2636 64.4466 64.2625 50.4477 64.2625 33.1791C64.2625 15.9106 50.2636 1.91162 32.995 1.91162C15.7265 1.91162 1.72754 15.9106 1.72754 33.1791C1.72754 50.4477 15.7265 64.4466 32.995 64.4466Z" stroke="white" strokeWidth="2.84245" strokeLinecap="round" strokeDasharray="284.24 284.24"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Facilitation Card */}
-            <div className="absolute left-0 top-[492px] w-[338px] h-[441px] bg-white rounded-[24px] shadow-[0px_32px_64px_-12px_rgba(0,0,0,0.14)] overflow-hidden">
-              <div className="relative w-[321.67px] h-[213px] mx-2 mt-2 rounded-xl overflow-hidden">
-                <Image
-                  src="/images/services/facilitation.jpg"
-                  alt="Facilitation"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black opacity-40"/>
-              </div>
-              <div className="p-4 mt-[32px]">
-                <h3 className="text-[25px] font-bold font-['Helvetica_Neue'] uppercase leading-[30px] text-[#1D1F29]">
+            <div className="OverlayShadow" style={{width: 338, height: 441, left: 0, top: 492, position: 'absolute', background: 'rgba(255, 255, 255, 0)', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
+              <div className="Heading3" style={{width: 305.67, height: 72, left: 16, top: 245, position: 'absolute'}}>
+                <div className="ProductDesign" style={{width: 350, height: 26, left: 0.34, top: 5.61, position: 'absolute', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: '#1D1F29', fontSize: 25, fontFamily: 'Helvetica Neue', fontWeight: '700', textTransform: 'uppercase', lineHeight: 30, wordWrap: 'break-word'}}>
                   Facilitation
-                </h3>
-                <p className="mt-4 text-[16px] font-normal font-['Inter'] leading-[19.2px] text-[#121212]">
-                  J'anime des ateliers collaboratifs pour faire avancer vos projets : design sprint, co-création, idéation, tests utilisateurs... Je facilite les échanges et guide les équipes vers des solutions concrètes.
-                </p>
+                </div>
+              </div>
+              <div style={{width: 306, height: 117, left: 16.34, top: 291, position: 'absolute', justifyContent: 'center', display: 'flex', flexDirection: 'column', color: 'var(--text-secondary-bright, #121212)', fontSize: 16, fontFamily: 'Inter', fontWeight: '400', lineHeight: 19.20, wordWrap: 'break-word'}}>
+                J'anime des ateliers collaboratifs pour faire avancer vos projets : design sprint, co-création, idéation, tests utilisateurs... Je facilite les échanges et guide les équipes vers des solutions concrètes.
+              </div>
+              <div className="Container" style={{width: 321.67, height: 213, left: 8, top: 8, position: 'absolute', overflow: 'hidden', borderRadius: 12}}>
+                <div className="Container" style={{width: 321.67, height: 213, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                  <div className="Iframe" style={{width: 378.67, height: 213, left: -28, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                    <div className="HtmlBody" style={{width: 379, height: 213, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                      <Image
+                        src="/images/services/facilitation.jpg"
+                        alt="Facilitation"
+                        width={379}
+                        height={213}
+                        className="absolute left-0 top-0"
+                      />
+                      <div className="Container" style={{width: 379, height: 213, left: 0, top: 0, position: 'absolute', overflow: 'hidden'}}>
+                        <div className="Background" style={{width: 379, height: 213, left: 0, top: 0, position: 'absolute', opacity: 0.40, background: 'black'}} />
+                        <div className="Svg" style={{width: 68.22, height: 68.22, left: 155.39, top: 72.39, position: 'absolute'}}>
+                          <div className="Vector" style={{left: 2.84, top: 2.84, position: 'absolute'}}>
+                            <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M32.995 64.4466C50.2636 64.4466 64.2625 50.4477 64.2625 33.1791C64.2625 15.9106 50.2636 1.91162 32.995 1.91162C15.7265 1.91162 1.72754 15.9106 1.72754 33.1791C1.72754 50.4477 15.7265 64.4466 32.995 64.4466Z" stroke="white" strokeOpacity="0.2" strokeWidth="2.84245"/>
+                            </svg>
+                          </div>
+                          <div className="Vector" style={{left: 2.84, top: 2.84, position: 'absolute'}}>
+                            <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M32.995 64.4466C50.2636 64.4466 64.2625 50.4477 64.2625 33.1791C64.2625 15.9106 50.2636 1.91162 32.995 1.91162C15.7265 1.91162 1.72754 15.9106 1.72754 33.1791C1.72754 50.4477 15.7265 64.4466 32.995 64.4466Z" stroke="white" strokeWidth="2.84245" strokeLinecap="round" strokeDasharray="284.24 284.24"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
