@@ -1,0 +1,76 @@
+/* Sliding Cards */
+.sliding-cards-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sliding-card {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 400px;
+  background: #fff;
+  border-radius: 24px;
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sliding-card:hover {
+  transform: translateY(-10px);
+}
+
+.sliding-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(28, 30, 40, 0.95), transparent);
+  color: white;
+}
+
+.sliding-card-number {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.sliding-card-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.sliding-card-description {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Custom scrollbar */
+.sliding-cards-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.sliding-cards-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.sliding-cards-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.sliding-cards-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
