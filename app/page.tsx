@@ -1,16 +1,14 @@
 "use client"
+import React, { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { HeroHeader } from "@/components/sections/hero-header"
-import { ServicesSection } from "@/components/sections/services-section"
 import { MobileMenu } from "@/components/mobile-menu"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
 import { RevealText } from '@/components/animations/RevealText'
 import Link from "next/link"
-import { FreelanceSection } from "@/components/sections/freelance-section"
 
 // Animation variants
 const fadeInUp = {
@@ -32,7 +30,7 @@ const staggerChildren = {
   }
 }
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const aboutRef = useRef(null)
   const servicesRef = useRef(null)
   const processRef = useRef(null)
@@ -53,42 +51,120 @@ export default function Home() {
       {/* Hero Section */}
       <HeroHeader />
 
-      <FreelanceSection />
-
-      {/* About Section */}
-      <section className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:pl-[470px] xl:pr-72 py-12 sm:py-16 md:py-24 bg-[#0f0f0f] flex flex-col justify-center items-center">
-        <div className="w-full max-w-4xl xl:max-w-none flex flex-col justify-center items-start gap-8 sm:gap-12 md:gap-16">
-          <div className="w-full flex flex-col justify-center items-start gap-4 sm:gap-6">
-            <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-white rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
-              <div className="text-[#123293] text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose">
-                Studio Smalt
+      {/* Section Intro */}
+      <section className="w-full py-24">
+        <div className="container mx-auto px-4 max-w-[1174px]">
+          <div className="flex flex-col items-center gap-12">
+            {/* Logo et Titre */}
+            <motion.div 
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center mb-6">
+                <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose px-2">
+                  Studio Smalt
+                </div>
               </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#191818] mb-6">
+                Des solutions digitales qui <span className="text-[#123293]">vous ressemblent</span>,<br />
+                et qui <span className="text-[#123293]">fonctionnent</span>
+              </h2>
+              <p className="text-lg sm:text-xl text-[#191818] opacity-80">
+                Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.<br />
+                On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos utilisateurs.
+              </p>
+            </motion.div>
+
+            {/* Services Cards */}
+            <div className="flex flex-col lg:flex-row gap-12 w-full">
+              {/* Product Design Card */}
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex-1"
+              >
+                <Card className="p-8 bg-[#123293] rounded-[20px] h-full">
+                  <div className="flex flex-col gap-6 h-full">
+                    <div>
+                      <h3 className="text-white text-2xl font-bold mb-4">Product Design</h3>
+                      <p className="text-white/80">
+                        Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives,
+                        parcours fluides, maquettes testables, design systems… Je travaille en collaboration étroite avec vos équipes produit et tech.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {["UI UX Design", "Design System", "Delivery", "Prototype Figma", "Discovery", "Design Sprint", "Test Utilisateurs"].map((tag) => (
+                        <span key={tag} className="text-white/70 text-sm bg-white/10 px-3 py-1 rounded-full">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+
+              {/* Web Design Card */}
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex-1"
+              >
+                <Card className="p-8 bg-[#f9d45c] rounded-[20px] h-full">
+                  <div className="flex flex-col gap-6 h-full">
+                    <div>
+                      <h3 className="text-[#191818] text-2xl font-bold mb-4">Web Design</h3>
+                      <p className="text-[#191818]/80">
+                        Je vous aide à concevoir des sites web qui convertissent : interfaces intuitives, parcours fluides,
+                        design moderne et adaptatif. Je travaille en collaboration étroite avec vos équipes marketing et communication.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {["UI Design", "Responsive", "SEO", "Performance", "Webflow", "WordPress", "No-code"].map((tag) => (
+                        <span key={tag} className="text-[#191818]/70 text-sm bg-[#191818]/10 px-3 py-1 rounded-full">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+
+              {/* Facilitation Card */}
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex-1"
+              >
+                <Card className="p-8 bg-[#0f0f0f] rounded-[20px] h-full">
+                  <div className="flex flex-col gap-6 h-full">
+                    <div>
+                      <h3 className="text-white text-2xl font-bold mb-4">Facilitation</h3>
+                      <p className="text-white/80">
+                        J'anime des ateliers collaboratifs pour faire avancer vos projets : design sprint, co-création,
+                        idéation, tests utilisateurs... Je facilite les échanges et guide les équipes vers des solutions concrètes.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {["Design Sprint", "Co-création", "Idéation", "Tests", "Ateliers", "Formation", "Accompagnement"].map((tag) => (
+                        <span key={tag} className="text-white/70 text-sm bg-white/10 px-3 py-1 rounded-full">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
             </div>
-            <div className="w-full text-white text-3xl sm:text-4xl md:text-[48px] font-black font-['Helvetica_Neue'] leading-tight sm:leading-[64px]">
-              <RevealText delay={0.2}>
-              Freelance oui, freestyle non
-              </RevealText>
-            </div>
-            <div className="w-full">
-              <RevealText delay={0.4} className="text-white text-base sm:text-lg md:text-xl font-normal font-['Helvetica_Neue'] leading-relaxed">
-                Chez Studio Smalt, je ne fais pas de design "au feeling".
-                <br className="hidden sm:block" />
-                Je suis{" "}
-                <span className="font-bold">Salomé Mullet</span>
-                , freelance en product design, et j'accompagne les équipes produit, tech et marketing dans la création
-                d'interfaces claires, utiles et testées.
-                <br className="hidden sm:block" />
-                Pas de blabla ni de refontes uniquement cosmétiques : <br className="hidden lg:block" />
-                chaque mission suit une méthodologie éprouvée, de l'atelier de cadrage jusqu'à la livraison prête à
-                intégrer.
-              </RevealText>
-            </div>
+
+            {/* CTA Button */}
+            <Button className="mt-8 px-6 py-4 bg-[#123293] rounded-2xl text-white text-base font-bold">
+              Discuter de votre projet
+            </Button>
           </div>
         </div>
       </section>
-
-      {/* Services Section - Made responsive */}
-      <ServicesSection />
 
       {/* Process Section */}
       <section className="w-full py-12 sm:py-16 md:py-24 bg-[#123293] flex flex-col justify-center items-center gap-8 sm:gap-12 px-4 sm:px-6">
