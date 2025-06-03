@@ -1,5 +1,6 @@
 "use client"
 import React, { useRef } from "react"
+import type { JSX } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { HeroHeader } from "@/components/sections/hero-header"
@@ -61,7 +62,7 @@ export default function Home(): JSX.Element {
               </div>
             </div>
 
-            <h2 className="text-[#191818] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-['Helvetica_Neue'] leading-tight max-w-[574px] text-reveal">
+            <h2 className="text-[#191818] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-['Inter'] leading-tight max-w-[574px] text-reveal">
               Freelance oui, freestyle non
             </h2>
 
@@ -122,9 +123,9 @@ export default function Home(): JSX.Element {
           </div>
 
           {/* Cards des services */}
-          <div className="relative w-[734px] h-[927px]">
+          <div className="relative w-[734px] h-[1000px] overflow-visible">
             {/* Product Design Card */}
-            <div className="OverlayShadow" style={{width: 338, height: 441, position: 'relative', background: 'white', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
+            <div className="OverlayShadow absolute top-0 left-0" style={{width: 338, height: 460, position: 'relative', background: 'white', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
               <div className="relative w-full h-[213px] overflow-hidden">
                 <Image
                   src="/images/services/product-design.jpg"
@@ -147,7 +148,7 @@ export default function Home(): JSX.Element {
             </div>
 
             {/* Web Design Card */}
-            <div className="OverlayShadow" style={{width: 338, height: 441, left: 396, top: 217, position: 'absolute', background: 'white', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
+            <div className="OverlayShadow absolute" style={{width: 338, height: 460, left: 396, top: 217, position: 'absolute', background: 'white', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
               <div className="relative w-full h-[213px] overflow-hidden">
                 <Image
                   src="/images/services/web-design.jpg"
@@ -170,7 +171,7 @@ export default function Home(): JSX.Element {
             </div>
 
             {/* Facilitation Card */}
-            <div className="OverlayShadow" style={{width: 338, height: 441, left: 0, top: 492, position: 'absolute', background: 'white', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
+            <div className="OverlayShadow absolute" style={{width: 338, height: 460, left: 0, top: 492, position: 'absolute', background: 'white', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
               <div className="relative w-full h-[213px] overflow-hidden">
                 <Image
                   src="/images/services/facilitation.jpg"
@@ -361,24 +362,15 @@ export default function Home(): JSX.Element {
           <div className="w-full flex flex-col justify-start items-center gap-12 sm:gap-16 md:gap-24">
             <div className="w-full flex flex-col justify-start items-center gap-5">
               <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
-                <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose">
+                <div className="text-white text-[27px] font-bold font-['Inter'] leading-[32.4px]">
                   Tarifs
                 </div>
               </div>
               <div className="text-center">
-                <span className="text-neutral-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-                  Des offres{" "}
-                </span>
-                <span className="text-[#123293] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-                  claires
-                </span>
-                <span className="text-neutral-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-                  ,<br />
-                  des tarifs{" "}
-                </span>
-                <span className="text-[#123293] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-                  justes
-                </span>
+                <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">Des offres </span>
+                <span className="text-[#123293] text-[61px] font-black font-['Inter'] leading-[64px]">claires</span>
+                <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">,<br />des tarifs </span>
+                <span className="text-[#123293] text-[61px] font-black font-['Inter'] leading-[64px]">justes</span>
               </div>
             </div>
 
@@ -597,12 +589,8 @@ export default function Home(): JSX.Element {
           <div className="w-full flex flex-col justify-start items-center gap-12 sm:gap-24">
             <div className="w-full flex flex-col justify-start items-center gap-5">
               <div className="text-center">
-                <span className="text-neutral-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-                  Parlons de{" "}
-                </span>
-                <span className="text-[#123293] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-                  votre projet
-                </span>
+                <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">Parlons de </span>
+                <span className="text-[#123293] text-[61px] font-black font-['Inter'] leading-[64px]">votre projet</span>
               </div>
             </div>
           </div>
