@@ -166,6 +166,33 @@ export default function Home(): JSX.Element {
         </div>
       </section>
 
+      {/* Section Freelance */}
+      <section className="w-full py-24 bg-[#F6F7F9]">
+        <div className="container mx-auto px-4 max-w-[1174px]">
+          <div className="flex flex-col gap-6">
+            <div className="p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center w-fit">
+              <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose px-2">
+                Studio Smalt
+              </div>
+            </div>
+
+            <h2 className="text-[#191818] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-['Helvetica_Neue'] leading-tight max-w-[574px] text-reveal">
+              Freelance oui, freestyle non
+            </h2>
+
+            <div className="text-[#191818] text-lg font-normal font-['Helvetica_Neue'] leading-relaxed max-w-[588px] mt-8">
+              <RevealText delay={0.4}>
+                Chez Studio Smalt, je ne fais pas de design "au feeling".
+                <br /><br />
+                Je suis <span className="font-bold">Salomé Mullet</span>, freelance en product design, et j'accompagne les équipes produit, tech et marketing dans la création d'interfaces claires, utiles et testées.
+                <br /><br />
+                Pas de blabla ni de refontes uniquement cosmétiques : chaque mission suit une méthodologie éprouvée, de l'atelier de cadrage jusqu'à la livraison prête à intégrer.
+              </RevealText>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="w-full py-12 sm:py-16 md:py-24 bg-[#123293] flex flex-col justify-center items-center gap-8 sm:gap-12 px-4 sm:px-6">
         <div className="w-full max-w-6xl flex flex-col justify-start items-center gap-8 sm:gap-12">
