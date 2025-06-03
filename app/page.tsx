@@ -10,6 +10,7 @@ import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { RevealText } from '@/components/animations/RevealText'
 import Link from "next/link"
+import { FreelanceSection } from "@/components/sections/freelance-section"
 
 // Animation variants
 const fadeInUp = {
@@ -51,6 +52,8 @@ export default function Home() {
 
       {/* Hero Section */}
       <HeroHeader />
+
+      <FreelanceSection />
 
       {/* About Section */}
       <section className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:pl-[470px] xl:pr-72 py-12 sm:py-16 md:py-24 bg-[#0f0f0f] flex flex-col justify-center items-center">
