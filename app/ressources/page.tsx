@@ -10,38 +10,34 @@ import { MobileMenu } from "@/components/mobile-menu"
 import { Footer } from "@/components/sections/footer"
 import Image from "next/image"
 import Link from "next/link"
+import React, { useEffect, useState } from "react"
+import { useInView } from "framer-motion"
+import { RevealText } from "@/components/animations/RevealText"
+import { getArticles } from "@/lib/notion"
 
 const MotionCard = motion(Card)
 
-// Articles de ressources
-const resources = [
-  {
-    id: 1,
-    title: "Jamstack, sauveur des petits commerces",
-    date: "27 octobre 2023",
-    excerpt: "Avec la crise du COVID-19, le e-commerce a explosé, tout comme le besoin de se différencier de la concurrence. Une opportunité pour le Jamstack de devenir le sauveur des petites entreprises.",
-    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc",
-    url: "#",
-  },
-  {
-    id: 2,
-    title: "Guide complet du Design System",
-    date: "15 octobre 2023",
-    excerpt: "Comment créer et maintenir un design system efficace ? Découvrez les meilleures pratiques et outils pour une cohérence visuelle parfaite.",
-    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
-    url: "#",
-  },
-  {
-    id: 3,
-    title: "L'importance des tests utilisateurs",
-    date: "5 octobre 2023",
-    excerpt: "Les tests utilisateurs sont essentiels pour créer des produits qui répondent aux besoins réels. Voici comment les mettre en place efficacement.",
-    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12",
-    url: "#",
-  },
-]
+interface Article {
+  id: string
+  title: string
+  description: string
+  date: string
+  category: string
+  image: string
+  slug: string
+}
 
 export default function ResourcesPage() {
+  const [articles, setArticles] = useState<Article[]>([])
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      const articles = await getArticles()
+      setArticles(articles)
+    }
+    fetchArticles()
+  }, [])
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       {/* Navigation */}
@@ -93,46 +89,65 @@ export default function ResourcesPage() {
       </section>
 
       {/* Articles Section */}
-      <section className="w-full py-12 sm:py-16 md:py-24">
-        <div className="container max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {resources.map((resource) => (
-              <MotionCard
-                key={resource.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ scale: 1.05 }}
-                className="overflow-hidden bg-white rounded-xl border border-gray-200"
-              >
-                <div className="aspect-video relative">
-                  <img
-                    src={resource.image}
-                    alt={resource.title}
-                    className="object-cover w-full h-full"
-                  />
+      <section className="w-full py-24">
+        <div className="container mx-auto px-4 max-w-[1174px]">
+          <div className="flex flex-col items-center gap-12">
+            {/* En-tête */}
+            <div className="text-center">
+              <div className="inline-block p-2.5 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] mb-6">
+                <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose">
+                  Ressources
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                    <Calendar size={16} />
-                    <span>{resource.date}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-[#123293]">{resource.title}</h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3">{resource.excerpt}</p>
-                  <Button
-                    variant="link"
-                    className="p-0 h-auto text-[#123293] font-medium hover:no-underline"
-                    asChild
-                  >
-                    <a href={resource.url} className="flex items-center gap-2">
-                      Lire l'article
-                      <ArrowRight size={16} />
-                    </a>
-                  </Button>
-                </div>
-              </MotionCard>
-            ))}
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#191818] mb-6">
+                Articles et réflexions sur le <span className="text-[#123293]">design</span>
+              </h2>
+              <p className="text-lg sm:text-xl text-[#191818] opacity-80">
+                Je partage ici mes réflexions sur le design, l'UX et la facilitation.
+              </p>
+            </div>
+
+            {/* Grid des articles */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {articles.map((article) => (
+                <motion.div
+                  key={article.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Card className="flex flex-col h-full overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div className="relative h-48">
+                      <img
+                        src={article.image || "/images/articles/placeholder.jpg"}
+                        alt={article.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="text-sm text-[#123293] bg-[#123293]/10 px-3 py-1 rounded-full">
+                          {article.category}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold text-[#191818] mb-2">
+                        {article.title}
+                      </h3>
+                      <p className="text-[#191818] opacity-70 text-sm mb-4 flex-grow">
+                        {article.description}
+                      </p>
+                      <Button 
+                        className="w-full bg-[#123293] text-white hover:bg-[#123293]/90"
+                        onClick={() => window.open(`/articles/${article.slug}`, "_blank")}
+                      >
+                        Lire l'article
+                      </Button>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
