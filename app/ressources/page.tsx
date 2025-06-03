@@ -77,8 +77,14 @@ export default function ResourcesPage() {
               </span>
             </Badge>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-['Helvetica_Neue'] leading-tight">
-              Ressources <span className="text-white">Design UX/UI</span>
+            <div className="p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
+              <div className="text-white text-[27px] font-black font-['Inter'] leading-[32.4px]">
+                Ressources
+              </div>
+            </div>
+            <h1 className="text-center">
+              <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">Des ressources pour </span>
+              <span className="text-[#123293] text-[61px] font-black font-['Inter'] leading-[64px]">vous inspirer</span>
             </h1>
             
             <p className="max-w-2xl text-lg sm:text-xl opacity-90 font-light">

@@ -147,14 +147,14 @@ export default function ProjectsPage() {
       <section className="w-full py-12 sm:py-16 md:py-24 bg-white text-black mt-20">
         <div className="container max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center gap-6 text-center">
-            <Badge className="inline-flex items-center justify-center gap-2.5 p-2.5 bg-[#123293] rounded-md shadow-[2px_2px_0px_#000000]">
-              <span className="font-bold text-white text-xl sm:text-[27px] tracking-[-1.08px] leading-[1.2] sm:leading-[32.4px] whitespace-nowrap">
+            <div className="p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
+              <div className="text-white text-[27px] font-black font-['Inter'] leading-[32.4px]">
                 Mes projets
-              </span>
-            </Badge>
-            
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
-              Des solutions digitales qui <span className="text-[#123293]">vous ressemblent</span>
+              </div>
+            </div>
+            <h1 className="text-center">
+              <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">Des projets qui </span>
+              <span className="text-[#123293] text-[61px] font-black font-['Inter'] leading-[64px]">font la différence</span>
             </h1>
             
             <p className="max-w-2xl text-lg sm:text-xl opacity-90">

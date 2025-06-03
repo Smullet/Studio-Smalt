@@ -139,7 +139,7 @@ export default function Home(): JSX.Element {
                 <h3 className="text-[25px] font-black font-['Inter'] uppercase leading-[30px] text-[#1D1F29] mb-4">
                   Product Design
                 </h3>
-                <p className="text-[18px] font-normal font-['Inter'] leading-[27px] text-[#121212]">
+                <p className="text-[16px] font-normal font-['Inter'] leading-[24px] text-[#121212]">
                   Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs:<br/>
                   interfaces intuitives, parcours fluides, maquettes testables, design systems...<br/>
                   Je travaille en collaboration étroite avec vos équipes produit et tech.
@@ -162,7 +162,7 @@ export default function Home(): JSX.Element {
                 <h3 className="text-[25px] font-black font-['Inter'] uppercase leading-[30px] text-[#1D1F29] mb-4">
                   Web Design
                 </h3>
-                <p className="text-[18px] font-normal font-['Inter'] leading-[27px] text-[#121212]">
+                <p className="text-[16px] font-normal font-['Inter'] leading-[24px] text-[#121212]">
                   Je vous aide à concevoir des sites web qui convertissent :<br/>
                   interfaces intuitives, parcours fluides, design moderne et adaptatif.<br/>
                   Je travaille en collaboration étroite avec vos équipes marketing et communication.
@@ -185,7 +185,7 @@ export default function Home(): JSX.Element {
                 <h3 className="text-[25px] font-black font-['Inter'] uppercase leading-[30px] text-[#1D1F29] mb-4">
                   Facilitation
                 </h3>
-                <p className="text-[18px] font-normal font-['Inter'] leading-[27px] text-[#121212]">
+                <p className="text-[16px] font-normal font-['Inter'] leading-[24px] text-[#121212]">
                   J'anime des ateliers collaboratifs pour faire avancer vos projets :<br/>
                   design sprint, co-création, idéation, tests utilisateurs...<br/>
                   Je facilite les échanges et guide les équipes vers des solutions concrètes.
