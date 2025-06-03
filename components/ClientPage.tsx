@@ -180,7 +180,7 @@ export function ClientPage() {
               <img
                 className="w-full h-52 rounded-md object-cover"
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/proposition-CNe9enbmJ40w4YwGMgyIRtk5bdPJTr.png"
-                alt="Document de proposition de design produit"
+                alt="Recevez une proposition détaillée"
               />
               <div className="w-full text-center text-[#191818] text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
                 Recevez une proposition détaillée et sur-mesure
