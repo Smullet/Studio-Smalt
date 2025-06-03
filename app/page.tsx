@@ -79,78 +79,111 @@ export default function Home(): JSX.Element {
       </section>
 
       {/* Section Services */}
-      <section className="w-full py-24">
-        <div className="container mx-auto px-4 max-w-[1174px]">
-          <div className="flex flex-col items-center gap-12">
+      <section className="w-full py-24 flex flex-col justify-center items-center gap-12">
+        <div className="container mx-auto px-4 max-w-[1192px]">
+          <div className="flex flex-col items-center gap-[21px]">
             {/* En-tête */}
-            <div className="text-center">
-              <div className="inline-block p-2.5 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] mb-6">
-                <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose">
-                  Mes services
-                </div>
+            <div className="inline-block p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)]">
+              <div className="text-white text-[27px] font-bold font-['Inter'] leading-[32.4px]">
+                Mes services
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#191818] mb-6">
-                Des solutions digitales qui <span className="text-[#123293]">vous ressemblent</span>,<br />
-                et qui <span className="text-[#123293]">fonctionnent</span>
+            </div>
+
+            <div className="flex flex-col items-center gap-5 w-full">
+              <h2 className="text-center">
+                <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">Des solutions digitales qui </span>
+                <span className="text-[#123293] text-[61px] font-black font-['Inter'] leading-[64px]">vous ressemblent</span>
+                <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">, <br/>et qui fonctionnent</span>
               </h2>
-              <p className="text-lg sm:text-xl text-[#191818] opacity-80">
-                Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.<br />
+              <p className="text-center text-[#191818] text-[18px] font-normal font-['Inter'] leading-[21.6px] opacity-70">
+                Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases. <br/>
                 On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos utilisateurs.
               </p>
             </div>
+          </div>
+        </div>
 
-            {/* Cards des services */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Product Design */}
-              <Card className="p-6 bg-white rounded-xl border border-gray-200">
+        <div className="flex justify-start items-start gap-12">
+          {/* Colonne de texte */}
+          <div className="w-[411px] flex flex-col gap-6">
+            <p className="text-black text-[20px] font-normal font-['Inter'] leading-[30px]">
+              J'accompagne startups, PME et grands comptes dans la création, l'évolution et la croissance de leurs produits digitaux.<br/><br/>
+              
+              Que vous lanciez un produit from scratch ou que vous cherchiez à le faire évoluer, j'adapte mes méthodes agiles, lean et design thinking à vos besoins.<br/><br/>
+              
+              J'adopte une approche itérative et data-driven pour maximiser la valeur de votre produit à chaque étape :<br/>
+              • Clarification et vision produit<br/>
+              • Prototypage et validation rapide<br/>
+              • Tests utilisateurs et itérations continues<br/>
+              • Lancement et scale-up maîtrisé<br/><br/>
+              
+              Mon objectif : vous aider à atteindre le product-market fit et à faire évoluer votre produit avec confiance, en assurant une expérience utilisateur fluide, cohérente et impactante.
+            </p>
+          </div>
+
+          {/* Cards des services */}
+          <div className="relative w-[734px] h-[927px]">
+            {/* Product Design Card */}
+            <div className="absolute left-0 top-0 w-[338px] h-[441px] bg-white rounded-[24px] shadow-[0px_32px_64px_-12px_rgba(0,0,0,0.14)] overflow-hidden">
+              <div className="relative w-[321.67px] h-[213px] mx-2 mt-2 rounded-xl overflow-hidden">
                 <Image
                   src="/images/services/product-design.jpg"
                   alt="Product Design"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  fill
+                  className="object-cover"
                 />
-                <h3 className="text-xl font-bold text-[#123293] mb-2">PRODUCT DESIGN</h3>
-                <p className="text-[#191818] opacity-80 text-sm mb-4">
-                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs:
-                  interfaces intuitives, parcours fluides, maquettes testables, design systems...
-                  Je travaille en collaboration étroite avec vos équipes produit et tech.
+                <div className="absolute inset-0 bg-black opacity-40"/>
+              </div>
+              <div className="p-4 mt-[32px]">
+                <h3 className="text-[25px] font-bold font-['Helvetica_Neue'] uppercase leading-[30px] text-[#1D1F29]">
+                  Product Design
+                </h3>
+                <p className="mt-4 text-[16px] font-normal font-['Inter'] leading-[19.2px] text-[#121212]">
+                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs: interfaces intuitives, parcours fluides, maquettes testables, design systems... Je travaille en collaboration étroite avec vos équipes produit et tech.
                 </p>
-              </Card>
+              </div>
+            </div>
 
-              {/* Web Design */}
-              <Card className="p-6 bg-white rounded-xl border border-gray-200">
+            {/* Web Design Card */}
+            <div className="absolute left-[396px] top-[217px] w-[338px] h-[441px] bg-white rounded-[24px] shadow-[0px_32px_64px_-12px_rgba(0,0,0,0.14)] overflow-hidden">
+              <div className="relative w-[321.67px] h-[213px] mx-2 mt-2 rounded-xl overflow-hidden">
                 <Image
                   src="/images/services/web-design.jpg"
                   alt="Web Design"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  fill
+                  className="object-cover"
                 />
-                <h3 className="text-xl font-bold text-[#123293] mb-2">WEB DESIGN</h3>
-                <p className="text-[#191818] opacity-80 text-sm mb-4">
-                  Je vous aide à concevoir des sites web qui convertissent : interfaces intuitives,
-                  parcours fluides, design moderne et adaptatif. Je travaille en collaboration étroite
-                  avec vos équipes marketing et communication.
+                <div className="absolute inset-0 bg-black opacity-40"/>
+              </div>
+              <div className="p-4 mt-[32px]">
+                <h3 className="text-[25px] font-bold font-['Helvetica_Neue'] uppercase leading-[30px] text-[#1D1F29]">
+                  Web Design
+                </h3>
+                <p className="mt-4 text-[16px] font-normal font-['Inter'] leading-[19.2px] text-[#121212]">
+                  Je vous aide à concevoir des sites web qui convertissent : interfaces intuitives, parcours fluides, design moderne et adaptatif. Je travaille en collaboration étroite avec vos équipes marketing et communication.
                 </p>
-              </Card>
+              </div>
+            </div>
 
-              {/* Facilitation */}
-              <Card className="p-6 bg-white rounded-xl border border-gray-200">
+            {/* Facilitation Card */}
+            <div className="absolute left-0 top-[492px] w-[338px] h-[441px] bg-white rounded-[24px] shadow-[0px_32px_64px_-12px_rgba(0,0,0,0.14)] overflow-hidden">
+              <div className="relative w-[321.67px] h-[213px] mx-2 mt-2 rounded-xl overflow-hidden">
                 <Image
                   src="/images/services/facilitation.jpg"
                   alt="Facilitation"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  fill
+                  className="object-cover"
                 />
-                <h3 className="text-xl font-bold text-[#123293] mb-2">FACILITATION</h3>
-                <p className="text-[#191818] opacity-80 text-sm mb-4">
-                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs:
-                  interfaces intuitives, parcours fluides, maquettes testables, design systems...
-                  Je travaille en collaboration étroite avec vos équipes produit et tech.
+                <div className="absolute inset-0 bg-black opacity-40"/>
+              </div>
+              <div className="p-4 mt-[32px]">
+                <h3 className="text-[25px] font-bold font-['Helvetica_Neue'] uppercase leading-[30px] text-[#1D1F29]">
+                  Facilitation
+                </h3>
+                <p className="mt-4 text-[16px] font-normal font-['Inter'] leading-[19.2px] text-[#121212]">
+                  J'anime des ateliers collaboratifs pour faire avancer vos projets : design sprint, co-création, idéation, tests utilisateurs... Je facilite les échanges et guide les équipes vers des solutions concrètes.
                 </p>
-              </Card>
+              </div>
             </div>
           </div>
         </div>
