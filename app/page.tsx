@@ -96,7 +96,7 @@ export default function Home(): JSX.Element {
                 <span className="text-[#123293] text-[61px] font-black font-['Inter'] leading-[64px]">vous ressemblent</span>
                 <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">, <br/>et qui fonctionnent</span>
               </h2>
-              <p className="text-center text-[#191818] text-[18px] font-normal font-['Inter'] leading-[21.6px] opacity-70">
+              <p className="text-center text-[#191818] text-[18px] font-normal font-['Inter'] leading-[27px] opacity-70">
                 Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases. <br/>
                 On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos utilisateurs.
               </p>
@@ -107,7 +107,7 @@ export default function Home(): JSX.Element {
         <div className="flex justify-start items-start gap-12">
           {/* Colonne de texte */}
           <div className="w-[411px] flex flex-col gap-6">
-            <p className="text-black text-[20px] font-normal font-['Inter'] leading-[30px]">
+            <p className="text-black text-[18px] font-normal font-['Inter'] leading-[27px]">
               J'accompagne startups, PME et grands comptes dans la création, l'évolution et la croissance de leurs produits digitaux.<br/><br/>
               
               Que vous lanciez un produit from scratch ou que vous cherchiez à le faire évoluer, j'adapte mes méthodes agiles, lean et design thinking à vos besoins.<br/><br/>
@@ -136,10 +136,10 @@ export default function Home(): JSX.Element {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-[25px] font-bold font-['Helvetica_Neue'] uppercase leading-[30px] text-[#1D1F29] mb-4">
+                <h3 className="text-[25px] font-black font-['Inter'] uppercase leading-[30px] text-[#1D1F29] mb-4">
                   Product Design
                 </h3>
-                <p className="text-[16px] font-normal font-['Inter'] leading-[24px] text-[#121212]">
+                <p className="text-[18px] font-normal font-['Inter'] leading-[27px] text-[#121212]">
                   Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs:<br/>
                   interfaces intuitives, parcours fluides, maquettes testables, design systems...<br/>
                   Je travaille en collaboration étroite avec vos équipes produit et tech.
@@ -159,10 +159,10 @@ export default function Home(): JSX.Element {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-[25px] font-bold font-['Helvetica_Neue'] uppercase leading-[30px] text-[#1D1F29] mb-4">
+                <h3 className="text-[25px] font-black font-['Inter'] uppercase leading-[30px] text-[#1D1F29] mb-4">
                   Web Design
                 </h3>
-                <p className="text-[16px] font-normal font-['Inter'] leading-[24px] text-[#121212]">
+                <p className="text-[18px] font-normal font-['Inter'] leading-[27px] text-[#121212]">
                   Je vous aide à concevoir des sites web qui convertissent :<br/>
                   interfaces intuitives, parcours fluides, design moderne et adaptatif.<br/>
                   Je travaille en collaboration étroite avec vos équipes marketing et communication.
@@ -182,10 +182,10 @@ export default function Home(): JSX.Element {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-[25px] font-bold font-['Helvetica_Neue'] uppercase leading-[30px] text-[#1D1F29] mb-4">
+                <h3 className="text-[25px] font-black font-['Inter'] uppercase leading-[30px] text-[#1D1F29] mb-4">
                   Facilitation
                 </h3>
-                <p className="text-[16px] font-normal font-['Inter'] leading-[24px] text-[#121212]">
+                <p className="text-[18px] font-normal font-['Inter'] leading-[27px] text-[#121212]">
                   J'anime des ateliers collaboratifs pour faire avancer vos projets :<br/>
                   design sprint, co-création, idéation, tests utilisateurs...<br/>
                   Je facilite les échanges et guide les équipes vers des solutions concrètes.
@@ -200,10 +200,10 @@ export default function Home(): JSX.Element {
       <section className="w-full py-12 sm:py-16 md:py-24 bg-[#123293] flex flex-col justify-center items-center gap-8 sm:gap-12 px-4 sm:px-6">
         <div className="w-full max-w-6xl flex flex-col justify-start items-center gap-8 sm:gap-12">
           <div className="w-full flex flex-col justify-start items-center gap-5">
-            <div className="w-full text-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-black font-['Helvetica_Neue'] leading-tight xl:leading-[64px]">
+            <div className="w-full text-center text-white text-[48px] font-black font-['Inter'] leading-tight xl:leading-[64px]">
               Une approche agile, simple et humaine
             </div>
-            <div className="w-full opacity-70 text-center text-white text-base sm:text-lg font-normal font-['Helvetica_Neue'] leading-relaxed px-4">
+            <div className="w-full opacity-70 text-center text-white text-[18px] font-normal font-['Inter'] leading-[27px] px-4">
               Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.
               <br className="hidden sm:block" />
               On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos
@@ -362,7 +362,7 @@ export default function Home(): JSX.Element {
           <div className="w-full flex flex-col justify-start items-center gap-12 sm:gap-16 md:gap-24">
             <div className="w-full flex flex-col justify-start items-center gap-5">
               <div className="p-2 sm:p-2.5 origin-top-left -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center gap-2.5">
-                <div className="text-white text-[27px] font-bold font-['Inter'] leading-[32.4px]">
+                <div className="text-white text-[27px] font-black font-['Inter'] leading-[32.4px]">
                   Tarifs
                 </div>
               </div>
@@ -655,10 +655,10 @@ export default function Home(): JSX.Element {
       <section className="w-full py-12 sm:py-16 md:py-24 bg-[#0f0f0f] flex flex-col justify-center items-center gap-8 sm:gap-16 px-4 sm:px-6">
         <div className="w-full max-w-7xl flex flex-col lg:flex-row justify-start items-center gap-6">
           <div className="flex flex-col justify-start items-start gap-6 flex-1">
-            <div className="w-full text-white text-xl sm:text-2xl font-bold font-['Helvetica_Neue'] uppercase leading-relaxed">
+            <div className="w-full text-white text-[27px] font-black font-['Inter'] uppercase leading-relaxed">
               Pourquoi choisir Studio Smalt ?
             </div>
-            <div className="w-full text-white text-base sm:text-lg font-normal font-['Helvetica_Neue'] leading-relaxed">
+            <div className="w-full text-white text-[18px] font-normal font-['Inter'] leading-relaxed">
               ✅ Expertise produit et UX/UI : de l'idée au produit final, en passant par des ateliers de cadrage, des
               tests utilisateurs et des itérations rapides.
               <br />
