@@ -61,54 +61,77 @@ export default function Home(): JSX.Element {
   }, [isHeroInView, controls])
 
   return (
-    <div className="w-full relative bg-white overflow-hidden">
+    <div className="w-full relative bg-white">
       {/* Mobile menu */}
       <MobileMenu />
 
-      {/* Hero Section */}
-      <section ref={heroRef} className="pt-32 pb-20 sm:pt-40 sm:pb-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial="hidden"
-            animate={controls}
-            variants={staggerChildren}
-            className="flex flex-col items-center gap-8 text-center"
-          >
-            <motion.div variants={fadeInUp} className="inline-block p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)]">
+      {/* Section Intro */}
+      <section className="w-full h-[703px] flex justify-center items-center py-24">
+        <div className="w-[1444px] h-[511px] flex justify-between items-start px-6">
+          {/* Left Column */}
+          <div className="w-[535px] flex flex-col items-start gap-[21px]">
+            <div className="p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)]">
               <div className="text-white text-[27px] font-black font-['Inter'] leading-[32.4px]">
                 Studio Smalt
               </div>
-            </motion.div>
+            </div>
 
-            <motion.h1 variants={fadeInUp} className="max-w-4xl">
-              <span className="text-[#191818] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-['Inter'] leading-tight">
-                Des solutions digitales qui 
-              </span>
-              <span className="text-[#123293] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-['Inter'] leading-tight">
-                vous ressemblent
-              </span>
-            </motion.h1>
+            <div className="h-[320px]">
+              <h1 className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">
+                Des solutions digitales qui vous ressemblent, et qui fonctionnent
+              </h1>
+            </div>
 
-            <motion.p variants={fadeInUp} className="max-w-2xl text-lg sm:text-xl text-gray-600">
-              Je suis <span className="font-bold">Salomé Mullet</span>, freelance en product design. 
-              J'accompagne les équipes dans la création d'interfaces claires, utiles et testées.
-            </motion.p>
+            <p className="text-[#191818] text-[18px] font-normal font-['Inter'] leading-[27px] opacity-70">
+              Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases. 
+              On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos utilisateurs.
+            </p>
+          </div>
 
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="mailto:salomemullet@studiosmalt.fr"
-                className="bg-[#123293] text-white px-8 py-3 rounded-[14px] hover:bg-blue-900 transition-colors text-base font-medium"
-              >
-                Discuter de votre projet
-              </a>
-              <Link 
-                href="/projets"
-                className="border-2 border-[#123293] text-[#123293] px-8 py-3 rounded-[14px] hover:bg-[#123293] hover:text-white transition-colors text-base font-medium"
-              >
-                Voir mes projets
-              </Link>
-            </motion.div>
-          </motion.div>
+          {/* Right Column */}
+          <div className="w-[656px] flex flex-col gap-12">
+            {/* Product Design Card */}
+            <div className="w-full bg-[#E7EBF3] border border-[#D4D4D8] rounded-lg p-5">
+              <div className="flex flex-col gap-[17px]">
+                <h3 className="text-[#123293] text-[26px] font-bold font-['Inter'] leading-[26px]">
+                  Product Design
+                </h3>
+                <p className="text-[#121212] text-[16px] font-normal font-['Inter'] leading-[24px]">
+                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs:
+                  interfaces intuitives, parcours fluides, maquettes testables, design systems...
+                  Je travaille en collaboration étroite avec vos équipes produit et tech.
+                </p>
+              </div>
+            </div>
+
+            {/* Web Design Card */}
+            <div className="w-full bg-[#E7EBF3] border border-[#D4D4D8] rounded-lg p-5">
+              <div className="flex flex-col gap-[17px]">
+                <h3 className="text-[#123293] text-[26px] font-bold font-['Inter'] leading-[26px]">
+                  Web Design
+                </h3>
+                <p className="text-[#121212] text-[16px] font-normal font-['Inter'] leading-[24px]">
+                  Je crée des sites clairs, performants et modernes pour valoriser votre activité.
+                  Sites vitrine, pages d'atterrissage ou plateformes simples, développés en no-code 
+                  (Webflow, Framer…) et pensés pour être autonomes et évolutifs.
+                </p>
+              </div>
+            </div>
+
+            {/* Facilitation Card */}
+            <div className="w-full bg-[#E7EBF3] border border-[#D4D4D8] rounded-lg p-5">
+              <div className="flex flex-col gap-[17px]">
+                <h3 className="text-[#123293] text-[26px] font-bold font-['Inter'] leading-[26px]">
+                  Facilitation
+                </h3>
+                <p className="text-[#121212] text-[16px] font-normal font-['Inter'] leading-[24px]">
+                  Vous avez des idées, des projets ou des équipes à aligner ? J'anime des ateliers 
+                  pour structurer votre vision, clarifier vos priorités et avancer ensemble avec 
+                  des formats courts, concrets et collaboratifs.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
