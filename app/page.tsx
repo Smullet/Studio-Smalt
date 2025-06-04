@@ -1,12 +1,12 @@
 "use client"
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import type { JSX } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { HeroHeader } from "@/components/sections/hero-header"
 import { MobileMenu } from "@/components/mobile-menu"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 import { useInView } from "framer-motion"
 import { RevealText } from '@/components/animations/RevealText'
 import Link from "next/link"
@@ -31,18 +31,34 @@ const staggerChildren = {
   }
 }
 
+const slideIn = {
+  hidden: { x: -100, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+}
+
 export default function Home(): JSX.Element {
-  const aboutRef = useRef(null)
+  const controls = useAnimation()
+  const heroRef = useRef(null)
   const servicesRef = useRef(null)
   const processRef = useRef(null)
   const pricingRef = useRef(null)
   const contactRef = useRef(null)
 
-  const isAboutInView = useInView(aboutRef, { once: true, margin: "-100px" })
+  const isHeroInView = useInView(heroRef, { once: true, margin: "-100px" })
   const isServicesInView = useInView(servicesRef, { once: true, margin: "-100px" })
   const isProcessInView = useInView(processRef, { once: true, margin: "-100px" })
   const isPricingInView = useInView(pricingRef, { once: true, margin: "-100px" })
   const isContactInView = useInView(contactRef, { once: true, margin: "-100px" })
+
+  useEffect(() => {
+    if (isHeroInView) {
+      controls.start("visible")
+    }
+  }, [isHeroInView, controls])
 
   return (
     <div className="w-full relative bg-white overflow-hidden">
@@ -50,307 +66,159 @@ export default function Home(): JSX.Element {
       <MobileMenu />
 
       {/* Hero Section */}
-      <HeroHeader />
-
-      {/* Section Freelance */}
-      <section className="w-full py-24 bg-[#F6F7F9]">
-        <div className="container mx-auto px-4 max-w-[1174px]">
-          <div className="flex flex-col gap-6">
-            <div className="p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] inline-flex justify-center items-center w-fit">
-              <div className="text-white text-lg sm:text-xl md:text-2xl font-bold font-['Helvetica_Neue'] leading-loose px-2">
+      <section ref={heroRef} className="pt-32 pb-20 sm:pt-40 sm:pb-24 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial="hidden"
+            animate={controls}
+            variants={staggerChildren}
+            className="flex flex-col items-center gap-8 text-center"
+          >
+            <motion.div variants={fadeInUp} className="inline-block p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)]">
+              <div className="text-white text-[27px] font-black font-['Inter'] leading-[32.4px]">
                 Studio Smalt
               </div>
-            </div>
+            </motion.div>
 
-            <h2 className="text-[#191818] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-['Inter'] leading-tight max-w-[574px] text-reveal">
-              Freelance oui, freestyle non
-            </h2>
+            <motion.h1 variants={fadeInUp} className="max-w-4xl">
+              <span className="text-[#191818] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-['Inter'] leading-tight">
+                Des solutions digitales qui 
+              </span>
+              <span className="text-[#123293] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-['Inter'] leading-tight">
+                vous ressemblent
+              </span>
+            </motion.h1>
 
-            <div className="text-[#191818] text-lg font-normal font-['Helvetica_Neue'] leading-relaxed max-w-[588px] mt-8">
-              <RevealText delay={0.4}>
-                Chez Studio Smalt, je ne fais pas de design "au feeling".
-                <br /><br />
-                Je suis <span className="font-bold">Salomé Mullet</span>, freelance en product design, et j'accompagne les équipes produit, tech et marketing dans la création d'interfaces claires, utiles et testées.
-                <br /><br />
-                Pas de blabla ni de refontes uniquement cosmétiques : chaque mission suit une méthodologie éprouvée, de l'atelier de cadrage jusqu'à la livraison prête à intégrer.
-              </RevealText>
-            </div>
-          </div>
+            <motion.p variants={fadeInUp} className="max-w-2xl text-lg sm:text-xl text-gray-600">
+              Je suis <span className="font-bold">Salomé Mullet</span>, freelance en product design. 
+              J'accompagne les équipes dans la création d'interfaces claires, utiles et testées.
+            </motion.p>
+
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="mailto:salomemullet@studiosmalt.fr"
+                className="bg-[#123293] text-white px-8 py-3 rounded-[14px] hover:bg-blue-900 transition-colors text-base font-medium"
+              >
+                Discuter de votre projet
+              </a>
+              <Link 
+                href="/projets"
+                className="border-2 border-[#123293] text-[#123293] px-8 py-3 rounded-[14px] hover:bg-[#123293] hover:text-white transition-colors text-base font-medium"
+              >
+                Voir mes projets
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Section Services */}
-      <section className="w-full py-24 flex flex-col justify-center items-center gap-12">
-        <div className="container mx-auto px-4 max-w-[1192px]">
-          <div className="flex flex-col items-center gap-[21px]">
-            {/* En-tête */}
-            <div className="inline-block p-2.5 -rotate-2 bg-[#123293] rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)]">
-              <div className="text-white text-[27px] font-bold font-['Inter'] leading-[32.4px]">
-                Mes services
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-5 w-full">
-              <h2 className="text-center">
-                <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">Des solutions digitales qui </span>
-                <span className="text-[#123293] text-[61px] font-black font-['Inter'] leading-[64px]">vous ressemblent</span>
-                <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">, <br/>et qui fonctionnent</span>
-              </h2>
-              <p className="text-center text-[#191818] text-[18px] font-normal font-['Inter'] leading-[27px] opacity-70">
-                Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases. <br/>
-                On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos utilisateurs.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-start items-start gap-12">
-          {/* Colonne de texte */}
-          <div className="w-[411px] flex flex-col gap-6">
-            <p className="text-black text-[18px] font-normal font-['Inter'] leading-[27px]">
-              J'accompagne startups, PME et grands comptes dans la création, l'évolution et la croissance de leurs produits digitaux.<br/><br/>
-              
-              Que vous lanciez un produit from scratch ou que vous cherchiez à le faire évoluer, j'adapte mes méthodes agiles, lean et design thinking à vos besoins.<br/><br/>
-              
-              J'adopte une approche itérative et data-driven pour maximiser la valeur de votre produit à chaque étape :<br/>
-              • Clarification et vision produit<br/>
-              • Prototypage et validation rapide<br/>
-              • Tests utilisateurs et itérations continues<br/>
-              • Lancement et scale-up maîtrisé<br/><br/>
-              
-              Mon objectif : vous aider à atteindre le product-market fit et à faire évoluer votre produit avec confiance, en assurant une expérience utilisateur fluide, cohérente et impactante.
-            </p>
-          </div>
-
-          {/* Cards des services */}
-          <div className="relative w-[734px] h-[1000px] overflow-visible">
-            {/* Product Design Card */}
-            <div className="OverlayShadow absolute top-0 left-0" style={{width: 338, height: 460, position: 'relative', background: 'white', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
-              <div className="relative w-full h-[213px] overflow-hidden">
+      <section ref={servicesRef} className="py-20 sm:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial="hidden"
+            animate={isServicesInView ? "visible" : "hidden"}
+            variants={staggerChildren}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {/* Service Cards */}
+            <motion.div variants={fadeInUp} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="h-48 mb-6 relative overflow-hidden rounded-xl">
                 <Image
                   src="/images/services/product-design.jpg"
                   alt="Product Design"
-                  width={338}
-                  height={213}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-[25px] font-black font-['Inter'] uppercase leading-[30px] text-[#1D1F29] mb-4">
-                  Product Design
-                </h3>
-                <p className="text-[16px] font-normal font-['Inter'] leading-[24px] text-[#121212]">
-                  Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs:<br/>
-                  interfaces intuitives, parcours fluides, maquettes testables, design systems...<br/>
-                  Je travaille en collaboration étroite avec vos équipes produit et tech.
-                </p>
-              </div>
-            </div>
+              <h3 className="text-2xl font-black font-['Inter'] mb-4">Product Design</h3>
+              <p className="text-gray-600">
+                Je vous aide à concevoir des produits numériques pensés pour vos utilisateurs.
+              </p>
+            </motion.div>
 
-            {/* Web Design Card */}
-            <div className="OverlayShadow absolute" style={{width: 338, height: 460, left: 396, top: 217, position: 'absolute', background: 'white', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
-              <div className="relative w-full h-[213px] overflow-hidden">
+            <motion.div variants={fadeInUp} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="h-48 mb-6 relative overflow-hidden rounded-xl">
                 <Image
                   src="/images/services/web-design.jpg"
                   alt="Web Design"
-                  width={338}
-                  height={213}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-[25px] font-black font-['Inter'] uppercase leading-[30px] text-[#1D1F29] mb-4">
-                  Web Design
-                </h3>
-                <p className="text-[16px] font-normal font-['Inter'] leading-[24px] text-[#121212]">
-                  Je vous aide à concevoir des sites web qui convertissent :<br/>
-                  interfaces intuitives, parcours fluides, design moderne et adaptatif.<br/>
-                  Je travaille en collaboration étroite avec vos équipes marketing et communication.
-                </p>
-              </div>
-            </div>
+              <h3 className="text-2xl font-black font-['Inter'] mb-4">Web Design</h3>
+              <p className="text-gray-600">
+                Je vous aide à concevoir des sites web qui convertissent.
+              </p>
+            </motion.div>
 
-            {/* Facilitation Card */}
-            <div className="OverlayShadow absolute" style={{width: 338, height: 460, left: 0, top: 492, position: 'absolute', background: 'white', boxShadow: '0px 32px 64px -12px rgba(0, 0, 0, 0.14)', overflow: 'hidden', borderRadius: 24}}>
-              <div className="relative w-full h-[213px] overflow-hidden">
+            <motion.div variants={fadeInUp} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="h-48 mb-6 relative overflow-hidden rounded-xl">
                 <Image
                   src="/images/services/facilitation.jpg"
                   alt="Facilitation"
-                  width={338}
-                  height={213}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-[25px] font-black font-['Inter'] uppercase leading-[30px] text-[#1D1F29] mb-4">
-                  Facilitation
-                </h3>
-                <p className="text-[16px] font-normal font-['Inter'] leading-[24px] text-[#121212]">
-                  J'anime des ateliers collaboratifs pour faire avancer vos projets :<br/>
-                  design sprint, co-création, idéation, tests utilisateurs...<br/>
-                  Je facilite les échanges et guide les équipes vers des solutions concrètes.
-                </p>
-              </div>
-            </div>
-          </div>
+              <h3 className="text-2xl font-black font-['Inter'] mb-4">Facilitation</h3>
+              <p className="text-gray-600">
+                J'anime des ateliers collaboratifs pour faire avancer vos projets.
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="w-full py-12 sm:py-16 md:py-24 bg-[#123293] flex flex-col justify-center items-center gap-8 sm:gap-12 px-4 sm:px-6">
-        <div className="w-full max-w-6xl flex flex-col justify-start items-center gap-8 sm:gap-12">
-          <div className="w-full flex flex-col justify-start items-center gap-5">
-            <div className="w-full text-center text-white text-[48px] font-black font-['Inter'] leading-tight xl:leading-[64px]">
-              Une approche agile, simple et humaine
+      <section ref={processRef} className="py-20 sm:py-24 bg-[#123293] text-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial="hidden"
+            animate={isProcessInView ? "visible" : "hidden"}
+            variants={staggerChildren}
+            className="flex flex-col items-center gap-12"
+          >
+            <motion.div variants={fadeInUp} className="text-center">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-['Inter'] mb-6">
+                Une approche agile, simple et humaine
+              </h2>
+              <p className="text-xl opacity-80 max-w-2xl mx-auto">
+                Chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+              {/* Process steps */}
+              <motion.div variants={slideIn} className="bg-white/10 p-8 rounded-2xl">
+                <h3 className="text-2xl font-black font-['Inter'] mb-4">1. Comprendre</h3>
+                <p className="text-white/80">
+                  À travers des ateliers collaboratifs et des interviews ciblées, je comprends vos objectifs et vos utilisateurs.
+                </p>
+              </motion.div>
+
+              <motion.div variants={slideIn} className="bg-white/10 p-8 rounded-2xl">
+                <h3 className="text-2xl font-black font-['Inter'] mb-4">2. Concevoir</h3>
+                <p className="text-white/80">
+                  Je traduis les idées en parcours et en interfaces à travers des wireframes et des maquettes interactives.
+                </p>
+              </motion.div>
+
+              <motion.div variants={slideIn} className="bg-white/10 p-8 rounded-2xl">
+                <h3 className="text-2xl font-black font-['Inter'] mb-4">3. Valider</h3>
+                <p className="text-white/80">
+                  Des retours utilisateurs concrets et des itérations rapides valident chaque étape du projet.
+                </p>
+              </motion.div>
+
+              <motion.div variants={slideIn} className="bg-white/10 p-8 rounded-2xl">
+                <h3 className="text-2xl font-black font-['Inter'] mb-4">4. Livrer</h3>
+                <p className="text-white/80">
+                  Je vous remets un livrable propre, structuré et prêt à l'usage.
+                </p>
+              </motion.div>
             </div>
-            <div className="w-full opacity-70 text-center text-white text-[18px] font-normal font-['Inter'] leading-[27px] px-4">
-              Chez Smalt, chaque projet est conçu pour répondre à un vrai besoin, pas pour cocher des cases.
-              <br className="hidden sm:block" />
-              On crée ensemble des solutions utiles, alignées sur votre vision, et qui parlent vraiment à vos
-              utilisateurs.
-            </div>
-          </div>
-        </div>
-
-        {/* Process Cards - Made responsive */}
-        <div className="w-full max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-white rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
-              <div className="w-32 sm:w-40 h-32 sm:h-40 relative">
-                <img
-                  className="w-full h-full object-contain"
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/comprendre-9wh6bDjLrCh4ZqIyuWZz47JdT91AoM.png"
-                  alt="Comprendre - Loupe avec œil symbolisant l'analyse et la compréhension"
-                />
-              </div>
-              <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
-                <div className="text-[#191818] text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
-                  1
-                </div>
-                <div className="flex flex-col justify-start items-start gap-3 sm:gap-5">
-                  <div className="flex justify-center items-center gap-2.5">
-                    <div className="text-neutral-900 text-xl sm:text-2xl md:text-3xl font-bold font-['Helvetica_Neue'] leading-tight">
-                      Comprendre
-                    </div>
-                  </div>
-                  <div className="text-[#191818] text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
-                    À travers des ateliers collaboratifs, des
-                    <br className="hidden sm:block" />
-                    interviews ciblées ou une observation
-                    <br className="hidden sm:block" />
-                    de vosusages terrain, je m'attache à<br className="hidden sm:block" />
-                    comprendre vos objectifs, vos
-                    <br className="hidden sm:block" />
-                    contraintes, mais surtout vos
-                    <br className="hidden sm:block" />
-                    utilisateurs.
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-[#f9d45c] rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
-              <div className="w-40 sm:w-52 h-32 sm:h-40 relative">
-                <img
-                  className="w-full h-full object-contain"
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/concevoir-jXnXukmvdCd6kp1EYx6Y3MRxpTXYEb.png"
-                  alt="Concevoir - Ordinateur portable symbolisant la conception digitale"
-                />
-              </div>
-              <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
-                <div className="text-[#191818] text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
-                  2
-                </div>
-                <div className="flex flex-col justify-start items-start gap-3 sm:gap-5">
-                  <div className="flex justify-center items-center gap-2.5">
-                    <div className="text-neutral-900 text-xl sm:text-2xl md:text-3xl font-bold font-['Helvetica_Neue'] leading-tight">
-                      Concevoir
-                    </div>
-                  </div>
-                  <div className="text-neutral-900 text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
-                    Une fois les besoins clarifiés, je passe à<br className="hidden sm:block" />
-                    la conception. Je traduis les idées en
-                    <br className="hidden sm:block" />
-                    parcours, puis en interfaces, à travers
-                    <br className="hidden sm:block" />
-                    des wireframes, des maquettes
-                    <br className="hidden sm:block" />
-                    interactives et un design UI soigné.
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-[#0f0f0f] rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
-              <img
-                className="w-24 sm:w-32 h-32 sm:h-40 object-contain"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/valider-DGqVrFFf4WLmSGhDKNzNdp9qsj3k5l.png"
-                alt="Valider - Main tenant un téléphone symbolisant les tests et la validation"
-              />
-              <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
-                <div className="text-white text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
-                  3
-                </div>
-                <div className="flex flex-col justify-start items-start gap-3 sm:gap-5">
-                  <div className="flex justify-center items-center gap-2.5">
-                    <div className="text-white text-xl sm:text-2xl md:text-3xl font-bold font-['Helvetica_Neue'] leading-tight">
-                      Valider
-                    </div>
-                  </div>
-                  <div className="text-white text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
-                    Grâce à des retours utilisateurs
-                    <br className="hidden sm:block" />
-                    concrets et des itérations rapides, je
-                    <br className="hidden sm:block" />
-                    valide chaque étape avec vous pour
-                    <br className="hidden sm:block" />
-                    m'assurer que le produit répond
-                    <br className="hidden sm:block" />
-                    vraiment à vos enjeux et ceux de vos
-                    <br className="hidden sm:block" />
-                    utilisateurs.
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="h-auto lg:h-[461px] p-4 sm:p-6 md:p-8 bg-white rounded-2xl shadow-[0px_3px_20px_0px_rgba(27,27,27,0.11)] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12">
-              <div className="w-36 sm:w-44 h-28 sm:h-36 relative">
-                <img
-                  className="w-full h-full object-contain"
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/livrer-EWRQTCsS04fGS7q6ZwIguCQXcuZsoJ.png"
-                  alt="Livrer - Avion en papier symbolisant la livraison et le déploiement"
-                />
-              </div>
-              <div className="flex flex-col sm:flex-row justify-start items-start gap-6 sm:gap-12">
-                <div className="text-[#191818] text-6xl sm:text-7xl md:text-8xl font-black font-['Helvetica_Neue'] leading-tight">
-                  4
-                </div>
-                <div className="flex flex-col justify-start items-start gap-3 sm:gap-5">
-                  <div className="flex justify-center items-center gap-2.5">
-                    <div className="text-neutral-900 text-xl sm:text-2xl md:text-3xl font-bold font-['Helvetica_Neue'] leading-tight">
-                      Livrer
-                    </div>
-                  </div>
-                  <div className="text-[#191818] text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
-                    Enfin, je vous remets un livrable propre,
-                    <br className="hidden sm:block" />
-                    structuré et prêt à l'usage. Que ce soit
-                    <br className="hidden sm:block" />
-                    un design finalisé prêt à être développé,
-                    <br className="hidden sm:block" />
-                    un design system complet, ou un site
-                    <br className="hidden sm:block" />
-                    Web mis en ligne sur une plateforme
-                    <br className="hidden sm:block" />
-                    no-code.
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -584,159 +452,84 @@ export default function Home(): JSX.Element {
         </div>
       </section>
 
-      <section className="w-full py-12 sm:py-16 md:py-24 bg-white flex flex-col justify-center items-center px-4 sm:px-6">
-        <div className="w-full max-w-7xl flex flex-col justify-center items-center gap-8 sm:gap-16">
-          <div className="w-full flex flex-col justify-start items-center gap-12 sm:gap-24">
-            <div className="w-full flex flex-col justify-start items-center gap-5">
-              <div className="text-center">
-                <span className="text-[#191818] text-[61px] font-black font-['Inter'] leading-[64px]">Parlons de </span>
-                <span className="text-[#123293] text-[61px] font-black font-['Inter'] leading-[64px]">votre projet</span>
-              </div>
-            </div>
-          </div>
+      <section ref={contactRef} className="py-20 sm:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial="hidden"
+            animate={isContactInView ? "visible" : "hidden"}
+            variants={staggerChildren}
+            className="flex flex-col items-center gap-12"
+          >
+            <motion.div variants={fadeInUp} className="text-center">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-['Inter'] mb-6">
+                Parlons de <span className="text-[#123293]">votre projet</span>
+              </h2>
+            </motion.div>
 
-          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-3">
-            <Card className="w-full min-h-96 p-3 bg-[#123293] rounded-xl flex flex-col justify-start items-center gap-4">
-              <img
-                className="w-full h-52 rounded-md object-cover"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Call-5drVA2MdTaS3HrMZMU6Y9JXBMk9dFT.png"
-                alt="Appel vidéo de consultation"
-              />
-              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
-                Parlez-moi de votre projet
-              </div>
-              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
-                Un échange de 30 minutes pour comprendre vos besoins et voir comment Studio Smalt peut transformer votre
-                idée en produit digital concret et performant.
-              </div>
-            </Card>
+            <motion.div variants={fadeInUp} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="p-6 bg-[#123293] text-white rounded-2xl">
+                <h3 className="text-xl font-bold mb-4">Échangeons</h3>
+                <p className="mb-6">Un appel de 30 minutes pour comprendre vos besoins.</p>
+                <a 
+                  href="mailto:salomemullet@studiosmalt.fr"
+                  className="inline-block bg-white text-[#123293] px-6 py-2 rounded-[14px] font-medium"
+                >
+                  Prendre rendez-vous
+                </a>
+              </Card>
 
-            <Card className="w-full min-h-96 p-3 bg-[#f9d45c] rounded-xl flex flex-col justify-start items-center gap-4">
-              <img
-                className="w-full h-52 rounded-md object-cover"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/proposition-CNe9enbmJ40w4YwGMgyIRtk5bdPJTr.png"
-                alt="Document de proposition de design produit"
-              />
-              <div className="w-full text-center text-[#191818] text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
-                Recevez une proposition détaillée et sur-mesure
-              </div>
-              <div className="w-full text-center text-[#191818] text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
-                En moins de 24h, recevez un devis clair et actionnable.
-              </div>
-            </Card>
+              <Card className="p-6 bg-[#f9d45c] text-black rounded-2xl">
+                <h3 className="text-xl font-bold mb-4">Devis rapide</h3>
+                <p className="mb-6">Recevez une proposition détaillée sous 24h.</p>
+                <a 
+                  href="mailto:salomemullet@studiosmalt.fr"
+                  className="inline-block bg-[#123293] text-white px-6 py-2 rounded-[14px] font-medium"
+                >
+                  Demander un devis
+                </a>
+              </Card>
 
-            <Card className="w-full min-h-96 p-3 bg-[#0f0f0f] rounded-xl flex flex-col justify-start items-center gap-4">
-              <img
-                className="w-full h-52 rounded-md object-cover"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2018-04-26-14.51.49-761x1024.jpg-8Xn7B27cpInEsoVOIzLSjjopoLPihV.jpeg"
-                alt="Création de projet sur tableau blanc"
-              />
-              <div className="w-full text-center text-white text-lg sm:text-xl font-bold font-['Helvetica_Neue'] leading-relaxed">
-                Démarrez rapidement
-              </div>
-              <div className="w-full text-center text-white text-sm sm:text-base font-normal font-['Helvetica_Neue'] leading-relaxed">
-                On définit ensemble le périmètre (atelier de cadrage, recherches, prototype, tests), et vous bénéficiez
-                d'un suivi itératif dès les premiers jours.
-              </div>
-            </Card>
-          </div>
-
-          <div className="flex flex-col justify-start items-center gap-6 w-full">
-            <a 
-              href="mailto:salomemullet@studiosmalt.fr?subject=Discussion%20de%20projet&body=Bonjour%20Salomé%2C%0A%0AJe%20souhaite%20discuter%20d'un%20projet%20avec%20vous."
-              className="w-full sm:w-auto px-6 py-4 bg-[#123293] rounded-[14px] text-white text-base font-bold font-['Helvetica_Neue'] leading-tight hover:bg-blue-900 transition-colors text-center"
-            >
-              Discuter de votre projet
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full py-12 sm:py-16 md:py-24 bg-[#0f0f0f] flex flex-col justify-center items-center gap-8 sm:gap-16 px-4 sm:px-6">
-        <div className="w-full max-w-7xl flex flex-col lg:flex-row justify-start items-center gap-6">
-          <div className="flex flex-col justify-start items-start gap-6 flex-1">
-            <div className="w-full text-white text-[27px] font-black font-['Inter'] uppercase leading-relaxed">
-              Pourquoi choisir Studio Smalt ?
-            </div>
-            <div className="w-full text-white text-[18px] font-normal font-['Inter'] leading-relaxed">
-              ✅ Expertise produit et UX/UI : de l'idée au produit final, en passant par des ateliers de cadrage, des
-              tests utilisateurs et des itérations rapides.
-              <br />
-              <br />✅ Approche agile et humaine : nous travaillons main dans la main avec vos équipes pour
-              co-construire des solutions qui répondent à vos enjeux business et utilisateurs.
-              <br />
-              <br />✅ Transparence et réactivité : devis sous 24h, planning clair, livrables concrets, accompagnement
-              sur-mesure.
-            </div>
-          </div>
-          <img
-            className="w-full lg:w-[574px] h-64 sm:h-80 rounded-2xl object-cover"
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/000-looping-creatif.jpg-3zFiVWVXM2wTVvfN7jGmqg9SYuWqvc.jpeg"
-            alt="Studio Smalt - Processus créatif et collaboratif"
-          />
+              <Card className="p-6 bg-black text-white rounded-2xl">
+                <h3 className="text-xl font-bold mb-4">Démarrage</h3>
+                <p className="mb-6">On définit ensemble le périmètre et on commence.</p>
+                <a 
+                  href="mailto:salomemullet@studiosmalt.fr"
+                  className="inline-block bg-white text-black px-6 py-2 rounded-[14px] font-medium"
+                >
+                  Lancer le projet
+                </a>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="w-full py-12 bg-black">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {/* Logo and social links */}
-            <div className="flex flex-col gap-6">
-              <Image
-                src="/logo blanc.svg"
-                alt="Studio Smalt"
-                width={120}
-                height={40}
-                className="h-8 sm:h-10"
-              />
+      <footer className="bg-black text-white py-12">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <Image src="/logo blanc.svg" alt="Studio Smalt" width={120} height={40} className="mb-6" />
               <div className="flex gap-4">
-                <a
-                  href="https://www.linkedin.com/in/salome-mullet/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded border border-white/50 flex items-center justify-center hover:border-white transition-colors"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M6 9H2V21H6V9Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </a>
-                <a
-                  href="https://dribbble.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded border border-white/50 flex items-center justify-center hover:border-white transition-colors"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M8.56 2.75C12.93 8.78 14.58 12.17 16.59 20.47" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M21.25 12.84C14.67 11.87 11.83 11.87 2.75 13.72" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </a>
+                <a href="https://linkedin.com" className="text-white/70 hover:text-white">LinkedIn</a>
+                <a href="https://dribbble.com" className="text-white/70 hover:text-white">Dribbble</a>
+              </div>
             </div>
-          </div>
-
-            {/* Navigation Links */}
-            <div className="flex flex-col gap-4">
-              <Link href="/projets" className="text-white/70 hover:text-white transition-colors">
-                  Mes projets
-              </Link>
-              <Link href="/ressources" className="text-white/70 hover:text-white transition-colors">
-                  Ressources
-              </Link>
-              <Link href="#mentions-legales" className="text-white/70 hover:text-white transition-colors">
-                  Mentions légales
-              </Link>
-          </div>
-
-            {/* Address */}
-            <div className="text-white/75 space-y-2">
-              <p>Incubée à la BGE</p>
-              <p>8, Rue Denis Papin</p>
-              <p>Business Pôle Les Prés,</p>
-              <p>59650 Villeneuve-d'Ascq</p>
+            <div>
+              <h4 className="font-bold mb-4">Navigation</h4>
+              <div className="flex flex-col gap-2">
+                <Link href="/projets" className="text-white/70 hover:text-white">Mes projets</Link>
+                <Link href="/ressources" className="text-white/70 hover:text-white">Ressources</Link>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Contact</h4>
+              <address className="text-white/70 not-italic">
+                Incubée à la BGE<br />
+                8, Rue Denis Papin<br />
+                Business Pôle Les Prés,<br />
+                59650 Villeneuve-d'Ascq
+              </address>
             </div>
           </div>
         </div>
